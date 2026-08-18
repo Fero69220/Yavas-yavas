@@ -4,7 +4,7 @@
    Installation : voir brancher-l-ia.md (option A). */
 
 const ORIGINE_AUTORISEE = "*"; // remplace par l'adresse de ton site, ex: "https://yavas-yavas.pages.dev"
-const MODELE = "gemini-2.5-flash"; // modèle du niveau gratuit
+const MODELE = "gemini-3.6-flash"; // modèle du niveau gratuit (indiqué par Google pour les nouvelles clés)
 
 function avecCors(rep) {
   const h = new Headers(rep.headers);
@@ -38,9 +38,10 @@ export default {
           "x-goog-api-key": env.GEMINI_API_KEY
         },
         body: JSON.stringify({
-          system_instruction: { parts: [{ text: corps.system || "" }] },
+          system_instruction: { parts: [{ text: (corps.system || "") +
+            "\nIMPORTANT : ta réponse doit être COMPLÈTE et COURTE : 1 à 2 phrases turques, la traduction française entre parenthèses, une petite question. Jamais d'explication longue, jamais de réponse coupée." }] },
           contents: contents,
-          generationConfig: { maxOutputTokens: 300 }
+          generationConfig: { maxOutputTokens: 1024 }
         })
       }
     );
@@ -50,7 +51,10 @@ export default {
     try {
       texte = (data.candidates[0].content.parts || []).map(p => p.text || "").join("");
     } catch (e) {
-      texte = "(pas de réponse — quota du jour peut-être atteint, réessaie plus tard)";
+      const detail = (data && data.error && data.error.message)
+        ? data.error.message
+        : JSON.stringify(data).slice(0, 200);
+      texte = "(erreur Gemini : " + detail + ")";
     }
     return avecCors(Response.json({ text: texte }));
   }
