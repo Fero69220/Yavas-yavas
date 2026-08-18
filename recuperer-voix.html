@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Récupérer les voix turques — Yavaş yavaş</title>
+<style>
+:root{--ink:#0C2340;--ivory:#F4EFE4;--turq:#23A094;--coral:#D9452F;--amber:#E0A02E;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--ivory);font:16px/1.55 "Karla","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:34px;line-height:1.05;letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:#C9C2B2;margin:0 0 26px;max-width:56ch}
+.card{background:var(--ivory);color:var(--ink);border-radius:6px;padding:20px;margin:0 0 16px}
+.card h2{font-size:17px;margin:0 0 8px}
+.card p{margin:0 0 8px;font-size:14.5px}
+button{
+  font:inherit;font-weight:700;font-size:16px;padding:13px 22px;border-radius:6px;cursor:pointer;
+  border:0;background:var(--turq);color:#04241F;min-height:48px;
+}
+button:disabled{opacity:.5;cursor:default}
+button.sec{background:transparent;border:1.5px solid var(--ivory);color:var(--ivory);margin-left:8px}
+#log{
+  background:#16345C;border-radius:6px;padding:14px 16px;margin-top:16px;
+  font:12.5px/1.7 "JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  max-height:340px;overflow:auto;white-space:pre-wrap;display:none;
+}
+#log .ok{color:#7BD8CB}#log .warn{color:var(--amber)}#log .err{color:#F0907E}
+.bar{height:10px;border-radius:5px;background:#16345C;overflow:hidden;margin-top:16px;display:none}
+.bar div{height:100%;width:0;background:var(--turq);transition:width .2s}
+small{display:block;color:#9AA5B5;font-size:12.5px;margin-top:14px;line-height:1.5}
+a{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Récupérer les voix turques</h1>
+<p class="sub">Cet outil télécharge, depuis ton navigateur, les prononciations turques enregistrées par des locuteurs natifs sur Wikimedia Commons (projet Lingua Libre, licences libres uniquement), et prépare le dossier <b>audio/</b> de l'application.</p>
+
+<div class="card">
+  <h2>Un seul clic</h2>
+  <p>Le bouton interroge Commons, filtre les licences, télécharge les fichiers, écrit <b>index.json</b> et <b>CREDITS.md</b>, et te rend un <b>audio.zip</b>. Décompresse-le à la place du dossier <code>audio/</code> de l'application, change la version dans <code>sw.js</code>, redéploie sur Netlify. C'est tout.</p>
+  <p style="margin-top:12px">
+    <button id="go">Télécharger les voix (.zip)</button><button class="sec" id="dir" hidden>Écrire dans un dossier…</button>
+  </p>
+  <div class="bar" id="bar"><div id="barfill"></div></div>
+  <div id="log"></div>
+  <small>Ouvre cette page dans Chrome, Edge ou Firefox sur ordinateur. Les enregistrements sont sous licence CC BY-SA : le fichier CREDITS.md généré doit rester dans le dossier déployé, c'est l'attribution exigée par la licence. La couverture sera partielle — le corpus turc compte quelques centaines de mots.</small>
+</div>
+</div>
+
+<script>
+"use strict";
+/* ===== mots recherchés — ajoute les tiens ici ===== */
+var MOTS = ("ev okul oda göz kutu kapı sepet araba kedi el yol süt kuş köy masa kalem deniz "
++"anne baba kardeş abla abi ağabey anneanne babaanne dede teyze hala dayı amca "
++"gelin damat kayınvalide kayınpeder "
++"yorgun aç mutlu hasta iyi hazır üzgün Türk Fransız "
++"merhaba günaydın lütfen görüşürüz evet hayır su çay ekmek kitap "
++"akşam gece sabah gün hafta ay yıl anlamadım bilmiyorum "
++"peynir zeytin domates elma portakal balık tavuk çorba pilav tatlı "
++"bir iki üç dört beş altı yedi sekiz dokuz on yirmi yüz bin "
++"beyaz siyah kırmızı mavi yeşil sarı turuncu pembe mor "
++"pazartesi salı çarşamba perşembe cuma cumartesi pazar bugün yarın dün şimdi sonra "
++"kız şeker bahçe güzel emin burada cam dağ kahve "
++"elbise pantolon gömlek tişört kazak ceket mont etek ayakkabı çorap şapka atkı eldiven çanta "
++"ocak şubat mart nisan mayıs haziran temmuz ağustos eylül ekim kasım aralık "
++"ilkbahar yaz sonbahar kış").split(/\s+/).filter(Boolean);
+
+var API="https://commons.wikimedia.org/w/api.php";
+var LIBRES=["cc0","cc-by","cc by","public domain","pd-","cc-zero","attribution"];
+
+/* ===== petites briques ===== */
+function minTr(s){return s.replace(/I/g,"ı").replace(/İ/g,"i").toLowerCase();}
+function translit(s){
+  var map={"ç":"c","ğ":"g","ı":"i","ö":"o","ş":"s","ü":"u"};
+  return minTr(s).replace(/[çğıöşü]/g,function(c){return map[c];}).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"mot";
+}
+function motDuNom(titre){
+  var n=titre.replace(/^File:/,"").replace(/\.(wav|ogg|oga|mp3|flac)$/i,"");
+  var m=n.match(/^LL-Q\d+\s*\(\w+\)-[^-]+-(.+)$/);
+  if(m) return m[1];
+  m=n.match(/^[Tt]r-(.+)$/);
+  return m?m[1]:null;
+}
+function licenceLibre(l){
+  l=(l||"").toLowerCase();
+  for(var i=0;i<LIBRES.length;i++) if(l.indexOf(LIBRES[i])>-1) return true;
+  return false;
+}
+
+/* ===== zip sans compression (stockage), aucune dépendance ===== */
+var CRC_T=(function(){var t=new Uint32Array(256);for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[n]=c>>>0;}return t;})();
+function crc32(u8){var c=0xFFFFFFFF;for(var i=0;i<u8.length;i++)c=CRC_T[(c^u8[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zipBuild(entries){ /* entries: [{name:string, data:Uint8Array}] */
+  var enc=new TextEncoder(), parts=[], central=[], offset=0;
+  function u16(v){return new Uint8Array([v&255,(v>>8)&255]);}
+  function u32(v){return new Uint8Array([v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255]);}
+  entries.forEach(function(e){
+    var name=enc.encode(e.name), crc=crc32(e.data), sz=e.data.length;
+    var loc=[u32(0x04034b50),u16(20),u16(0x0800),u16(0),u16(0),u16(0),
+             u32(crc),u32(sz),u32(sz),u16(name.length),u16(0),name,e.data];
+    var locLen=0; loc.forEach(function(p){locLen+=p.length;});
+    central.push({name:name,crc:crc,sz:sz,off:offset});
+    loc.forEach(function(p){parts.push(p);});
+    offset+=locLen;
+  });
+  var cdStart=offset, cdLen=0;
+  central.forEach(function(c){
+    var rec=[u32(0x02014b50),u16(20),u16(20),u16(0x0800),u16(0),u16(0),u16(0),
+             u32(c.crc),u32(c.sz),u32(c.sz),u16(c.name.length),u16(0),u16(0),
+             u16(0),u16(0),u32(0),u32(c.off),c.name];
+    rec.forEach(function(p){parts.push(p);cdLen+=p.length;});
+  });
+  [u32(0x06054b50),u16(0),u16(0),u16(central.length),u16(central.length),
+   u32(cdLen),u32(cdStart),u16(0)].forEach(function(p){parts.push(p);});
+  var total=0; parts.forEach(function(p){total+=p.length;});
+  var out=new Uint8Array(total),pos=0;
+  parts.forEach(function(p){out.set(p,pos);pos+=p.length;});
+  return out;
+}
+
+/* ===== l'interface ===== */
+var logEl,barEl,fillEl;
+function log(msg,cls){
+  logEl.style.display="block";
+  var d=document.createElement("div"); if(cls)d.className=cls; d.textContent=msg;
+  logEl.appendChild(d); logEl.scrollTop=logEl.scrollHeight;
+}
+function progress(f){ barEl.style.display="block"; fillEl.style.width=Math.round(f*100)+"%"; }
+
+async function apiJson(params){
+  params=Object.assign({format:"json",formatversion:"2",origin:"*"},params);
+  var q=Object.keys(params).map(function(k){return k+"="+encodeURIComponent(params[k]);}).join("&");
+  try{
+    var r=await fetch(API+"?"+q);
+    if(!r.ok) throw new Error("API "+r.status);
+    return await r.json();
+  }catch(e){
+    /* Page ouverte en local (file://) : Chrome bloque souvent fetch.
+       On repasse par JSONP, que l'API de MediaWiki accepte et qui
+       n'est pas soumis aux mêmes restrictions. */
+    return apiJsonp(params);
+  }
+}
+var _jsonpN=0;
+function apiJsonp(params){
+  return new Promise(function(res,rej){
+    var cb="__yavasCb"+(++_jsonpN);
+    var p=Object.assign({},params); delete p.origin; p.callback=cb;
+    var q=Object.keys(p).map(function(k){return k+"="+encodeURIComponent(p[k]);}).join("&");
+    var s=document.createElement("script");
+    var to=setTimeout(function(){nettoie();rej(new Error("délai dépassé (réseau ou blocage)"));},20000);
+    function nettoie(){clearTimeout(to);try{delete window[cb];}catch(e){window[cb]=undefined;}if(s.parentNode)s.parentNode.removeChild(s);}
+    window[cb]=function(d){nettoie();res(d);};
+    s.onerror=function(){nettoie();rej(new Error("requête bloquée (extension, antivirus ou réseau)"));};
+    s.src=API+"?"+q;
+    document.head.appendChild(s);
+  });
+}
+async function listerCategorie(nom){
+  var out=[],cont={};
+  for(;;){
+    var d=await apiJson(Object.assign({action:"query",list:"categorymembers",
+      cmtitle:"Category:"+nom,cmtype:"file",cmlimit:"500"},cont));
+    (d.query&&d.query.categorymembers||[]).forEach(function(m){out.push(m.title);});
+    if(!d["continue"]) return out;
+    cont=d["continue"];
+  }
+}
+async function infos(titres){
+  var out={};
+  for(var i=0;i<titres.length;i+=50){
+    var d=await apiJson({action:"query",prop:"imageinfo",iiprop:"url|extmetadata",
+      titles:titres.slice(i,i+50).join("|")});
+    (d.query&&d.query.pages||[]).forEach(function(p){
+      var ii=(p.imageinfo||[{}])[0], ex=ii.extmetadata||{};
+      function val(k){return ((ex[k]||{}).value||"").replace(/<[^>]+>/g,"").trim();}
+      out[p.title]={url:ii.url||"",licence:val("LicenseShortName"),
+                    auteur:val("Artist"),page:ii.descriptionurl||""};
+    });
+  }
+  return out;
+}
+
+async function collecter(){
+  if(location.protocol==="file:"){
+    log("Page ouverte en local (file://) — je passe par le mécanisme de secours pour interroger Commons.","warn");
+    log("Si le téléchargement des fichiers audio échoue plus bas, la solution sûre est d'ouvrir cet outil depuis le site : mets le dossier outils/ en ligne avec le reste, puis va sur ton-site.netlify.app/outils/recuperer-voix.html","warn");
+  }
+  var voulus={}; MOTS.forEach(function(m){voulus[minTr(m)]=m;});
+  log(Object.keys(voulus).length+" mots recherchés.");
+
+  var titres=[];
+  for(var i=0;i<2;i++){
+    var cat=["Lingua Libre pronunciation-tur","Turkish pronunciation"][i];
+    try{
+      var t=await listerCategorie(cat);
+      log(cat+" : "+t.length+" fichiers");
+      titres=titres.concat(t);
+    }catch(e){ log(cat+" : erreur "+e.message,"err"); }
+  }
+
+  /* un candidat par mot, en préférant les .wav (l'iPhone ne lit pas les .oga) */
+  var cand={};
+  titres.forEach(function(t){
+    var mot=motDuNom(t); if(!mot) return;
+    var cle=minTr(mot); if(!(cle in voulus)) return;
+    var isWav=/\.wav$/i.test(t);
+    if(!cand[cle] || (isWav && !/\.wav$/i.test(cand[cle]))) cand[cle]=t;
+  });
+  var n=Object.keys(cand).length;
+  log(n+" mots sur "+Object.keys(voulus).length+" ont un enregistrement.", n?"ok":"warn");
+  if(!n) return null;
+
+  log("Lecture des licences…");
+  var meta=await infos(Object.keys(cand).map(function(k){return cand[k];}));
+
+  var fichiers=[],credits=[],index={},ecartes=0,echecs=0,cles=Object.keys(cand).sort(),done=0;
+  for(var j=0;j<cles.length;j++){
+    var cle=cles[j], titre=cand[cle], m=meta[titre]||{};
+    done++; progress(done/cles.length);
+    if(!m.url){ continue; }
+    if(!licenceLibre(m.licence)){ ecartes++; log("  écarté ("+(m.licence||"licence inconnue")+") : "+voulus[cle],"warn"); continue; }
+    try{
+      var r=await fetch(m.url);
+      if(!r.ok) throw new Error(r.status);
+      var buf=new Uint8Array(await r.arrayBuffer());
+      var ext=(m.url.match(/\.(wav|ogg|oga|mp3|flac)$/i)||[".wav"])[0].toLowerCase();
+      var nom=translit(voulus[cle])+ext;
+      fichiers.push({name:"audio/"+nom,data:buf});
+      index[voulus[cle]]=nom;
+      credits.push([voulus[cle],nom,m.auteur||"auteur non précisé",m.licence||"?",m.page||""]);
+      log("  ✓ "+voulus[cle]+" → "+nom+"  ("+Math.round(buf.length/1024)+" Ko)","ok");
+    }catch(e){ echecs++; log("  échec "+voulus[cle]+" : "+e.message,"err"); }
+  }
+  if(ecartes) log(ecartes+" fichier(s) écarté(s) faute de licence libre.","warn");
+  if(echecs && echecs>=cles.length-ecartes){
+    log("Tous les téléchargements audio ont échoué : le navigateur bloque les fichiers depuis cette page.","err");
+    log("Deux issues : 1) mets le dossier outils/ en ligne avec le site et ouvre l'outil depuis ton-site.netlify.app/outils/recuperer-voix.html — c'est la voie sûre. 2) Si une extension (bloqueur de pub, antivirus) filtre wikimedia.org, désactive-la pour cette page.","err");
+    return null;
+  }
+  if(!fichiers.length) return null;
+
+  var enc=new TextEncoder();
+  fichiers.push({name:"audio/index.json",data:enc.encode(JSON.stringify(index,null,1))});
+  var cr="# Crédits des enregistrements\n\nFichiers issus de Wikimedia Commons (projet Lingua Libre, Wikimédia France).\n"
+    +"L'attribution ci-dessous est une obligation des licences : conserve ce fichier\ndans le dossier déployé.\n\n"
+    +"| Mot | Fichier | Auteur | Licence | Source |\n|---|---|---|---|---|\n";
+  credits.forEach(function(c){cr+="| "+c.join(" | ")+" |\n";});
+  fichiers.push({name:"audio/CREDITS.md",data:enc.encode(cr)});
+  log("\n"+(fichiers.length-2)+" enregistrements prêts, plus index.json et CREDITS.md.","ok");
+  return fichiers;
+}
+
+async function goZip(){
+  var b=document.getElementById("go"); b.disabled=true;
+  try{
+    var fichiers=await collecter();
+    if(!fichiers){ log("Rien à empaqueter.","warn"); return; }
+    var zip=zipBuild(fichiers);
+    var blob=new Blob([zip],{type:"application/zip"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="audio.zip"; a.click();
+    log("audio.zip téléchargé — décompresse-le à la racine de l'application (il contient le dossier audio/).","ok");
+    log("N'oublie pas : version dans sw.js, puis redéploiement du dossier entier.");
+  }catch(e){ log("Erreur : "+e.message,"err"); }
+  finally{ b.disabled=false; }
+}
+
+async function goDir(){
+  var b=document.getElementById("dir"); b.disabled=true;
+  try{
+    var handle=await window.showDirectoryPicker({mode:"readwrite"});
+    var fichiers=await collecter();
+    if(!fichiers){ log("Rien à écrire.","warn"); return; }
+    var audio=await handle.getDirectoryHandle("audio",{create:true});
+    for(var i=0;i<fichiers.length;i++){
+      var nom=fichiers[i].name.replace(/^audio\//,"");
+      var fh=await audio.getFileHandle(nom,{create:true});
+      var w=await fh.createWritable(); await w.write(fichiers[i].data); await w.close();
+    }
+    log("Écrit directement dans "+handle.name+"/audio/. Version dans sw.js, puis redéploiement.","ok");
+  }catch(e){ if(e.name!=="AbortError") log("Erreur : "+e.message,"err"); }
+  finally{ b.disabled=false; }
+}
+
+if(typeof document!=="undefined"){
+  document.addEventListener("DOMContentLoaded",function(){
+    logEl=document.getElementById("log");
+    barEl=document.getElementById("bar");
+    fillEl=document.getElementById("barfill");
+    document.getElementById("go").onclick=goZip;
+    if(window.showDirectoryPicker){
+      var d=document.getElementById("dir"); d.hidden=false; d.onclick=goDir;
+    }
+  });
+}
+</script>
+</body>
+</html>

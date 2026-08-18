@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yavaş yavaş — le turc, petit à petit</title>
+<meta name="description" content="Apprendre le turc, dix minutes par jour, pour francophones.">
+<meta name="theme-color" content="#0C2340">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Yavaş yavaş">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C2340;
+  --ink-soft:#16345C;
+  --cobalt:#1B4D9B;
+  --turquoise:#23A094;
+  --coral:#D9452F;
+  --amber:#E0A02E;
+  --ivory:#F4EFE4;
+  --ivory-dim:#DED6C6;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+/* İznik tile ambient texture */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(35,160,148,.20) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 0% 0%, rgba(27,77,155,.35) 0 10px, transparent 11px),
+    radial-gradient(circle at 100% 100%, rgba(27,77,155,.35) 0 10px, transparent 11px);
+  background-size:64px 64px;
+  opacity:.55;
+}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 20px 80px}
+
+/* ---- masthead ---- */
+header{padding:52px 0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--turquoise);margin:0 0 14px
+}
+h1{
+  font-family:var(--display);font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(44px,10vw,78px);line-height:.92;margin:0;
+}
+h1 .accent{color:var(--amber)}
+.tagline{margin:16px 0 0;max-width:46ch;color:var(--ivory-dim)}
+
+/* ---- nav ---- */
+nav{
+  position:sticky;top:0;z-index:20;display:flex;gap:6px;overflow-x:auto;
+  padding:12px 0;margin:26px 0 30px;
+  background:linear-gradient(var(--ink) 72%, rgba(12,35,64,0));
+  scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:0 0 auto;font-family:var(--body);font-weight:700;font-size:14px;
+  padding:9px 16px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  background:transparent;color:var(--ivory-dim);
+  border:1px solid rgba(244,239,228,.22);
+  transition:background .18s,color .18s,border-color .18s;
+}
+nav button:hover{border-color:var(--ivory-dim);color:var(--ivory)}
+nav button[aria-selected="true"]{background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
+
+/* ---- panels ---- */
+.panel{display:none;animation:fade .28s ease both}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:30px;margin:0 0 6px}
+.lede{color:var(--ivory-dim);margin:0 0 26px;max-width:56ch}
+
+.card{
+  background:var(--ivory);color:var(--ink);
+  border-radius:6px;padding:22px;margin:0 0 16px;
+  box-shadow:0 0 0 1px rgba(12,35,64,.1);
+}
+.card h3{font-family:var(--display);font-size:19px;margin:0 0 10px;letter-spacing:-.01em}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.muted{color:#5C6B80}
+small.note{display:block;color:#5C6B80;font-size:13.5px;margin-top:10px}
+
+/* ---- sounds ---- */
+.letters{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.letter{
+  background:var(--ivory);color:var(--ink);border-radius:6px;padding:16px 18px;
+  border-left:5px solid var(--cobalt);text-align:left;font:inherit;cursor:pointer;width:100%;
+}
+.letter:hover{background:#fff}
+.letter .glyph{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--cobalt)}
+.letter .say{font-family:var(--mono);font-size:13px;color:var(--coral);margin-top:6px}
+.letter .ex{font-size:14px;color:#5C6B80;margin-top:6px}
+.letter.easy{border-left-color:var(--turquoise)}
+.letter.easy .glyph{color:var(--turquoise)}
+
+/* ---- word machine (signature) ---- */
+.machine{
+  background:var(--ink-soft);border-radius:8px;padding:26px 20px;margin-bottom:16px;
+  border:1px solid rgba(244,239,228,.16);
+}
+.wordline{
+  display:flex;flex-wrap:wrap;gap:5px;align-items:flex-end;justify-content:center;
+  min-height:96px;padding:8px 0 14px;cursor:pointer;
+}
+.morph{
+  font-family:var(--mono);font-weight:700;font-size:clamp(26px,7vw,42px);
+  padding:8px 12px;border-radius:5px;color:var(--ink);
+  animation:pop .22s ease both;
+}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}
+.m-stem{background:var(--ivory)}
+.m-pl{background:var(--turquoise);color:#04241F}
+.m-poss{background:var(--amber);color:#3A2600}
+.m-loc{background:var(--coral);color:#fff}
+.gloss{
+  text-align:center;font-family:var(--display);font-weight:700;font-size:clamp(19px,4.4vw,26px);
+  color:var(--amber);margin:0 0 4px;letter-spacing:-.01em;
+}
+.rule{text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--turquoise);min-height:34px;margin-top:8px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.toggle{
+  font:inherit;font-weight:700;font-size:14px;padding:10px 15px;border-radius:5px;cursor:pointer;
+  background:transparent;border:1.5px dashed rgba(244,239,228,.4);color:var(--ivory-dim);
+}
+.toggle:hover{border-style:solid;color:var(--ivory)}
+.toggle[aria-pressed="true"]{border-style:solid;color:var(--ink)}
+.toggle.t-pl[aria-pressed="true"]{background:var(--turquoise);border-color:var(--turquoise);color:#04241F}
+.toggle.t-poss[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#3A2600}
+.toggle.t-loc[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:#fff}
+.stems{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:18px}
+.stem-btn{
+  font-family:var(--mono);font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid rgba(244,239,228,.25);color:var(--ivory-dim);
+}
+.stem-btn[aria-pressed="true"]{background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
+
+/* ---- conjugation table ---- */
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--ivory-dim)}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#5C6B80}
+td.tr{font-family:var(--mono);font-weight:700;color:var(--cobalt);font-size:17px}
+td.tr em{font-style:normal;color:var(--coral)}
+
+/* ---- quiz ---- */
+.q{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.q-sub{color:#5C6B80;font-size:14.5px;margin:0 0 16px}
+.opts{display:grid;gap:8px}
+.opt{
+  font-family:var(--mono);font-weight:700;font-size:17px;text-align:left;
+  padding:13px 15px;border-radius:5px;cursor:pointer;
+  background:#fff;border:1.5px solid var(--ivory-dim);color:var(--ink);
+}
+.opt:hover:not(:disabled){border-color:var(--cobalt)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--turquoise);border-color:var(--turquoise);color:#04241F}
+.opt.wrong{background:var(--coral);border-color:var(--coral);color:#fff}
+.verdict{margin-top:14px;font-size:15px;min-height:24px}
+.verdict b{color:var(--cobalt)}
+.scoreline{
+  display:flex;gap:18px;align-items:baseline;font-family:var(--mono);font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-dim);margin-bottom:14px;
+}
+.scoreline b{font-size:20px;color:var(--amber);letter-spacing:0}
+
+/* ---- construire la phrase ---- */
+.build{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;
+  min-height:66px;background:#fff;border:1.5px dashed var(--ivory-dim);border-radius:6px;
+  padding:12px;margin:14px 0;
+}
+.build .placeholder{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A97A8}
+.chip{
+  font-family:var(--mono);font-weight:700;font-size:17px;padding:10px 14px;border-radius:5px;cursor:pointer;
+  background:var(--ivory);border:1.5px solid var(--ivory-dim);color:var(--ink);
+}
+.chip:hover:not(:disabled){border-color:var(--cobalt)}
+.chip.in{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+
+/* ---- flashcards ---- */
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.flip{
+  background:var(--ivory);color:var(--ink);border-radius:6px;padding:30px 22px;text-align:center;
+  cursor:pointer;width:100%;font:inherit;border:0;min-height:190px;
+  display:flex;flex-direction:column;justify-content:center;gap:8px;
+}
+.flip .front{font-family:var(--display);font-weight:800;font-size:clamp(26px,7vw,38px);letter-spacing:-.02em;line-height:1.05}
+.flip .phon{font-family:var(--mono);font-size:13px;color:var(--coral)}
+.flip .back{font-size:19px;color:var(--cobalt);font-weight:700}
+.flip .hint{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A97A8}
+.deck-nav{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:12px}
+.ghost{
+  font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:5px;cursor:pointer;
+  background:transparent;border:1px solid rgba(244,239,228,.3);color:var(--ivory);
+}
+.ghost:hover{border-color:var(--ivory)}
+.counter{font-family:var(--mono);font-size:12px;color:var(--ivory-dim)}
+.speak{
+  font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--cobalt);color:var(--cobalt);
+}
+.speak:hover{background:var(--cobalt);color:var(--ivory)}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ivory-dim);margin-top:16px;justify-content:center}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+footer{margin-top:44px;padding-top:22px;border-top:1px solid rgba(244,239,228,.16);color:var(--ivory-dim);font-size:14px}
+
+#voice-box{margin-bottom:22px}
+#voice-box summary{font-size:13.5px;font-weight:700;color:#5C6B80;cursor:pointer}
+#voice-box[data-alert="1"]{box-shadow:0 0 0 2px var(--coral)}
+#voice-box[data-alert="1"] summary{color:var(--coral)}
+.setrow{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.setrow label{font-size:14px;color:#5C6B80;flex:0 0 76px}
+.setrow select{
+  flex:1;min-width:170px;font:inherit;font-size:14px;padding:7px 10px;
+  border:1px solid #C9D0DA;border-radius:5px;background:#fff;color:var(--ink);
+}
+.setrow input[type=range]{flex:1;min-width:130px;accent-color:var(--coral);height:22px}
+.setrow output{font-family:var(--mono);font-size:13px;color:var(--coral);min-width:42px;text-align:right}
+
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+/* ---- iPhone / installé sur l'écran d'accueil ---- */
+body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-height:44px}
+.letter,.flip{min-height:auto}
+.flip{min-height:190px}
+#install{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;
+  background:var(--ivory);color:var(--ink);border-radius:8px;padding:14px 16px;
+  display:flex;gap:12px;align-items:center;font-size:14.5px;line-height:1.35;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+#install b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
+#install button{
+  flex:0 0 auto;font:inherit;font-weight:700;background:var(--ink);color:var(--ivory);
+  border:0;border-radius:5px;padding:9px 12px;cursor:pointer;min-height:0;
+}
+#install[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:520px){
+  .wrap{padding:0 16px 60px}
+  header{padding:34px 0 18px}
+  .card{padding:18px}
+}
+@supports (padding:max(0px)){
+  .wrap{
+    padding-left:max(18px, env(safe-area-inset-left));
+    padding-right:max(18px, env(safe-area-inset-right));
+    padding-bottom:calc(90px + env(safe-area-inset-bottom));
+  }
+  header{padding-top:calc(40px + env(safe-area-inset-top))}
+  nav{top:env(safe-area-inset-top)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Türkçe · pour francophones</p>
+  <h1>Yavaş<br>yavaş<span class="accent">.</span></h1>
+  <p class="tagline">« Doucement, petit à petit. » Le turc n'est pas difficile, il est <em>différent</em> : tout se colle à la fin des mots, selon des règles qui ne mentent presque jamais. Dix minutes par jour suffisent.</p>
+</header>
+
+<nav id="nav" role="tablist" aria-label="Leçons"></nav>
+
+<div class="card" id="voice-box">
+  <details id="voice-details">
+    <summary>Réglages du son</summary>
+    <div id="voice-alert" hidden style="margin-top:12px">
+      <p style="font-size:14.5px"><b>Aucune voix turque n'est installée sur cet appareil.</b> Les boutons « écouter » resteront muets : le navigateur croit parler, mais aucune voix ne répond.</p>
+      <p class="muted" id="voice-how" style="font-size:14.5px;margin-top:8px"></p>
+    </div>
+    <div class="setrow" id="voice-pick-row" hidden>
+      <label for="voice-pick">Voix</label>
+      <select id="voice-pick"></select>
+    </div>
+    <div class="setrow">
+      <label for="voice-rate">Vitesse</label>
+      <input type="range" id="voice-rate" min="0.4" max="1.1" step="0.05" value="0.85">
+      <output id="voice-rate-out">0,85</output>
+    </div>
+    <div class="setrow">
+      <button class="ghost" id="voice-test" style="border-color:#0C2340;color:#0C2340">Tester</button>
+      <span class="muted" id="voice-note" style="font-size:13px"></span>
+    </div>
+    <small class="note">Si plusieurs voix sont proposées, essaie-les : leur qualité varie beaucoup. Le dossier <b>audio/</b> permet de remplacer la synthèse par de vrais enregistrements — voir le fichier d'instructions qu'il contient.</small>
+    <small class="note" id="voice-files"></small>
+  </details>
+</div>
+
+<!-- ============ SONS ============ -->
+<section class="panel" id="p-sons" role="tabpanel">
+  <h2>Les sons</h2>
+  <p class="lede">Le turc s'écrit exactement comme il se prononce : une lettre, un son, toujours le même. Une fois ces onze lettres apprises, tu peux lire n'importe quel mot à voix haute — même sans le comprendre.</p>
+  <div class="letters" id="letters"></div>
+  <div class="card" style="margin-top:16px">
+    <h3>Trois réflexes français à désactiver</h3>
+    <p><b>Pas de nasales.</b> « an », « on », « in » n'existent pas. <span class="muted">On dit <b>an-ne</b> (maman), pas « anne » à la française.</span></p>
+    <p><b>Toutes les lettres se prononcent.</b> Pas de lettre muette, jamais.</p>
+    <p><b>L'accent tombe en général sur la dernière syllabe.</b> <span class="muted">mer-ha-<b>BA</b>, te-şek-<b>KÜR</b>.</span></p>
+  </div>
+</section>
+
+<!-- ============ MACHINE ============ -->
+<section class="panel" id="p-machine" role="tabpanel">
+  <h2>La machine à mots</h2>
+  <p class="lede">En français on ajoute des mots autour du nom : « dans mes maisons » = 3 mots. En turc, on empile des morceaux à la fin d'un seul mot, toujours dans le même ordre. Appuie sur les blocs.</p>
+
+  <div class="machine">
+    <div class="wordline" id="wordline" lang="tr" role="button" tabindex="0" aria-label="Écouter le mot" title="Appuie pour écouter"></div>
+    <p class="gloss" id="gloss"></p>
+    <p class="rule" id="rule"></p>
+    <div class="controls">
+      <button class="toggle t-pl" id="t-pl" aria-pressed="false">+ pluriel</button>
+      <button class="toggle t-poss" id="t-poss" aria-pressed="false">+ « mon / ma »</button>
+      <button class="toggle t-loc" id="t-loc" aria-pressed="false">+ « dans / à »</button>
+    </div>
+    <div class="stems" id="stems"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--ivory)"></i>le mot</span>
+      <span><i class="dot" style="background:var(--turquoise)"></i>pluriel</span>
+      <span><i class="dot" style="background:var(--amber)"></i>mon / ma</span>
+      <span><i class="dot" style="background:var(--coral)"></i>dans / à</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Pourquoi la voyelle change tout le temps</h3>
+    <p>C'est <b>l'harmonie vocalique</b>, la seule vraie règle à retenir. La voyelle du suffixe imite la dernière voyelle du mot, pour que tout se prononce sans effort.</p>
+    <table>
+      <tr><th>Dernière voyelle du mot</th><th>« pluriel » devient</th><th>« mon/ma » devient</th></tr>
+      <tr><td>a, ı, o, u</td><td class="tr" lang="tr">-l<em>a</em>r</td><td class="tr">-<em>ı</em>m / -<em>u</em>m</td></tr>
+      <tr><td>e, i, ö, ü</td><td class="tr" lang="tr">-l<em>e</em>r</td><td class="tr">-<em>i</em>m / -<em>ü</em>m</td></tr>
+    </table>
+    <small class="note">Le détail : pour « mon/ma », a·ı → ı, e·i → i, o·u → u, ö·ü → ü. Et après une lettre sourde (ç f h k p s ş t), le d de « dans » devient t : sepet → sepet<b>te</b>.</small>
+  </div>
+</section>
+
+<!-- ============ HARMONIE ============ -->
+<section class="panel" id="p-harmonie" role="tabpanel">
+  <h2>L'oreille</h2>
+  <p class="lede">Ici on ne réfléchit pas, on entend. Choisis la forme qui « sonne » juste — c'est exactement ce que fait un turcophone.</p>
+  <div class="scoreline"><span>Score <b id="h-score">0</b></span><span>Série <b id="h-streak">0</b></span></div>
+  <div class="card" id="h-card"></div>
+</section>
+
+<!-- ============ ÊTRE ============ -->
+<section class="panel" id="p-etre" role="tabpanel">
+  <h2>Je suis, tu es</h2>
+  <p class="lede">Le turc n'a pas de verbe « être ». On colle la personne à la fin de l'adjectif. C'est pour ça que <b>nasılsın</b> (comment vas-tu) finit par -sın : c'est le « tu ».</p>
+
+  <div class="card">
+    <h3>Choisis un adjectif</h3>
+    <div class="cats" id="adj-cats"></div>
+    <table id="conj"></table>
+    <small class="note">Après une voyelle, on glisse un -y- pour éviter deux voyelles collées : iyi → iyi<b>y</b>im.</small>
+  </div>
+
+  <div class="scoreline"><span>Score <b id="e-score">0</b></span><span>Série <b id="e-streak">0</b></span></div>
+  <div class="card" id="e-card"></div>
+</section>
+
+<!-- ============ VERBES ============ -->
+<section class="panel" id="p-verbes" role="tabpanel">
+  <h2>Les verbes</h2>
+  <p class="lede">Un seul temps couvre presque tout le quotidien : le présent en <b>-iyor</b>. Tu le connais déjà sans le savoir — istiyor<b>um</b> (je veux), öğreniyor<b>um</b> (j'apprends) — et les terminaisons sont les mêmes que dans « Je suis, tu es ».</p>
+
+  <div class="card">
+    <h3>Choisis un verbe</h3>
+    <div class="cats" id="verb-cats"></div>
+    <table id="vconj"></table>
+    <small class="note">La 3ᵉ personne, c'est la forme nue : <b>içiyor</b> = il/elle boit. Le pronom reste facultatif, le verbe dit déjà qui agit.</small>
+  </div>
+
+  <div class="card">
+    <h3>Dire non : un simple m</h3>
+    <p>On glisse un <b>-m-</b> juste avant -iyor : iste<b>m</b>iyorum = je ne veux pas, git<b>m</b>iyoruz = nous n'y allons pas. Tu connais déjà <b>Bilmiyorum</b> (je ne sais pas) des cartes : c'est bil + <b>m</b> + iyor + um.</p>
+    <p><b>Et pour demander : … mu ?</b> <span class="muted">Çay istiyor <b>musun</b>? = tu veux du thé ?</span></p>
+  </div>
+
+  <div class="scoreline"><span>Score <b id="v-score">0</b></span><span>Série <b id="v-streak">0</b></span></div>
+  <div class="card" id="v-card"></div>
+</section>
+
+<!-- ============ PHRASES ============ -->
+<section class="panel" id="p-phrases" role="tabpanel">
+  <h2>Les cartes</h2>
+  <p class="lede">Appuie sur la carte pour la retourner. Commence par « Politesse » et « Chez les proches » — c'est ce qu'elle entendra dès la porte d'entrée.</p>
+  <div class="cats" id="deck-cats"></div>
+  <button class="flip" id="flip" aria-live="polite"></button>
+  <div class="deck-nav">
+    <button class="ghost" id="prev">← Précédente</button>
+    <span class="counter" id="counter"></span>
+    <button class="ghost" id="next">Suivante →</button>
+  </div>
+  <p style="text-align:center;margin:10px 0 0"><button class="ghost" id="shuffle">Mélanger les cartes</button></p>
+</section>
+
+<!-- ============ LA PHRASE ============ -->
+<section class="panel" id="p-ordre" role="tabpanel">
+  <h2>La phrase</h2>
+  <p class="lede">La règle d'or : <b>le verbe vient toujours à la fin</b>. « Je veux du thé » se dit mot à mot « moi · thé · je-veux ». Remets les mots dans l'ordre, puis écoute.</p>
+  <div class="scoreline"><span>Score <b id="p-score">0</b></span><span>Série <b id="p-streak">0</b></span></div>
+  <div class="card" id="p-card"></div>
+  <div class="card">
+    <h3>Le squelette de toute phrase turque</h3>
+    <p><b>Qui — quoi — verbe.</b> <span class="muted">Ben çay istiyorum = moi · thé · je-veux.</span></p>
+    <p>Le verbe porte déjà la personne : istiyor<b>um</b> = je veux, istiyor<b>sun</b> = tu veux. Le pronom (ben, sen…) est donc facultatif — on le garde pour insister.</p>
+    <p>Et pas d'article : <b>kedi</b> = chat, le chat, un chat. C'est le contexte qui décide.</p>
+  </div>
+</section>
+
+<!-- ============ POUR TOI ============ -->
+<section class="panel" id="p-prof" role="tabpanel">
+  <h2>Note pour le prof</h2>
+  <p class="lede">Tu parles turc sans y penser — c'est précisément ce qui rend l'enseignement difficile. Quelques repères.</p>
+  <div class="card">
+    <h3>Ne traduis pas, montre la mécanique</h3>
+    <p>Quand elle demande « pourquoi on dit <b>okulda</b> et pas <b>okulde</b> ? », la réponse n'est pas « c'est comme ça ». C'est : <i>u</i> est une voyelle arrière, donc le suffixe prend <i>a</i>. Elle a besoin de la règle, pas de l'exemple.</p>
+  </div>
+  <div class="card">
+    <h3>Un seul temps, longtemps</h3>
+    <p>Le présent en -iyor couvre l'essentiel du quotidien. Résiste à l'envie de montrer l'aoriste et le passé tout de suite : un temps bien installé vaut mieux que trois temps mélangés.</p>
+  </div>
+  <div class="card">
+    <h3>Dix minutes, tous les jours</h3>
+    <p>Une session courte quotidienne bat une heure le dimanche. Un onglet par jour suffit : les sons lundi, la machine mardi, les cartes mercredi.</p>
+  </div>
+  <div class="card">
+    <h3>Donne-lui de l'écoute passive</h3>
+    <p>Parle turc devant elle même quand elle ne comprend pas — au téléphone avec ta mère, à table. Le cerveau apprend la mélodie et le découpage des mots avant le sens. Puis traduis une phrase sur dix, pas plus.</p>
+  </div>
+  <div class="card">
+    <h3>La première phrase à lui offrir</h3>
+    <p>Pas « bonjour ». Apprends-lui <b>Türkçe öğreniyorum</b> — « j'apprends le turc ». C'est la phrase qui fait sourire toute une famille et qui achète dix minutes de patience à chaque rencontre.</p>
+  </div>
+</section>
+
+<footer>
+  Fait pour être ouvert tous les jours, pas fini en une fois. <b>Kolay gelsin</b> — bon courage à vous deux.
+</footer>
+
+</div>
+
+<div id="install" hidden>
+  <div><b>Ajouter à l'écran d'accueil</b>Appuie sur <span aria-hidden="true">&#x2191;</span> Partager, en bas de Safari, puis « Sur l'écran d'accueil ».</div>
+  <button type="button" id="install-ok">Compris</button>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- moteur : harmonie vocalique ---------- */
+var V="aeıioöuü", BACK="aıou", VOICELESS="çfhkpsşt";
+function lastVowel(w){for(var i=w.length-1;i>=0;i--){if(V.indexOf(w[i])>-1)return w[i];}return "a";}
+function two(w){return BACK.indexOf(lastVowel(w))>-1?"a":"e";}
+function four(w){var v=lastVowel(w);
+  if(v==="a"||v==="ı")return "ı"; if(v==="e"||v==="i")return "i";
+  if(v==="o"||v==="u")return "u"; return "ü";}
+function endsVowel(w){return V.indexOf(w[w.length-1])>-1;}
+function sfxPlural(w){return "l"+two(w)+"r";}
+function sfxPoss(w){return endsVowel(w)?"m":four(w)+"m";}
+function sfxLoc(w){return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+two(w);}
+function sfxDat(w){return (endsVowel(w)?"y":"")+two(w);}
+function person(w,p){
+  var v=four(w), y=endsVowel(w)?"y":"";
+  if(p==="1s")return y+v+"m";
+  if(p==="2s")return "s"+v+"n";
+  if(p==="3s")return "";
+  if(p==="1p")return y+v+"z";
+  if(p==="2p")return "s"+v+"n"+v+"z";
+  return "l"+two(w)+"r";
+}
+/* ---------- le son ---------- */
+/* Trois sources, dans cet ordre :
+   1. un vrai enregistrement, si un fichier existe dans audio/ (voir audio/index.json)
+   2. la voix choisie dans les réglages
+   3. n'importe quelle voix turque disponible                                  */
+function el(id){return document.getElementById(id);}
+var trVoices=[], trVoice=null, voiceReady=false;
+var rate=0.85, AUDIO={}, AUDIO2={}, audioOK=false;
+/* Clé normalisée : minuscules turques (Merhaba → merhaba, Iıİi corrects),
+   ponctuation finale retirée — sinon les cartes « Merhaba », « Lütfen »…
+   rataient leur enregistrement et retombaient sur la synthèse. */
+function normKey(t){
+  t=(t||"").trim().replace(/[?!.,…]+$/,"");
+  try{ return t.toLocaleLowerCase("tr"); }catch(e){ return t.toLowerCase(); }
+}
+
+try{
+  var sr=window.localStorage.getItem("yavas-rate");
+  if(sr) rate=Math.min(1.1,Math.max(0.4,parseFloat(sr)||0.85));
+}catch(e){}
+
+try{
+  fetch("audio/index.json").then(function(r){return r.ok?r.json():null;})
+   .then(function(j){
+      if(j&&typeof j==="object"){
+        var n=Object.keys(j).length;
+        if(n){
+          AUDIO=j; audioOK=true;
+          AUDIO2={};
+          Object.keys(j).forEach(function(k){ AUDIO2[normKey(k)]=j[k]; });
+          if(el("voice-files")) el("voice-files").textContent=
+            n+" enregistrement"+(n>1?"s":"")+" de vraies voix trouvé"+(n>1?"s":"")+" dans audio/ — ils passent avant la synthèse.";
+        }
+      }
+   }).catch(function(){});
+}catch(e){}
+
+function commentInstaller(){
+  var ua=navigator.userAgent;
+  if(/iPhone|iPad|iPod/.test(ua))
+    return "Sur iPhone : Réglages → Accessibilité → Contenu énoncé → Voix → Turc. Prends une voix « Améliorée » ou « Premium », nettement meilleure que celle par défaut.";
+  if(/Android/.test(ua))
+    return "Sur Android : Paramètres → Accessibilité → Sortie de synthèse vocale → Google → Installer les données vocales → Turc.";
+  if(/Mac OS X/.test(ua))
+    return "Sur Mac : Réglages Système → Accessibilité → Contenu énoncé → Voix du système → Gérer les voix → Turc. Relance ensuite le navigateur.";
+  if(/Windows/.test(ua))
+    return "Sur Windows : Paramètres → Heure et langue → Langue et région → Ajouter une langue → Turc, en cochant « Synthèse vocale ». Sur Windows 11, prends une voix « Naturelle ». Relance Chrome ensuite : les voix ne sont relues qu'au démarrage.";
+  return "Installe une voix turque dans les réglages de synthèse vocale de ton système, puis relance le navigateur.";
+}
+function pickVoice(){
+  if(!window.speechSynthesis) return;
+  var vs=[];
+  try{ vs=window.speechSynthesis.getVoices()||[]; }catch(e){}
+  if(!vs.length) return;
+  voiceReady=true;
+  trVoices=vs.filter(function(v){return /^tr([-_]|$)/i.test(v.lang||"");});
+
+  var saved=null;
+  try{ saved=window.localStorage.getItem("yavas-voice"); }catch(e){}
+  trVoice = trVoices.filter(function(v){return v.name===saved;})[0]
+         || trVoices.filter(function(v){return v.localService;})[0]
+         || trVoices[0] || null;
+
+  var box=el("voice-box");
+  if(box) box.setAttribute("data-alert", trVoice?"0":"1");
+  if(el("voice-alert")) el("voice-alert").hidden=!!trVoice;
+  if(!trVoice){
+    if(el("voice-how")) el("voice-how").textContent=commentInstaller();
+    if(el("voice-details")) el("voice-details").open=true;
+  }
+  var sel=el("voice-pick");
+  if(sel && trVoices.length){
+    el("voice-pick-row").hidden = trVoices.length<2;
+    if(sel.options.length!==trVoices.length){
+      sel.innerHTML="";
+      trVoices.forEach(function(v){
+        var o=document.createElement("option");
+        o.value=v.name; o.textContent=v.name+" ("+v.lang+(v.localService?"":", en ligne")+")";
+        sel.appendChild(o);
+      });
+    }
+    if(trVoice) sel.value=trVoice.name;
+  }
+  majNote();
+}
+function majNote(){
+  if(!el("voice-note")) return;
+  el("voice-note").textContent = trVoice ? "Voix active : "+trVoice.name
+    : (voiceReady?"Aucune voix turque disponible.":"Recherche des voix…");
+}
+function parle(t){
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);
+  if(trVoice){ u.voice=trVoice; u.lang=trVoice.lang; } else { u.lang="tr-TR"; }
+  u.rate=rate;
+  /* Chrome se bloque si speak() suit cancel() trop vite */
+  setTimeout(function(){ try{ window.speechSynthesis.speak(u); }catch(e){} },60);
+}
+function say(t){
+  var key=(t||"").trim();
+  var file = audioOK ? (AUDIO[key] || AUDIO2[normKey(key)]) : null;
+  if(file){
+    try{
+      var a=new Audio("audio/"+file);
+      try{ a.preservesPitch=true; a.mozPreservesPitch=true; a.webkitPreservesPitch=true; }catch(e2){}
+      a.playbackRate=Math.max(0.5,rate);
+      var fell=false;
+      var fallback=function(){ if(fell) return; fell=true; if(window.speechSynthesis) parle(key); };
+      a.onerror=fallback;
+      a.play().catch(fallback);
+      return;
+    }catch(e){}
+  }
+  if(!window.speechSynthesis) return;
+  try{ if(!voiceReady) pickVoice(); parle(key); }catch(e){}
+}
+if(window.speechSynthesis){
+  pickVoice();
+  window.speechSynthesis.onvoiceschanged=pickVoice;
+  setTimeout(pickVoice,500);
+  setTimeout(function(){
+    pickVoice();
+    if(!trVoice && el("voice-box")){
+      el("voice-box").setAttribute("data-alert","1");
+      if(el("voice-alert")) el("voice-alert").hidden=false;
+      if(el("voice-how")&&!el("voice-how").textContent) el("voice-how").textContent=commentInstaller();
+      majNote();
+    }
+  },2000);
+}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+/* ---------- mémoire (facultative) ---------- */
+var mem={h:{s:0,k:0},e:{s:0,k:0},p:{s:0,k:0},v:{s:0,k:0}};
+function save(){
+  try{ window.localStorage.setItem("yavas-progress", JSON.stringify(mem)); return; }catch(e){}
+  try{ if(window.storage) window.storage.set("yavas-progress", JSON.stringify(mem)); }catch(e){}
+}
+function load(){
+  try{
+    var raw=window.localStorage.getItem("yavas-progress");
+    if(raw){var d=JSON.parse(raw); if(d&&d.h&&d.e){mem=d; if(!mem.p)mem.p={s:0,k:0}; if(!mem.v)mem.v={s:0,k:0}; paintScores(); return;}}
+  }catch(e){}
+  try{
+    if(!window.storage)return;
+    window.storage.get("yavas-progress").then(function(r){
+      if(r&&r.value){var d2=JSON.parse(r.value); if(d2&&d2.h&&d2.e){mem=d2; if(!mem.p)mem.p={s:0,k:0}; if(!mem.v)mem.v={s:0,k:0}; paintScores();}}
+    }).catch(function(){});
+  }catch(e){}
+}
+function paintScores(){
+  el("h-score").textContent=mem.h.s; el("h-streak").textContent=mem.h.k;
+  el("e-score").textContent=mem.e.s; el("e-streak").textContent=mem.e.k;
+  el("p-score").textContent=mem.p.s; el("p-streak").textContent=mem.p.k;
+  el("v-score").textContent=mem.v.s; el("v-streak").textContent=mem.v.k;
+}
+
+/* ---------- onglets ---------- */
+var TABS=[
+  {id:"sons",label:"Les sons"},
+  {id:"machine",label:"La machine à mots"},
+  {id:"harmonie",label:"L'oreille"},
+  {id:"etre",label:"Je suis, tu es"},
+  {id:"verbes",label:"Les verbes"},
+  {id:"phrases",label:"Les cartes"},
+  {id:"ordre",label:"La phrase"},
+  {id:"prof",label:"Note pour le prof"}
+];
+var nav=el("nav");
+function activateTab(i,scroll){
+  TABS.forEach(function(x,j){
+    var b=nav.children[j], on2=(j===i);
+    b.setAttribute("aria-selected", on2?"true":"false");
+    b.tabIndex = on2?0:-1;
+    el("p-"+x.id).classList.toggle("on", on2);
+  });
+  try{ window.localStorage.setItem("yavas-tab", String(i)); }catch(e){}
+  if(scroll) window.scrollTo({top:0,behavior:"smooth"});
+}
+TABS.forEach(function(t,i){
+  var b=document.createElement("button");
+  b.textContent=t.label; b.id="tab-"+t.id;
+  b.setAttribute("role","tab");
+  b.setAttribute("aria-controls","p-"+t.id);
+  b.onclick=function(){ activateTab(i,true); };
+  nav.appendChild(b);
+  el("p-"+t.id).setAttribute("aria-labelledby","tab-"+t.id);
+});
+nav.addEventListener("keydown",function(ev){
+  if(ev.key!=="ArrowRight"&&ev.key!=="ArrowLeft") return;
+  var cur2=0;
+  for(var k=0;k<nav.children.length;k++)
+    if(nav.children[k].getAttribute("aria-selected")==="true") cur2=k;
+  var nx=(cur2+(ev.key==="ArrowRight"?1:-1)+TABS.length)%TABS.length;
+  activateTab(nx,true); nav.children[nx].focus(); ev.preventDefault();
+});
+/* on rouvre l'app sur le dernier onglet visité — pratique pour « un onglet par jour » */
+var startTab=0;
+try{
+  var st=parseInt(window.localStorage.getItem("yavas-tab"),10);
+  if(st>=0 && st<TABS.length) startTab=st;
+}catch(e){}
+activateTab(startTab,false);
+
+/* ---------- 1. sons ---------- */
+var LETTERS=[
+  {g:"c",say:"« dj » de djinn",ex:"cam (vitre), cuma (vendredi)",word:"cam"},
+  {g:"ç",say:"« tch » de tchèque",ex:"çay (thé), çocuk (enfant)",word:"çay"},
+  {g:"ş",say:"« ch » de chat",ex:"şeker (sucre), teşekkür (merci)",word:"şeker"},
+  {g:"u",say:"toujours « ou » de loup — jamais le u français",ex:"kutu (boîte) ≈ « kou-tou », su (eau) ≈ « sou »",word:"kutu"},
+  {g:"ı",say:"i sans point : un « e » avalé, gorge détendue",ex:"kız (fille), ılık (tiède)",word:"kız"},
+  {g:"ğ",say:"muet — il allonge la voyelle d'avant",ex:"dağ (montagne) ≈ « daa »",word:"dağ"},
+  {g:"g",say:"toujours dur comme « gare », jamais « j »",ex:"gece (nuit) ≈ « gué-djé », gelin (belle-fille)",word:"gece"},
+  {g:"s",say:"toujours « ss », même entre deux voyelles",ex:"masa (table) ≈ « ma-ssa », pas « ma-za »",word:"masa"},
+  {g:"h",say:"toujours soufflé, jamais muet",ex:"hava (le temps), kahve (café)",word:"kahve"},
+  {g:"e",say:"toujours « è » de mère",ex:"ev (maison) ≈ « èv »",word:"ev"},
+  {g:"ü ö",say:"exactement le u de « tu » et le eu de « peur »",ex:"gül (rose), göz (œil) — déjà français",word:"göz",easy:true}
+];
+var lw=el("letters");
+LETTERS.forEach(function(L){
+  var b=document.createElement("button");
+  b.className="letter"+(L.easy?" easy":"");
+  b.innerHTML='<div class="glyph"></div><div class="say"></div><div class="ex"></div>';
+  b.querySelector(".glyph").textContent=L.g;
+  b.querySelector(".say").textContent=L.say;
+  b.querySelector(".ex").textContent=L.ex;
+  b.onclick=function(){say(L.word);};
+  lw.appendChild(b);
+});
+
+/* ---------- 2. machine à mots ---------- */
+var STEMS=[
+  {tr:"ev",fr:"maison",frPl:"maisons",def:"la maison",defPl:"les maisons",poss:"ma maison",possPl:"mes maisons",prep:"dans"},
+  {tr:"okul",fr:"école",frPl:"écoles",def:"l'école",defPl:"les écoles",poss:"mon école",possPl:"mes écoles",prep:"à"},
+  {tr:"oda",fr:"chambre",frPl:"chambres",def:"la chambre",defPl:"les chambres",poss:"ma chambre",possPl:"mes chambres",prep:"dans"},
+  {tr:"göz",fr:"œil",frPl:"yeux",def:"l'œil",defPl:"les yeux",poss:"mon œil",possPl:"mes yeux",prep:"dans"},
+  {tr:"kutu",fr:"boîte",frPl:"boîtes",def:"la boîte",defPl:"les boîtes",poss:"ma boîte",possPl:"mes boîtes",prep:"dans"},
+  {tr:"kapı",fr:"porte",frPl:"portes",def:"la porte",defPl:"les portes",poss:"ma porte",possPl:"mes portes",prep:"à"},
+  {tr:"sepet",fr:"panier",frPl:"paniers",def:"le panier",defPl:"les paniers",poss:"mon panier",possPl:"mes paniers",prep:"dans"},
+  {tr:"masa",fr:"table",frPl:"tables",def:"la table",defPl:"les tables",poss:"ma table",possPl:"mes tables",prep:"sur"},
+  {tr:"araba",fr:"voiture",frPl:"voitures",def:"la voiture",defPl:"les voitures",poss:"ma voiture",possPl:"mes voitures",prep:"dans"},
+  {tr:"bahçe",fr:"jardin",frPl:"jardins",def:"le jardin",defPl:"les jardins",poss:"mon jardin",possPl:"mes jardins",prep:"dans"}
+];
+var cur=0, on={pl:false,poss:false,loc:false};
+
+function frGloss(s){
+  var noun;
+  if(on.poss) noun = on.pl ? s.possPl : s.poss;
+  else if(on.loc) noun = on.pl ? s.defPl : s.def;
+  else noun = on.pl ? s.frPl : s.fr;
+  return on.loc ? s.prep+" "+noun : noun;
+}
+function renderMachine(){
+  var s=STEMS[cur], stem=s.tr, parts=[{t:s.tr,c:"m-stem"}], why=[];
+  if(on.pl){var p=sfxPlural(stem); parts.push({t:p,c:"m-pl"}); stem+=p;
+    why.push("dernière voyelle « "+lastVowel(s.tr)+" » → -"+p);}
+  if(on.poss){var q=sfxPoss(stem); parts.push({t:q,c:"m-poss"});
+    why.push(endsVowel(stem)?"le mot finit par une voyelle → juste -m":"→ -"+q);
+    stem+=q;}
+  if(on.loc){var r=sfxLoc(stem); parts.push({t:r,c:"m-loc"});
+    why.push(r[0]==="t"?"lettre sourde avant → le d devient t : -"+r:"→ -"+r);
+    stem+=r;}
+  var line=el("wordline"); line.innerHTML="";
+  parts.forEach(function(p){
+    var d=document.createElement("span"); d.className="morph "+p.c; d.textContent=p.t; line.appendChild(d);
+  });
+  el("gloss").textContent=frGloss(s);
+  el("rule").textContent=why.length?why.join("   ·   "):"Appuie sur un bloc ci-dessous — et sur le mot pour l'écouter.";
+  el("wordline").onclick=function(){say(stem);};
+}
+[["t-pl","pl"],["t-poss","poss"],["t-loc","loc"]].forEach(function(pair){
+  el(pair[0]).onclick=function(){
+    on[pair[1]]=!on[pair[1]];
+    this.setAttribute("aria-pressed", on[pair[1]]?"true":"false");
+    renderMachine();
+  };
+});
+var sw=el("stems");
+STEMS.forEach(function(s,i){
+  var b=document.createElement("button");
+  b.className="stem-btn"; b.textContent=s.tr+" · "+s.fr;
+  b.setAttribute("aria-pressed", i===0?"true":"false");
+  b.onclick=function(){
+    cur=i;
+    for(var k=0;k<sw.children.length;k++) sw.children[k].setAttribute("aria-pressed", k===i?"true":"false");
+    renderMachine();
+  };
+  sw.appendChild(b);
+});
+el("wordline").addEventListener("keydown",function(ev){
+  if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); this.click(); }
+});
+renderMachine();
+
+/* ---------- 3. l'oreille ---------- */
+var DRILL=[
+  {tr:"ev",fr:"maison"},{tr:"okul",fr:"école"},{tr:"göz",fr:"œil"},{tr:"oda",fr:"chambre"},
+  {tr:"kutu",fr:"boîte"},{tr:"kapı",fr:"porte"},{tr:"sepet",fr:"panier"},{tr:"araba",fr:"voiture"},
+  {tr:"kedi",fr:"chat"},{tr:"el",fr:"main"},{tr:"yol",fr:"route"},{tr:"süt",fr:"lait"},
+  {tr:"kuş",fr:"oiseau"},{tr:"köy",fr:"village"},{tr:"masa",fr:"table"},{tr:"kalem",fr:"stylo"},
+  {tr:"deniz",fr:"mer"},{tr:"anne",fr:"maman"},{tr:"baba",fr:"papa"},{tr:"kardeş",fr:"frère/sœur"},
+  {tr:"çay",fr:"thé"},{tr:"gün",fr:"jour"},{tr:"hafta",fr:"semaine"},{tr:"yıl",fr:"année"},
+  {tr:"sabah",fr:"matin"},{tr:"gece",fr:"nuit"},{tr:"ay",fr:"mois"},{tr:"kız",fr:"fille"},
+  {tr:"şeker",fr:"sucre"},{tr:"bahçe",fr:"jardin"},
+  {tr:"elma",fr:"pomme"},{tr:"kahve",fr:"café"},{tr:"çorba",fr:"soupe"},{tr:"peynir",fr:"fromage"},
+  {tr:"çanta",fr:"sac"},{tr:"zeytin",fr:"olive"},{tr:"ceket",fr:"veste"},{tr:"cam",fr:"vitre"}
+];
+var KINDS=[
+  {key:"pl", ask:"les {fr}", fn:sfxPlural, all:["ler","lar"], why:"pluriel"},
+  {key:"poss", ask:"mon / ma {fr}", fn:sfxPoss, all:["im","ım","um","üm","m"], why:"« mon/ma »"},
+  {key:"loc", ask:"dans le / la {fr}", fn:sfxLoc, all:["de","da","te","ta"], why:"« dans / à »"},
+  {key:"dat", ask:"vers le / la {fr}", fn:sfxDat, all:["e","a","ye","ya"], why:"« vers »"}
+];
+function newHarmony(){
+  var w=pick(DRILL), k=pick(KINDS);
+  var good=w.tr+k.fn(w.tr);
+  var opts=[good];
+  shuffle(k.all.slice()).forEach(function(s){
+    var c=w.tr+s;
+    if(opts.indexOf(c)<0 && opts.length<4) opts.push(c);
+  });
+  shuffle(opts);
+  var c=el("h-card");
+  c.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="opts" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  c.querySelector(".q").textContent="Comment dit-on « "+k.ask.replace("{fr}",w.fr)+" » ?";
+  c.querySelector(".q-sub").textContent=w.tr+" = "+w.fr+"  ·  suffixe "+k.why;
+  var box=c.querySelector(".opts"), verdict=c.querySelector(".verdict");
+  opts.forEach(function(o){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+      if(o===good){
+        b.classList.add("right"); mem.h.s++; mem.h.k++;
+        verdict.innerHTML="Oui. Dernière voyelle « <b>"+lastVowel(w.tr)+"</b> » → "+good.slice(w.tr.length)+".";
+      }else{
+        b.classList.add("wrong"); mem.h.k=0;
+        Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===good) x.classList.add("right");});
+        verdict.innerHTML="C'est <b>"+good+"</b> — la voyelle « "+lastVowel(w.tr)+" » impose "+good.slice(w.tr.length)+".";
+      }
+      say(good); paintScores(); save();
+      var nb=document.createElement("button");
+      nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="#0C2340"; nb.style.color="#0C2340";
+      nb.textContent="Suivant →"; nb.onclick=newHarmony;
+      c.appendChild(nb); nb.focus();
+    };
+    box.appendChild(b);
+  });
+}
+newHarmony();
+
+/* ---------- 4. je suis, tu es ---------- */
+var ADJ=[
+  {tr:"yorgun",fr:"fatigué·e"},{tr:"aç",fr:"affamé·e"},{tr:"mutlu",fr:"heureux·se"},
+  {tr:"hasta",fr:"malade"},{tr:"iyi",fr:"bien"},{tr:"hazır",fr:"prêt·e"},
+  {tr:"üzgün",fr:"triste"},{tr:"evde",fr:"à la maison"},{tr:"Türk",fr:"turc·que"},{tr:"Fransız",fr:"français·e"},
+  {tr:"güzel",fr:"beau·belle"},{tr:"emin",fr:"sûr·e"},{tr:"evli",fr:"marié·e"},{tr:"burada",fr:"ici"}
+];
+var PRON=[["1s","ben","je suis"],["2s","sen","tu es"],["3s","o","il / elle est"],
+          ["1p","biz","nous sommes"],["2p","siz","vous êtes"],["3p","onlar","ils / elles sont"]];
+var adjCur=0;
+function renderConj(){
+  var a=ADJ[adjCur], t=el("conj");
+  t.innerHTML="<tr><th>Pronom</th><th>Turc</th><th>Français</th></tr>";
+  PRON.forEach(function(p){
+    var sfx=person(a.tr,p[0]), form=a.tr+sfx;
+    var row=document.createElement("tr");
+    row.innerHTML='<td class="muted">'+p[1]+'</td><td class="tr" lang="tr">'+a.tr+'<em>'+sfx+'</em></td><td>'+p[2]+' '+a.fr+'</td>';
+    row.style.cursor="pointer"; row.onclick=function(){say(form);};
+    t.appendChild(row);
+  });
+}
+var ac=el("adj-cats");
+ADJ.forEach(function(a,i){
+  var b=document.createElement("button"); b.className="stem-btn";
+  b.style.borderColor="#B9C2CF"; b.style.color="#0C2340";
+  b.textContent=a.tr+" · "+a.fr;
+  b.setAttribute("aria-pressed", i===0?"true":"false");
+  b.onclick=function(){
+    adjCur=i;
+    for(var k=0;k<ac.children.length;k++){
+      var on2=(k===i);
+      ac.children[k].setAttribute("aria-pressed", on2?"true":"false");
+      ac.children[k].style.background=on2?"#0C2340":"transparent";
+      ac.children[k].style.color=on2?"#F4EFE4":"#0C2340";
+    }
+    renderConj();
+  };
+  ac.appendChild(b);
+});
+ac.children[0].style.background="#0C2340"; ac.children[0].style.color="#F4EFE4";
+renderConj();
+
+function newEtre(){
+  var a=pick(ADJ), p=pick(PRON.filter(function(x){return x[0]!=="3s";}));
+  var good=a.tr+person(a.tr,p[0]);
+  var opts=[good];
+  shuffle(PRON.slice()).forEach(function(x){
+    var c=a.tr+person(a.tr,x[0]);
+    if(opts.indexOf(c)<0 && c!==a.tr && opts.length<4) opts.push(c);
+  });
+  shuffle(opts);
+  var c=el("e-card");
+  c.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="opts" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  c.querySelector(".q").textContent="« "+p[2]+" "+a.fr+" » ?";
+  c.querySelector(".q-sub").textContent=a.tr+" = "+a.fr+"  ·  pronom "+p[1];
+  var box=c.querySelector(".opts"), verdict=c.querySelector(".verdict");
+  opts.forEach(function(o){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+      if(o===good){ b.classList.add("right"); mem.e.s++; mem.e.k++;
+        verdict.innerHTML="Oui : "+a.tr+" + <b>"+person(a.tr,p[0])+"</b>.";
+      }else{ b.classList.add("wrong"); mem.e.k=0;
+        Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===good) x.classList.add("right");});
+        verdict.innerHTML="C'est <b>"+good+"</b> : la terminaison de "+p[1]+" après « "+lastVowel(a.tr)+" ».";
+      }
+      say(good); paintScores(); save();
+      var nb=document.createElement("button");
+      nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="#0C2340"; nb.style.color="#0C2340";
+      nb.textContent="Suivant →"; nb.onclick=newEtre;
+      c.appendChild(nb); nb.focus();
+    };
+    box.appendChild(b);
+  });
+}
+newEtre();
+
+/* ---------- 4bis. les verbes ---------- */
+var VERBS=[
+  {inf:"istemek",st:"istiyor",fr:"vouloir",f:["je veux","tu veux","il / elle veut","nous voulons","vous voulez","ils / elles veulent"]},
+  {inf:"gitmek",st:"gidiyor",fr:"aller",f:["je vais","tu vas","il / elle va","nous allons","vous allez","ils / elles vont"]},
+  {inf:"gelmek",st:"geliyor",fr:"venir",f:["je viens","tu viens","il / elle vient","nous venons","vous venez","ils / elles viennent"]},
+  {inf:"yapmak",st:"yapıyor",fr:"faire",f:["je fais","tu fais","il / elle fait","nous faisons","vous faites","ils / elles font"]},
+  {inf:"içmek",st:"içiyor",fr:"boire",f:["je bois","tu bois","il / elle boit","nous buvons","vous buvez","ils / elles boivent"]},
+  {inf:"yemek",st:"yiyor",fr:"manger",f:["je mange","tu manges","il / elle mange","nous mangeons","vous mangez","ils / elles mangent"]},
+  {inf:"bilmek",st:"biliyor",fr:"savoir",f:["je sais","tu sais","il / elle sait","nous savons","vous savez","ils / elles savent"]},
+  {inf:"sevmek",st:"seviyor",fr:"aimer",f:["j'aime","tu aimes","il / elle aime","nous aimons","vous aimez","ils / elles aiment"]},
+  {inf:"öğrenmek",st:"öğreniyor",fr:"apprendre",f:["j'apprends","tu apprends","il / elle apprend","nous apprenons","vous apprenez","ils / elles apprennent"]},
+  {inf:"konuşmak",st:"konuşuyor",fr:"parler",f:["je parle","tu parles","il / elle parle","nous parlons","vous parlez","ils / elles parlent"]}
+];
+var verbCur=0;
+function renderVConj(){
+  var v=VERBS[verbCur], t=el("vconj");
+  t.innerHTML="<tr><th>Pronom</th><th>Turc</th><th>Français</th></tr>";
+  PRON.forEach(function(p,idx){
+    var sfx=person(v.st,p[0]), form=v.st+sfx;
+    var row=document.createElement("tr");
+    row.innerHTML='<td class="muted">'+p[1]+'</td><td class="tr" lang="tr">'+v.st+'<em>'+sfx+'</em></td><td>'+v.f[idx]+'</td>';
+    row.style.cursor="pointer"; row.onclick=function(){say(form);};
+    t.appendChild(row);
+  });
+}
+var vc=el("verb-cats");
+VERBS.forEach(function(v,i){
+  var b=document.createElement("button"); b.className="stem-btn";
+  b.style.borderColor="#B9C2CF"; b.style.color="#0C2340";
+  b.textContent=v.inf+" · "+v.fr;
+  b.setAttribute("aria-pressed", i===0?"true":"false");
+  b.onclick=function(){
+    verbCur=i;
+    for(var k=0;k<vc.children.length;k++){
+      var on3=(k===i);
+      vc.children[k].setAttribute("aria-pressed", on3?"true":"false");
+      vc.children[k].style.background=on3?"#0C2340":"transparent";
+      vc.children[k].style.color=on3?"#F4EFE4":"#0C2340";
+    }
+    renderVConj();
+  };
+  vc.appendChild(b);
+});
+vc.children[0].style.background="#0C2340"; vc.children[0].style.color="#F4EFE4";
+renderVConj();
+
+function newVerb(){
+  var v=pick(VERBS), pi=Math.floor(Math.random()*PRON.length), p=PRON[pi];
+  var good=v.st+person(v.st,p[0]);
+  var opts=[good];
+  shuffle(PRON.slice()).forEach(function(x){
+    var c2=v.st+person(v.st,x[0]);
+    if(opts.indexOf(c2)<0 && opts.length<4) opts.push(c2);
+  });
+  shuffle(opts);
+  var c=el("v-card");
+  c.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="opts" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  c.querySelector(".q").textContent="\u00ab "+v.f[pi]+" \u00bb ?";
+  c.querySelector(".q-sub").textContent=v.inf+" = "+v.fr+"  \u00b7  pronom "+p[1];
+  var box=c.querySelector(".opts"), verdict=c.querySelector(".verdict");
+  opts.forEach(function(o){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+      if(o===good){ b.classList.add("right"); mem.v.s++; mem.v.k++;
+        verdict.innerHTML="Oui : "+v.st+" + <b>"+(person(v.st,p[0])||"rien du tout")+"</b>.";
+      }else{ b.classList.add("wrong"); mem.v.k=0;
+        Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===good) x.classList.add("right");});
+        verdict.innerHTML="C'est <b>"+good+"</b> \u2014 la terminaison de "+p[1]+".";
+      }
+      say(good); paintScores(); save();
+      var nb=document.createElement("button");
+      nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="#0C2340"; nb.style.color="#0C2340";
+      nb.textContent="Suivant \u2192"; nb.onclick=newVerb;
+      c.appendChild(nb); nb.focus();
+    };
+    box.appendChild(b);
+  });
+}
+newVerb();
+
+/* ---------- 5. cartes ---------- */
+var DECKS={
+  "Politesse":[
+    ["Merhaba","mèr-ha-BA","Bonjour"],
+    ["Günaydın","gu-naï-DEUN","Bonjour (le matin)"],
+    ["İyi akşamlar","i-YI ak-cham-LAR","Bonsoir"],
+    ["İyi geceler","i-YI gué-djé-LER","Bonne nuit"],
+    ["Nasılsın?","na-seul-SEUN","Comment vas-tu ?"],
+    ["İyiyim, sen nasılsın?","i-YI-yim, sèn na-seul-SEUN","Je vais bien, et toi ?"],
+    ["Teşekkür ederim","té-chèk-KUR é-dé-RIM","Merci"],
+    ["Rica ederim","ri-DJA é-dé-RIM","Je t'en prie"],
+    ["Özür dilerim","eu-ZUR di-lé-RIM","Pardon / Je suis désolée"],
+    ["Affedersiniz","af-fé-dèr-si-NIZ","Excusez-moi (pour aborder quelqu'un)"],
+    ["Lütfen","LUT-fèn","S'il te plaît"],
+    ["Hoş geldiniz","HOCH guèl-di-NIZ","Bienvenue"],
+    ["Hoş bulduk","HOCH boul-DOUK","(la réponse à « bienvenue »)"],
+    ["Görüşürüz","gueu-ru-chu-RUZ","À bientôt"],
+    ["Hoşça kal","hoch-tcha KAL","Au revoir (dit par celui qui part)"],
+    ["Güle güle","gu-LÉ gu-LÉ","Au revoir (dit par celui qui reste)"],
+    ["Kolay gelsin","ko-LAÏ guèl-SIN","Bon courage (à qui travaille)"],
+    ["Geçmiş olsun","guètch-MICH ol-SOUN","Bon rétablissement"]
+  ],
+  "Chez les proches":[
+    ["anne","an-NÉ","maman"],
+    ["baba","ba-BA","papa"],
+    ["abla","ab-LA","grande sœur"],
+    ["abi","a-BI","grand frère"],
+    ["kardeş","kar-DÈCH","frère ou sœur (cadet)"],
+    ["anneanne","an-né-a-NÉ","grand-mère du côté de la mère"],
+    ["babaanne","ba-ba-a-NÉ","grand-mère du côté du père"],
+    ["dede","dé-DÉ","grand-père"],
+    ["teyze","tèï-ZÉ","tante (sœur de la mère)"],
+    ["hala","ha-LA","tante (sœur du père)"],
+    ["dayı","da-YEU","oncle (frère de la mère)"],
+    ["amca","am-DJA","oncle (frère du père)"],
+    ["kayınvalide","ka-yeun-va-li-DÉ","belle-mère"],
+    ["kayınpeder","ka-yeun-pé-DÈR","beau-père"],
+    ["gelin","gué-LIN","la belle-fille (toi, pour eux)"],
+    ["damat","da-MAT","le gendre"],
+    ["yenge","yèn-GUÉ","la femme du frère ou de l'oncle (toi, pour ses neveux)"],
+    ["kuzen","kou-ZÈNN","cousin·e"]
+  ],
+  "À table":[
+    ["Afiyet olsun","a-fi-YÈT ol-SOUN","Bon appétit"],
+    ["Şerefe!","ché-ré-FÉ","Santé ! (en trinquant)"],
+    ["Elinize sağlık","é-li-ni-ZÉ sa-LEUK","Merci pour ce repas (litt. santé à vos mains)"],
+    ["Çok lezzetli","TCHOK lèz-zèt-LI","C'est délicieux"],
+    ["Doydum","DOÏ-doum","Je n'ai plus faim"],
+    ["Biraz daha","bi-RAZ da-HA","Encore un peu"],
+    ["Su, lütfen","SOU, LUT-fèn","De l'eau, s'il te plaît"],
+    ["çay","TCHAÏ","thé"],
+    ["kahve","kah-VÉ","café"],
+    ["Çay içer misin?","TCHAÏ i-TCHÈR mi-SIN","Tu veux du thé ?"],
+    ["Aç mısın?","ATCH meu-SEUN","Tu as faim ?"]
+  ],
+  "Au marché":[
+    ["ekmek","èk-MÈK","pain"],
+    ["peynir","pèï-NIR","fromage"],
+    ["zeytin","zèï-TIN","olive"],
+    ["domates","do-ma-TÈS","tomate"],
+    ["elma","èl-MA","pomme"],
+    ["portakal","por-ta-KAL","orange"],
+    ["balık","ba-LEUK","poisson"],
+    ["tavuk","ta-VOUK","poulet"],
+    ["çorba","tchor-BA","soupe"],
+    ["pilav","pi-LAV","riz cuit / pilaf (le riz cru, c'est pirinç)"],
+    ["tatlı","tat-LEU","dessert / sucré"],
+    ["Ne kadar?","NÉ ka-DAR","Combien ça coûte ?"],
+    ["Kaç TL?","KATCH té-lé","Combien de lires ? (TL = Türk Lirası)"],
+    ["Çok pahalı!","TCHOK pa-ha-LEU","Trop cher !"],
+    ["İndirim var mı?","in-di-RIM VAR meu","Y a-t-il une réduction ?"],
+    ["Çok taze","TCHOK ta-ZÉ","Très frais"],
+    ["Taze mi?","ta-ZÉ mi","C'est frais ?"],
+    ["Bir kilo lütfen","BIR ki-LO LUT-fèn","Un kilo, s'il vous plaît"]
+  ],
+  "Fruits et légumes":[
+    ["salatalık","sa-la-ta-LEUK","concombre"],
+    ["patates","pa-ta-TÈS","pomme de terre"],
+    ["soğan","so-ANN","oignon"],
+    ["sarımsak","sa-reum-SAK","ail"],
+    ["marul","ma-ROUL","salade (laitue)"],
+    ["biber","bi-BÈR","poivron / piment"],
+    ["patlıcan","pat-leu-DJANN","aubergine"],
+    ["havuç","ha-VOUTCH","carotte"],
+    ["limon","li-MONN","citron"],
+    ["muz","MOUZ","banane"],
+    ["çilek","tchi-LÈK","fraise"],
+    ["karpuz","kar-POUZ","pastèque"],
+    ["kavun","ka-VOUNN","melon"],
+    ["üzüm","u-ZUM","raisin"],
+    ["kiraz","ki-RAZ","cerise"]
+  ],
+  "Boucherie & épices":[
+    ["et","ÈT","viande"],
+    ["dana eti","da-NA é-TI","bœuf (litt. viande de veau)"],
+    ["kuzu eti","kou-ZOU é-TI","agneau"],
+    ["köfte","keuf-TÉ","boulettes de viande"],
+    ["tuz","TOUZ","sel"],
+    ["karabiber","ka-ra-bi-BÈR","poivre noir"],
+    ["pul biber","POUL bi-BÈR","piment en flocons"],
+    ["toz biber","TOZ bi-BÈR","paprika"],
+    ["nane","na-NÉ","menthe"],
+    ["kekik","ké-KIK","thym"],
+    ["kimyon","kim-YONN","cumin"]
+  ],
+  "Produits du quotidien":[
+    ["süt","SUT","lait"],
+    ["yumurta","you-mour-TA","œuf"],
+    ["yoğurt","yo-OURT","yaourt"],
+    ["tereyağı","té-ré-ya-EU","beurre"],
+    ["zeytinyağı","zèï-tin-ya-EU","huile d'olive"],
+    ["pirinç","pi-RINTCH","riz (cru — une fois cuit, c'est pilav)"],
+    ["mercimek","mèr-dji-MÈK","lentilles"],
+    ["nohut","no-HOUT","pois chiches"]
+  ],
+  "La maison et dehors":[
+    ["ev","ÈV","maison"],
+    ["oda","o-DA","chambre"],
+    ["kapı","ka-PEU","porte"],
+    ["cam","DJAM","vitre / verre"],
+    ["masa","ma-SA","table"],
+    ["bahçe","bah-TCHÉ","jardin"],
+    ["araba","a-ra-BA","voiture"],
+    ["yol","YOL","route"],
+    ["okul","o-KOUL","école"],
+    ["köy","KEUÏ","village"],
+    ["dağ","DAA","montagne"],
+    ["deniz","dé-NIZ","mer"],
+    ["kedi","ké-DI","chat"],
+    ["kuş","KOUCH","oiseau"],
+    ["kitap","ki-TAP","livre"],
+    ["kalem","ka-LÈM","stylo"]
+  ],
+  "Les nombres":[
+    ["bir","BIR","1 — un"],
+    ["iki","i-KI","2 — deux"],
+    ["üç","UTCH","3 — trois"],
+    ["dört","DEURT","4 — quatre"],
+    ["beş","BÈCH","5 — cinq"],
+    ["altı","al-TEU","6 — six"],
+    ["yedi","yé-DI","7 — sept"],
+    ["sekiz","sé-KIZ","8 — huit"],
+    ["dokuz","do-KOUZ","9 — neuf"],
+    ["on","ONN","10 — dix"],
+    ["on bir","ONN BIR","11 — « dix-un » : tout est régulier"],
+    ["yirmi","yir-MI","20 — vingt"],
+    ["otuz","o-TOUZ","30 — trente"],
+    ["kırk","KEURK","40 — quarante"],
+    ["elli","èl-LI","50 — cinquante"],
+    ["altmış","alt-MEUCH","60 — soixante"],
+    ["yetmiş","yèt-MICH","70 — soixante-dix"],
+    ["seksen","sèk-SÈNN","80 — quatre-vingts"],
+    ["doksan","dok-SANN","90 — quatre-vingt-dix"],
+    ["yüz","YUZ","100 — cent"],
+    ["bin","BINN","1000 — mille"]
+  ],
+  "Les couleurs":[
+    ["beyaz","bé-YAZ","blanc"],
+    ["siyah","si-YAH","noir"],
+    ["kırmızı","keur-meu-ZEU","rouge"],
+    ["mavi","ma-VI","bleu"],
+    ["yeşil","yé-CHIL","vert"],
+    ["sarı","sa-REU","jaune"],
+    ["turuncu","tou-roun-DJOU","orange"],
+    ["pembe","pèm-BÉ","rose"],
+    ["mor","MOR","violet"],
+    ["gri","GRI","gris"],
+    ["kahverengi","kah-vé-rèn-GUI","marron (litt. couleur café)"]
+  ],
+  "Les vêtements":[
+    ["elbise","èl-bi-SÉ","robe"],
+    ["pantolon","pann-to-LONN","pantalon"],
+    ["gömlek","gueum-LÈK","chemise"],
+    ["tişört","ti-CHEURT","t-shirt"],
+    ["kazak","ka-ZAK","pull"],
+    ["ceket","djé-KÈT","veste"],
+    ["mont","MONNT","manteau"],
+    ["etek","é-TÈK","jupe"],
+    ["ayakkabı","a-yak-ka-BEU","chaussures"],
+    ["çorap","tcho-RAP","chaussettes"],
+    ["şapka","chap-KA","chapeau / bonnet"],
+    ["atkı","at-KEU","écharpe"],
+    ["eldiven","èl-di-VÈN","gants"],
+    ["çanta","tchann-TA","sac"]
+  ],
+  "Les jours":[
+    ["pazartesi","pa-ZAR-té-si","lundi"],
+    ["salı","sa-LEU","mardi"],
+    ["çarşamba","tchar-cham-BA","mercredi"],
+    ["perşembe","pèr-chèm-BÉ","jeudi"],
+    ["cuma","djou-MA","vendredi"],
+    ["cumartesi","djou-MAR-té-si","samedi"],
+    ["pazar","pa-ZAR","dimanche"],
+    ["bugün","bou-GUNN","aujourd'hui"],
+    ["yarın","YA-reunn","demain"],
+    ["dün","DUNN","hier"],
+    ["şimdi","CHIM-di","maintenant"],
+    ["sonra","SON-ra","après"]
+  ],
+  "Les mois":[
+    ["ocak","o-DJAK","janvier"],
+    ["şubat","chou-BAT","février"],
+    ["mart","MART","mars"],
+    ["nisan","ni-SANN","avril"],
+    ["mayıs","ma-YEUS","mai"],
+    ["haziran","ha-zi-RANN","juin"],
+    ["temmuz","tèm-MOUZ","juillet"],
+    ["ağustos","a-OUS-tos","août"],
+    ["eylül","èï-LUL","septembre"],
+    ["ekim","é-KIM","octobre"],
+    ["kasım","ka-SEUM","novembre"],
+    ["aralık","a-ra-LEUK","décembre"],
+    ["ilkbahar","ilk-ba-HAR","printemps"],
+    ["yaz","YAZ","été"],
+    ["sonbahar","sonn-ba-HAR","automne"],
+    ["kış","KEUCH","hiver"]
+  ],
+  "Le temps qu'il fait":[
+    ["hava","ha-VA","le temps / l'air"],
+    ["Hava nasıl?","ha-VA NA-seul","Quel temps fait-il ?"],
+    ["güneş","gu-NÈCH","soleil"],
+    ["Güneş var","gu-NÈCH VAR","Il y a du soleil"],
+    ["bulut","bou-LOUT","nuage"],
+    ["yağmur","yaa-MOUR","pluie"],
+    ["Yağmur yağıyor","yaa-MOUR yaa-EU-yor","Il pleut"],
+    ["kar","KAR","neige"],
+    ["Kar yağıyor","KAR yaa-EU-yor","Il neige"],
+    ["rüzgar","ruz-GAR","vent"],
+    ["sıcak","seu-DJAK","chaud"],
+    ["soğuk","so-OUK","froid"]
+  ],
+  "Poser des questions":[
+    ["Ne?","NÉ","Quoi ?"],
+    ["Bu ne?","BOU NÉ","Qu'est-ce que c'est ?"],
+    ["Kim?","KIM","Qui ?"],
+    ["Kim o?","KIM O","Qui est-ce ?"],
+    ["Nerede?","NÉ-ré-dé","Où ?"],
+    ["Nereye?","NÉ-ré-yé","Vers où ?"],
+    ["Ne zaman?","NÉ za-MANN","Quand ?"],
+    ["Nasıl?","NA-seul","Comment ?"],
+    ["Neden?","NÉ-dènn","Pourquoi ?"],
+    ["Kaç?","KATCH","Combien ?"],
+    ["Hangisi?","HANN-gui-si","Lequel ?"],
+    ["Var","VAR","Il y en a"],
+    ["Yok","YOK","Il n'y en a pas — aussi « non » familier"],
+    ["Çay var mı?","TCHAÏ VAR meu","Il y a du thé ?"],
+    ["değil","dé-YIL","ne… pas — se place après le mot nié"]
+  ],
+  "Se dépanner":[
+    ["Türkçe öğreniyorum","TURK-tché eu-ré-ni-yo-ROUM","J'apprends le turc"],
+    ["Anlamadım","an-la-ma-DEUM","Je n'ai pas compris"],
+    ["Bilmiyorum","bil-mi-yo-ROUM","Je ne sais pas"],
+    ["Yavaş konuş, lütfen","ya-VACH ko-NOUCH","Parle lentement, s'il te plaît"],
+    ["Bir daha söyler misin?","BIR da-HA seuï-LÈR mi-SIN","Tu peux répéter ?"],
+    ["Ne demek?","NÉ dé-MÈK","Ça veut dire quoi ?"],
+    ["Türkçem az","TURK-tchèm AZ","Mon turc est faible"],
+    ["Fransızım","fran-seu-ZEUM","Je suis française"],
+    ["Evet","é-VÈT","Oui"],
+    ["Hayır","HA-yeur","Non"],
+    ["Tamam","ta-MAM","D'accord / OK"],
+    ["Tabii","TAA-bi","Bien sûr"],
+    ["Belki","BÈL-ki","Peut-être"],
+    ["Tuvalet nerede?","tou-va-LÈT NÉ-ré-dé","Où sont les toilettes ?"]
+  ],
+  "Entre vous":[
+    ["Seni seviyorum","sé-NI sé-vi-yo-ROUM","Je t'aime"],
+    ["Seni özledim","sé-NI euz-lé-DIM","Tu me manques"],
+    ["Canım","dja-NEUM","Mon cœur (litt. mon âme)"],
+    ["Aşkım","ach-KEUM","Mon amour"],
+    ["Bir tanem","BIR ta-NÈM","Mon unique"],
+    ["İyi ki varsın","i-YI ki var-SEUN","Heureusement que tu es là"],
+    ["Öptüm","eup-TUM","Bisous (litt. « j'ai embrassé » — pour finir un message)"]
+  ]
+};
+var deckName="Politesse", deck=DECKS[deckName], di=0, flipped=false;
+var dc=el("deck-cats");
+Object.keys(DECKS).forEach(function(name,i){
+  var b=document.createElement("button"); b.className="stem-btn";
+  b.textContent=name; b.setAttribute("aria-pressed", i===0?"true":"false");
+  b.onclick=function(){
+    deckName=name; deck=DECKS[name]; di=0; flipped=false;
+    for(var k=0;k<dc.children.length;k++) dc.children[k].setAttribute("aria-pressed", dc.children[k].textContent===name?"true":"false");
+    renderCard();
+  };
+  dc.appendChild(b);
+});
+function renderCard(){
+  var c=deck[di], f=el("flip");
+  if(flipped){
+    f.innerHTML='<div class="back"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
+    f.querySelector(".back").textContent=c[2];
+    f.querySelector(".speak").onclick=function(ev){ev.stopPropagation();say(c[0]);};
+  }else{
+    f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><div class="hint">appuyer pour la traduction</div>';
+    f.querySelector(".front").textContent=c[0];
+    f.querySelector(".phon").textContent=c[1];
+  }
+  el("counter").textContent=(di+1)+" / "+deck.length+"  ·  "+deckName;
+}
+el("flip").onclick=function(){ flipped=!flipped; if(flipped) say(deck[di][0]); renderCard(); };
+el("next").onclick=function(){ di=(di+1)%deck.length; flipped=false; renderCard(); };
+el("prev").onclick=function(){ di=(di-1+deck.length)%deck.length; flipped=false; renderCard(); };
+el("shuffle").onclick=function(){ deck=shuffle(deck.slice()); di=0; flipped=false; renderCard(); };
+renderCard();
+
+/* ---------- 6. la phrase ---------- */
+var SENT=[
+  {tr:["Ben","çay","istiyorum"],fr:"Je veux du thé",lit:"moi · thé · je-veux"},
+  {tr:["Ben","su","istiyorum"],fr:"Je veux de l'eau",lit:"moi · eau · je-veux"},
+  {tr:["Ben","Türkçe","öğreniyorum"],fr:"J'apprends le turc",lit:"moi · turc · j'apprends"},
+  {tr:["Kedi","evde"],fr:"Le chat est à la maison",lit:"chat · maison-dans"},
+  {tr:["Kitap","masada"],fr:"Le livre est sur la table",lit:"livre · table-sur"},
+  {tr:["Anne","çay","içiyor"],fr:"Maman boit du thé",lit:"maman · thé · elle-boit"},
+  {tr:["Kedi","süt","içiyor"],fr:"Le chat boit du lait",lit:"chat · lait · il-boit"},
+  {tr:["Baba","evde","değil"],fr:"Papa n'est pas à la maison",lit:"papa · maison-dans · ne-pas"},
+  {tr:["Ben","eve","gidiyorum"],fr:"Je rentre à la maison",lit:"moi · maison-vers · je-vais"},
+  {tr:["Çay","çok","sıcak"],fr:"Le thé est très chaud",lit:"thé · très · chaud"},
+  {tr:["Su","çok","soğuk"],fr:"L'eau est très froide",lit:"eau · très · froide"},
+  {tr:["Deniz","çok","güzel"],fr:"La mer est très belle",lit:"mer · très · belle"},
+  {tr:["Bugün","hava","güzel"],fr:"Il fait beau aujourd'hui",lit:"aujourd'hui · air · beau"},
+  {tr:["Yemek","çok","lezzetli"],fr:"Le repas est délicieux",lit:"repas · très · délicieux"},
+  {tr:["Sen","çok","güzelsin"],fr:"Tu es très belle",lit:"toi · très · belle-tu-es"},
+  {tr:["Ben","seni","seviyorum"],fr:"Je t'aime",lit:"moi · toi · j'aime"},
+  {tr:["Bu","ne"],fr:"Qu'est-ce que c'est ?",lit:"ceci · quoi"},
+  {tr:["Çay","var","mı"],fr:"Est-ce qu'il y a du thé ?",lit:"thé · il-y-a · est-ce-que"},
+  {tr:["Ben","kahve","istiyorum"],fr:"Je veux du café",lit:"moi · café · je-veux"},
+  {tr:["Biz","yarın","geliyoruz"],fr:"Nous venons demain",lit:"nous · demain · nous-venons"},
+  {tr:["Anneanne","çok","tatlı"],fr:"Mamie est adorable",lit:"mamie · très · adorable"},
+  {tr:["Hava","çok","sıcak"],fr:"Il fait très chaud",lit:"air · très · chaud"},
+  {tr:["Baba","çorba","yapıyor"],fr:"Papa fait de la soupe",lit:"papa · soupe · il-fait"},
+  {tr:["Ben","biraz","Türkçe","biliyorum"],fr:"Je parle un peu turc",lit:"moi · un-peu · turc · je-sais"},
+  {tr:["Sen","ne","istiyorsun"],fr:"Qu'est-ce que tu veux ?",lit:"toi · quoi · tu-veux"},
+  {tr:["Biz","çay","içiyoruz"],fr:"Nous buvons du thé",lit:"nous · thé · nous-buvons"},
+  {tr:["Bugün","kar","yağıyor"],fr:"Il neige aujourd'hui",lit:"aujourd'hui · neige · tombe"},
+  {tr:["Bir","kilo","domates","lütfen"],fr:"Un kilo de tomates, s'il vous plaît",lit:"un · kilo · tomate · s'il-vous-plaît"},
+  {tr:["Bu","ne","kadar"],fr:"C'est combien ?",lit:"ceci · quoi · quantité"},
+  {tr:["İndirim","var","mı"],fr:"Y a-t-il une réduction ?",lit:"réduction · il-y-a · est-ce-que"},
+  {tr:["Elma","çok","taze"],fr:"Les pommes sont très fraîches",lit:"pomme · très · frais"},
+  {tr:["Yumurta","taze","mi"],fr:"Les œufs sont frais ?",lit:"œuf · frais · est-ce-que"},
+  {tr:["Balık","çok","pahalı"],fr:"Le poisson est très cher",lit:"poisson · très · cher"},
+  {tr:["Karpuz","çok","tatlı"],fr:"La pastèque est très sucrée",lit:"pastèque · très · sucré"},
+  {tr:["Anne","pazara","gidiyor"],fr:"Maman va au marché",lit:"maman · marché-vers · elle-va"},
+  {tr:["Ben","peynir","alıyorum"],fr:"J'achète du fromage",lit:"moi · fromage · j'achète"},
+  {tr:["Ben","limon","istiyorum"],fr:"Je veux des citrons",lit:"moi · citron · je-veux"}
+];
+var sentIdx=-1;
+function newSent(){
+  var i;
+  do{ i=Math.floor(Math.random()*SENT.length); }while(i===sentIdx && SENT.length>1);
+  sentIdx=i;
+  var s=SENT[i], ans=[], pool=s.tr.slice();
+  do{ shuffle(pool); }while(pool.join(" ")===s.tr.join(" "));
+  var c=el("p-card");
+  c.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="build" lang="tr"></div><div class="pool" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  c.querySelector(".q").textContent="« "+s.fr+" »";
+  c.querySelector(".q-sub").textContent="mot à mot : "+s.lit;
+  var build=c.querySelector(".build"), poolBox=c.querySelector(".pool"), verdict=c.querySelector(".verdict");
+  var done=false;
+  function renderBuild(){
+    build.innerHTML="";
+    if(!ans.length){
+      var ph=document.createElement("span"); ph.className="placeholder";
+      ph.textContent="appuie sur les mots, dans l'ordre";
+      build.appendChild(ph); return;
+    }
+    ans.forEach(function(w,idx){
+      var b=document.createElement("button"); b.className="chip in"; b.textContent=w;
+      b.onclick=function(){
+        if(done) return;
+        ans.splice(idx,1);
+        for(var k=0;k<poolBox.children.length;k++){
+          var pc=poolBox.children[k];
+          if(pc.textContent===w && pc.disabled){ pc.disabled=false; pc.style.opacity="1"; break; }
+        }
+        renderBuild();
+      };
+      build.appendChild(b);
+    });
+  }
+  function check(){
+    done=true;
+    var good=s.tr.join(" "), got=ans.join(" ");
+    Array.prototype.forEach.call(poolBox.children,function(x){x.disabled=true;});
+    var win=(got===good);
+    Array.prototype.forEach.call(build.children,function(x){
+      x.style.background=win?"var(--turquoise)":"var(--coral)";
+      x.style.borderColor=win?"var(--turquoise)":"var(--coral)";
+      x.style.color=win?"#04241F":"#fff";
+    });
+    if(win){ mem.p.s++; mem.p.k++;
+      verdict.innerHTML="Oui : <b>"+good+"</b>.";
+    }else{ mem.p.k=0;
+      verdict.innerHTML="Presque. C'est <b>"+good+"</b> — "+s.lit+".";
+    }
+    say(good); paintScores(); save();
+    var nb=document.createElement("button");
+    nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="#0C2340"; nb.style.color="#0C2340";
+    nb.textContent="Suivant →"; nb.onclick=newSent;
+    c.appendChild(nb); nb.focus();
+  }
+  pool.forEach(function(w){
+    var b=document.createElement("button"); b.className="chip"; b.textContent=w;
+    b.onclick=function(){
+      if(b.disabled||done) return;
+      b.disabled=true; b.style.opacity=".35";
+      ans.push(w); renderBuild();
+      if(ans.length===s.tr.length) check();
+    };
+    poolBox.appendChild(b);
+  });
+  renderBuild();
+}
+newSent();
+
+load(); paintScores();
+
+/* ---------- commandes des réglages du son ---------- */
+try{
+  var vsel=el("voice-pick");
+  if(vsel) vsel.onchange=function(){
+    var v=trVoices.filter(function(x){return x.name===vsel.value;})[0];
+    if(v){ trVoice=v; try{window.localStorage.setItem("yavas-voice",v.name);}catch(e){} }
+    majNote(); say("merhaba");
+  };
+  var rs=el("voice-rate"), ro=el("voice-rate-out");
+  if(rs){
+    rs.value=rate; ro.textContent=rate.toFixed(2).replace(".",",");
+    rs.oninput=function(){
+      rate=parseFloat(rs.value);
+      ro.textContent=rate.toFixed(2).replace(".",",");
+      try{window.localStorage.setItem("yavas-rate",String(rate));}catch(e){}
+    };
+    rs.onchange=function(){ say("teşekkür ederim"); };
+  }
+  var vtest=el("voice-test");
+  if(vtest) vtest.onclick=function(){ pickVoice(); say("merhaba"); };
+}catch(e){}
+
+/* ---------- installation sur iPhone ---------- */
+try{
+  var standalone = (window.navigator.standalone === true) ||
+                   (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var installSeen=false;
+  try{ installSeen = window.localStorage.getItem("yavas-install-seen")==="1"; }catch(e){}
+  if(isIOS && !standalone && !installSeen){
+    var banner=el("install");
+    banner.hidden=false;
+    el("install-ok").onclick=function(){
+      banner.hidden=true;
+      try{ window.localStorage.setItem("yavas-install-seen","1"); }catch(e){}
+    };
+  }
+  /* iOS charge les voix en différé : on les réveille au premier contact */
+  if(window.speechSynthesis) window.speechSynthesis.getVoices();
+}catch(e){}
+
+if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+})();
+</script>
+</body>
+</html>

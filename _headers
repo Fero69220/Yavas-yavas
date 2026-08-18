@@ -1,0 +1,22 @@
+# En-têtes Netlify — pour que les mises à jour arrivent vite et que le lourd soit bien mis en cache.
+
+/index.html
+  Cache-Control: no-cache
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: no-cache
+
+/audio/*
+  Cache-Control: public, max-age=604800
+
+/icon-180.png
+  Cache-Control: public, max-age=2592000
+
+/icon-192.png
+  Cache-Control: public, max-age=2592000
+
+/icon-512.png
+  Cache-Control: public, max-age=2592000
