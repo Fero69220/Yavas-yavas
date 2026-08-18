@@ -1,7 +1,7 @@
 /* Yavaş yavaş — cache hors ligne.
    Change CACHE en "yavas-v9", "yavas-v10"... à chaque modification du contenu,
    sinon les téléphones garderont l'ancienne version. */
-const CACHE = "yavas-v10";
+const CACHE = "yavas-v11";
 const CORE = [
   "./",
   "./index.html",
