@@ -398,6 +398,46 @@ footer b{font-family:var(--display);font-style:italic;font-weight:520;color:var(
 .setrow input[type=range]{flex:1;min-width:130px;accent-color:var(--coral);height:22px}
 .setrow output{font-family:var(--mono);font-size:13px;color:var(--coral);min-width:42px;text-align:right}
 
+/* ---- questions & réponses (se présenter) ---- */
+.catbtn{
+  font:inherit;font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--bg-line);color:var(--text-dim);
+  transition:background .2s,color .2s,border-color .2s;
+}
+.catbtn[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.qa-q{font-family:var(--display);font-weight:600;font-size:clamp(23px,5.6vw,32px);line-height:1.12;margin:0 0 6px;letter-spacing:-.008em}
+.qa-phon{font-family:var(--mono);font-size:13px;color:var(--coral);margin:0 0 3px}
+.qa-fr{color:var(--card-muted);margin:0 0 16px}
+.qa-a{border-top:1px dashed var(--paper-line-strong);padding-top:14px;margin-top:14px}
+.qa-a .tr{font-weight:700;font-size:19px;color:var(--cobalt)}
+.qa-a .fr{color:var(--card-muted);font-size:14.5px;margin-top:3px}
+.qa-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+/* ---- à table ---- */
+.letter.food .glyph{font-size:22px;letter-spacing:-.008em;line-height:1.15}
+.resto-line{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--paper-line)}
+.resto-line:last-child{border-bottom:0}
+.resto-line .tr{font-weight:700;font-size:16.5px}
+.resto-line .fr{color:var(--card-muted);font-size:13.5px;margin-top:2px}
+
+/* ---- la conversation ---- */
+.dlg{display:flex;flex-direction:column;gap:10px;margin:2px 0 14px;min-height:60px}
+.bub{max-width:88%;padding:10px 14px;border-radius:14px;line-height:1.45;animation:pop .24s ease both}
+.bub .tr{font-weight:700;font-size:16.5px}
+.bub .fr{font-size:13px;margin-top:2px}
+.bub.npc{align-self:flex-start;background:var(--card-hover);border:1px solid var(--paper-line-strong);border-bottom-left-radius:5px}
+.bub.npc .fr{color:var(--card-muted)}
+.bub.me{align-self:flex-end;background:var(--cobalt);color:var(--on-cobalt);border-bottom-right-radius:5px}
+.bub.me .fr{opacity:.78}
+.opt .sub{display:block;font-family:var(--body);font-weight:500;font-size:13px;color:var(--card-muted);margin-top:2px}
+.opt.right .sub,.opt.wrong .sub{color:inherit;opacity:.8}
+.ai-row{display:flex;gap:8px;margin-top:12px;align-items:stretch}
+.txt-in{
+  flex:1;min-width:0;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;
+  border:1.5px solid var(--paper-line-strong);background:var(--card-hover);color:var(--ink);
+}
+.chip.mic[data-on="1"]{background:var(--coral);border-color:var(--coral);color:var(--on-coral)}
+
 /* ---- choix des couleurs (dans « Note pour le prof ») ---- */
 .themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px}
 .theme-btn{
@@ -607,6 +647,62 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 </section>
 
 <!-- ============ POUR TOI ============ -->
+<!-- ============ SE PRÉSENTER ============ -->
+<section class="panel" id="p-presenter" role="tabpanel">
+  <h2>Se présenter</h2>
+  <p class="lede">Les questions qu'on lui posera à coup sûr — et une réponse prête pour chacune. Écoute la question, réponds à voix haute, puis compare avec la réponse proposée.</p>
+  <div class="cats" id="qa-cats"></div>
+  <div class="card" id="qa-card"></div>
+  <div class="deck-nav">
+    <button class="ghost" id="qa-prev">← Précédente</button>
+    <span class="counter" id="qa-counter"></span>
+    <button class="ghost" id="qa-next">Suivante →</button>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Le réflexe qui sauve</h3>
+    <p>Quand elle ne comprend pas : <b>Anlamadım, tekrar eder misin?</b> <span class="muted">(Je n'ai pas compris, tu peux répéter ?)</span> — puis <b>Yavaş, lütfen!</b> <span class="muted">(Lentement, s'il te plaît !)</span>. Avec ces deux phrases, aucune conversation ne fait peur.</p>
+  </div>
+</section>
+
+<!-- ============ À TABLE ============ -->
+<section class="panel" id="p-table" role="tabpanel">
+  <h2>À table</h2>
+  <p class="lede">La table est le cœur de la vie turque : c'est là que tout se dit. Appuie sur un plat pour l'entendre. Et attention au piège : <b>pasta</b> veut dire <b>gâteau</b>, pas « pâtes » !</p>
+  <div class="cats" id="food-cats"></div>
+  <div class="letters" id="food-grid"></div>
+  <div class="card" id="food-resto" hidden></div>
+</section>
+
+<!-- ============ LA CONVERSATION ============ -->
+<section class="panel" id="p-conversation" role="tabpanel">
+  <h2>La conversation</h2>
+  <p class="lede">Trois petites scènes à jouer, sans connexion : l'appli dit sa réplique à voix haute, tu lis la tienne, tu appuies, la scène continue.</p>
+  <div class="cats" id="dlg-scenes"></div>
+  <div class="card">
+    <div class="dlg" id="dlg-box"></div>
+    <div class="opts" id="dlg-opts"></div>
+    <small class="note">Astuce : dis ta réplique à voix haute <b>avant</b> d'appuyer dessus — c'est là que ça s'imprime.</small>
+  </div>
+  <div class="card" id="ai-card">
+    <h3>Parler librement avec Ayşe (mode IA, connecté)</h3>
+    <p class="muted">Ayşe est une IA : elle répond en turc très simple, avec la traduction, et relance la conversation. Ce mode a besoin d'internet et d'un petit réglage une seule fois (voir le dossier <b>ia/</b> du site).</p>
+    <details id="ai-setup">
+      <summary style="font-size:13.5px;font-weight:700;color:var(--card-muted);cursor:pointer">Réglage : brancher l'IA</summary>
+      <div class="setrow">
+        <label for="ai-url">Adresse</label>
+        <input type="text" id="ai-url" class="txt-in" placeholder="https://ton-worker.workers.dev" autocomplete="off" autocapitalize="off">
+      </div>
+      <p class="muted" style="font-size:13px;margin-top:10px">Mode d'emploi pas à pas : fichier <b>ia/brancher-l-ia.md</b> livré avec le site (5 minutes, gratuit côté Cloudflare, quelques centimes côté IA).</p>
+    </details>
+    <div class="dlg" id="ai-box" style="margin-top:14px"></div>
+    <div class="ai-row">
+      <button class="chip mic" id="ai-mic" hidden aria-label="Parler au micro">🎤</button>
+      <input type="text" id="ai-input" class="txt-in" placeholder="Yaz ya da konuş… (écris ou parle)" autocomplete="off">
+      <button class="chip in" id="ai-send">Gönder</button>
+    </div>
+  </div>
+</section>
+
 <section class="panel" id="p-prof" role="tabpanel">
   <h2>Note pour le prof</h2>
   <p class="lede">Tu parles turc sans y penser — c'est précisément ce qui rend l'enseignement difficile. Quelques repères.</p>
@@ -847,6 +943,9 @@ var TABS=[
   {id:"verbes",label:"Les verbes"},
   {id:"phrases",label:"Les cartes"},
   {id:"ordre",label:"La phrase"},
+  {id:"presenter",label:"Se présenter"},
+  {id:"table",label:"À table"},
+  {id:"conversation",label:"La conversation"},
   {id:"prof",label:"Note pour le prof"}
 ];
 var nav=el("nav");
@@ -1532,7 +1631,13 @@ var SENT=[
   {tr:["Karpuz","çok","tatlı"],fr:"La pastèque est très sucrée",lit:"pastèque · très · sucré"},
   {tr:["Anne","pazara","gidiyor"],fr:"Maman va au marché",lit:"maman · marché-vers · elle-va"},
   {tr:["Ben","peynir","alıyorum"],fr:"J'achète du fromage",lit:"moi · fromage · j'achète"},
-  {tr:["Ben","limon","istiyorum"],fr:"Je veux des citrons",lit:"moi · citron · je-veux"}
+  {tr:["Ben","limon","istiyorum"],fr:"Je veux des citrons",lit:"moi · citron · je-veux"},
+  {tr:["Benim","adım","Claire"],fr:"Je m\u2019appelle Claire",lit:"de-moi · nom · Claire"},
+  {tr:["Ben","Türkçe","öğreniyorum"],fr:"J\u2019apprends le turc",lit:"moi · turc · j\u2019apprends"},
+  {tr:["Biz","Paris\u2019te","oturuyoruz"],fr:"Nous habitons à Paris",lit:"nous · Paris-à · nous-habitons"},
+  {tr:["Baklava","çok","tatlı"],fr:"Le baklava est très sucré",lit:"baklava · très · sucré"},
+  {tr:["Ben","kahve","seviyorum"],fr:"J\u2019aime le café",lit:"moi · café · j\u2019aime"},
+  {tr:["Çorba","çok","sıcak"],fr:"La soupe est très chaude",lit:"soupe · très · chaud"}
 ];
 var sentIdx=-1;
 function newSent(){
@@ -1626,6 +1731,304 @@ try{
   var vtest=el("voice-test");
   if(vtest) vtest.onclick=function(){ pickVoice(); say("merhaba"); };
 }catch(e){}
+
+/* ---------- 8. se présenter ---------- */
+var QA=[
+ {c:0,q:"Adın ne?",p:"a-DEUN né",fq:"Comment tu t'appelles ?",a:"Benim adım Claire.",pa:"bé-NIM a-DEUM…",fa:"Je m'appelle Claire."},
+ {c:0,q:"Nasılsın?",p:"na-SEUL-seun",fq:"Comment vas-tu ?",a:"İyiyim, teşekkürler. Sen nasılsın?",pa:"i-yi-YIM, té-chek-kur-LÈR",fa:"Je vais bien, merci. Et toi ?"},
+ {c:0,q:"Nerelisin?",p:"né-ré-li-SIN",fq:"D'où viens-tu ?",a:"Fransızım.",pa:"fran-seu-ZEUM",fa:"Je suis française."},
+ {c:0,q:"Kaç yaşındasın?",p:"KATCH ya-cheun-da-seun",fq:"Quel âge as-tu ?",a:"Otuz yaşındayım.",pa:"o-TOUZ ya-cheun-da-yeum",fa:"J'ai trente ans."},
+ {c:0,q:"Nerede oturuyorsun?",p:"NÉ-ré-dé o-tou-rou-yor-soun",fq:"Où habites-tu ?",a:"Paris'te oturuyorum.",pa:"pa-ris-TÉ o-tou-rou-yo-roum",fa:"J'habite à Paris."},
+ {c:0,q:"Ne iş yapıyorsun?",p:"né ICH ya-peu-yor-soun",fq:"Que fais-tu dans la vie ?",a:"Öğretmenim.",pa:"eu-rèt-mé-NIM",fa:"Je suis enseignante."},
+ {c:0,q:"Evli misin?",p:"èv-LI mi-sin",fq:"Es-tu mariée ?",a:"Evet, evliyim.",pa:"é-VÈT, èv-li-YIM",fa:"Oui, je suis mariée."},
+ {c:0,q:"Türkçe biliyor musun?",p:"TURK-tché bi-li-yor mou-soun",fq:"Parles-tu turc ?",a:"Biraz. Türkçe öğreniyorum.",pa:"bi-RAZ. TURK-tché eu-ré-ni-yo-roum",fa:"Un peu. J'apprends le turc."},
+ {c:0,q:"Memnun oldum.",p:"mèm-NOUN ol-doum",fq:"Enchantée.",a:"Ben de memnun oldum.",pa:"bèn dé mèm-NOUN ol-doum",fa:"Moi aussi, enchantée."},
+ {c:1,q:"Saat kaç?",p:"sa-AT katch",fq:"Quelle heure est-il ?",a:"Saat üç.",pa:"sa-AT utch",fa:"Il est trois heures."},
+ {c:1,q:"Bu ne?",p:"bou NÉ",fq:"Qu'est-ce que c'est ?",a:"Bu bir kitap.",pa:"bou bir ki-TAP",fa:"C'est un livre."},
+ {c:1,q:"Bu ne kadar?",p:"bou né ka-DAR",fq:"C'est combien ?",a:"On lira.",pa:"ON li-ra",fa:"Dix lires."},
+ {c:1,q:"Tuvalet nerede?",p:"tou-va-LÈT né-ré-dé",fq:"Où sont les toilettes ?",a:"Şurada, solda.",pa:"chou-ra-DA, sol-DA",fa:"Là-bas, à gauche."},
+ {c:1,q:"Yardım eder misin?",p:"yar-DEUM é-dèr mi-sin",fq:"Tu peux m'aider ?",a:"Tabii ki!",pa:"ta-BI ki",fa:"Bien sûr !"},
+ {c:1,q:"Hava nasıl?",p:"ha-VA na-seul",fq:"Quel temps fait-il ?",a:"Güneşli ve sıcak.",pa:"gu-nèch-LI vé seu-DJAK",fa:"Ensoleillé et chaud."},
+ {c:1,q:"Anlamadım. Tekrar eder misin?",p:"an-la-ma-DEUM. tèk-RAR é-dèr mi-sin",fq:"Je n'ai pas compris. Tu peux répéter ?",a:"Tabii, yavaş söylüyorum.",pa:"ta-BI, ya-VACH seuy-lu-yo-roum",fa:"Bien sûr, je le dis lentement."},
+ {c:1,q:"Acıktın mı?",p:"a-djeuk-TEUN meu",fq:"Tu as faim ?",a:"Evet, çok acıktım!",pa:"é-VÈT, tchok a-djeuk-TEUM",fa:"Oui, très faim !"},
+ {c:1,q:"Ne yapıyorsun?",p:"né ya-peu-yor-soun",fq:"Qu'est-ce que tu fais ?",a:"Yemek yapıyorum.",pa:"yé-MÈK ya-peu-yo-roum",fa:"Je cuisine."},
+ {c:1,q:"Nereye gidiyorsun?",p:"né-ré-YÉ gi-di-yor-soun",fq:"Où vas-tu ?",a:"Markete gidiyorum.",pa:"mar-ké-TÉ gi-di-yo-roum",fa:"Je vais au supermarché."}
+];
+var QA_CATS=["Se présenter","Au quotidien"];
+var qaCat=0, qaIdx=0, qaList=[];
+function qaFilter(){ qaList=QA.filter(function(x){return x.c===qaCat;}); qaIdx=0; }
+function qaRender(){
+  var it=qaList[qaIdx]; if(!it) return;
+  var card=el("qa-card");
+  card.innerHTML=
+    '<div class="qa-q" lang="tr">'+it.q+'</div>'+
+    '<div class="qa-phon">'+it.p+'</div>'+
+    '<div class="qa-fr">'+it.fq+'</div>'+
+    '<div class="qa-actions">'+
+      '<button class="speak" id="qa-say-q">&#128266; La question</button>'+
+      '<button class="chip" id="qa-reveal">Voir une r&eacute;ponse</button>'+
+    '</div>'+
+    '<div class="qa-a" id="qa-answer" hidden>'+
+      '<div class="tr" lang="tr">'+it.a+'</div>'+
+      '<div class="qa-phon" style="margin-top:4px">'+it.pa+'</div>'+
+      '<div class="fr">'+it.fa+'</div>'+
+      '<div class="qa-actions"><button class="speak" id="qa-say-a">&#128266; La r&eacute;ponse</button></div>'+
+    '</div>';
+  el("qa-counter").textContent=(qaIdx+1)+" / "+qaList.length;
+  el("qa-say-q").onclick=function(){ say(it.q); };
+  el("qa-reveal").onclick=function(){ el("qa-answer").hidden=false; this.style.display="none"; say(it.a); };
+  el("qa-say-a").onclick=function(){ say(it.a); };
+}
+(function(){
+  var cats=el("qa-cats"); if(!cats) return;
+  QA_CATS.forEach(function(n,i){
+    var b=document.createElement("button");
+    b.className="catbtn"; b.textContent=n;
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){
+      qaCat=i; qaFilter(); qaRender();
+      Array.prototype.forEach.call(cats.children,function(x,j){ x.setAttribute("aria-pressed", j===i?"true":"false"); });
+    };
+    cats.appendChild(b);
+  });
+  el("qa-prev").onclick=function(){ qaIdx=(qaIdx-1+qaList.length)%qaList.length; qaRender(); };
+  el("qa-next").onclick=function(){ qaIdx=(qaIdx+1)%qaList.length; qaRender(); };
+  qaFilter(); qaRender();
+})();
+
+/* ---------- 9. à table ---------- */
+var FOOD=[
+ {c:0,w:"kebap",p:"ké-BAP",fr:"grillade, brochette"},
+ {c:0,w:"köfte",p:"keuf-TÉ",fr:"boulettes de viande"},
+ {c:0,w:"pide",p:"pi-DÉ",fr:"pain garni — la « pizza » turque"},
+ {c:0,w:"lahmacun",p:"lah-ma-DJOUN",fr:"fine galette à la viande"},
+ {c:0,w:"mantı",p:"man-TEU",fr:"petits raviolis, sauce yaourt"},
+ {c:0,w:"dolma",p:"dol-MA",fr:"légumes farcis"},
+ {c:0,w:"sarma",p:"sar-MA",fr:"feuilles de vigne farcies"},
+ {c:0,w:"börek",p:"beu-RÈK",fr:"feuilleté (fromage, viande…)"},
+ {c:0,w:"mercimek çorbası",p:"mèr-dji-MÈK tchor-ba-seu",fr:"soupe de lentilles"},
+ {c:0,w:"pilav",p:"pi-LAV",fr:"riz pilaf"},
+ {c:1,w:"pasta",p:"pas-TA",fr:"gâteau ! (pas « pâtes »)"},
+ {c:1,w:"kek",p:"kèk",fr:"cake, gâteau maison"},
+ {c:1,w:"baklava",p:"bak-la-VA",fr:"feuilleté aux noix et au sirop"},
+ {c:1,w:"künefe",p:"ku-né-FÉ",fr:"cheveux d'ange au fromage, servi chaud"},
+ {c:1,w:"sütlaç",p:"sut-LATCH",fr:"riz au lait"},
+ {c:1,w:"lokum",p:"lo-KOUM",fr:"loukoum"},
+ {c:1,w:"helva",p:"hèl-VA",fr:"douceur au sésame"},
+ {c:1,w:"dondurma",p:"don-dour-MA",fr:"glace (élastique !)"},
+ {c:1,w:"kurabiye",p:"kou-ra-bi-YÉ",fr:"petit biscuit"},
+ {c:1,w:"revani",p:"ré-va-NI",fr:"gâteau de semoule au sirop"},
+ {c:2,w:"ayran",p:"aï-RAN",fr:"yaourt à boire, salé"},
+ {c:2,w:"Türk kahvesi",p:"turk kah-vé-SI",fr:"café turc"},
+ {c:2,w:"meyve suyu",p:"meï-VÉ sou-you",fr:"jus de fruits"},
+ {c:2,w:"maden suyu",p:"ma-DÈN sou-you",fr:"eau gazeuse"}
+];
+var RESTO=[
+ {tr:"Menü, lütfen.",fr:"Le menu, s'il vous plaît."},
+ {tr:"Bir çay, lütfen.",fr:"Un thé, s'il vous plaît."},
+ {tr:"Afiyet olsun!",fr:"Bon appétit !"},
+ {tr:"Çok lezzetli!",fr:"C'est délicieux !"},
+ {tr:"Ellerine sağlık!",fr:"« Santé à tes mains » — le compliment à qui a cuisiné."},
+ {tr:"Ben tokum, teşekkürler.",fr:"Je n'ai plus faim, merci."},
+ {tr:"Bir tane daha, lütfen.",fr:"Encore un, s'il vous plaît."},
+ {tr:"Hesap, lütfen.",fr:"L'addition, s'il vous plaît."}
+];
+var FOOD_CATS=["Les plats","Gâteaux & desserts","Les boissons","Au restaurant"];
+var foodCat=0;
+function foodRender(){
+  var grid=el("food-grid"), resto=el("food-resto");
+  if(foodCat===3){
+    grid.hidden=true; resto.hidden=false;
+    var h='<h3>Les huit phrases du restaurant</h3>';
+    RESTO.forEach(function(r,i){
+      h+='<div class="resto-line"><div><div class="tr" lang="tr">'+r.tr+'</div><div class="fr">'+r.fr+'</div></div>'+
+         '<button class="speak" data-resto="'+i+'">&#128266;</button></div>';
+    });
+    resto.innerHTML=h;
+    Array.prototype.forEach.call(resto.querySelectorAll("[data-resto]"),function(b){
+      b.onclick=function(){ say(RESTO[parseInt(b.getAttribute("data-resto"),10)].tr); };
+    });
+    return;
+  }
+  resto.hidden=true; grid.hidden=false;
+  grid.innerHTML="";
+  FOOD.filter(function(x){return x.c===foodCat;}).forEach(function(it){
+    var b=document.createElement("button");
+    b.className="letter food"+(foodCat===1?" easy":"");
+    b.innerHTML='<div class="glyph" lang="tr">'+it.w+'</div><div class="say">'+it.p+'</div><div class="ex">'+it.fr+'</div>';
+    b.onclick=function(){ say(it.w); };
+    grid.appendChild(b);
+  });
+}
+(function(){
+  var cats=el("food-cats"); if(!cats) return;
+  FOOD_CATS.forEach(function(n,i){
+    var b=document.createElement("button");
+    b.className="catbtn"; b.textContent=n;
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){
+      foodCat=i; foodRender();
+      Array.prototype.forEach.call(cats.children,function(x,j){ x.setAttribute("aria-pressed", j===i?"true":"false"); });
+    };
+    cats.appendChild(b);
+  });
+  foodRender();
+})();
+
+/* ---------- 10. la conversation (scènes hors ligne) ---------- */
+var DIALOGS=[
+ {name:"Au café ☕",steps:[
+  {npc:{tr:"Hoş geldiniz! Ne istersiniz?",fr:"Bienvenue ! Que désirez-vous ?"},
+   opts:[{tr:"Bir çay, lütfen.",fr:"Un thé, s'il vous plaît."},{tr:"Bir Türk kahvesi, lütfen.",fr:"Un café turc, s'il vous plaît."},{tr:"Bir ayran, lütfen.",fr:"Un ayran, s'il vous plaît."}]},
+  {npc:{tr:"Tabii. Başka bir şey?",fr:"Bien sûr. Autre chose ?"},
+   opts:[{tr:"Hayır, teşekkürler.",fr:"Non, merci."},{tr:"Bir su, lütfen.",fr:"Une eau, s'il vous plaît."},{tr:"Bir baklava, lütfen!",fr:"Un baklava, s'il vous plaît !"}]},
+  {npc:{tr:"Hemen geliyor. Afiyet olsun!",fr:"Ça arrive tout de suite. Bon appétit !"},
+   opts:[{tr:"Teşekkür ederim!",fr:"Merci beaucoup !"},{tr:"Çok naziksiniz.",fr:"Vous êtes très aimable."}]},
+  {npc:{tr:"Buyrun. Nasıl, güzel mi?",fr:"Voilà. Alors, c'est bon ?"},
+   opts:[{tr:"Çok lezzetli! Hesap, lütfen.",fr:"Délicieux ! L'addition, s'il vous plaît."},{tr:"Çok güzel! Hesap, lütfen.",fr:"Très bon ! L'addition, s'il vous plaît."}]},
+  {npc:{tr:"Elli lira. İyi günler!",fr:"Cinquante lires. Bonne journée !"},
+   opts:[{tr:"İyi günler! Güle güle!",fr:"Bonne journée ! Au revoir !"}]}
+ ]},
+ {name:"Chez la famille 🏡",steps:[
+  {npc:{tr:"Hoş geldin canım!",fr:"Bienvenue ma chérie !"},
+   opts:[{tr:"Hoş bulduk!",fr:"(la réponse rituelle à « bienvenue »)"},{tr:"Merhaba!",fr:"Bonjour !"}]},
+  {npc:{tr:"Nasılsın?",fr:"Comment vas-tu ?"},
+   opts:[{tr:"İyiyim, teşekkürler. Siz nasılsınız?",fr:"Je vais bien, merci. Et vous ?"},{tr:"Çok iyiyim!",fr:"Je vais très bien !"}]},
+  {npc:{tr:"Çok güzel! Türkçe biliyor musun?",fr:"Très bien ! Tu parles turc ?"},
+   opts:[{tr:"Biraz. Türkçe öğreniyorum.",fr:"Un peu. J'apprends le turc."},{tr:"Yavaş yavaş öğreniyorum!",fr:"J'apprends petit à petit !"}]},
+  {npc:{tr:"Aferin sana! Çay ister misin?",fr:"Bravo à toi ! Tu veux du thé ?"},
+   opts:[{tr:"Evet, lütfen!",fr:"Oui, s'il te plaît !"},{tr:"Evet! Çok teşekkürler.",fr:"Oui ! Merci beaucoup."}]},
+  {npc:{tr:"Buyrun, çay hazır. Afiyet olsun!",fr:"Voilà, le thé est prêt. Bon appétit !"},
+   opts:[{tr:"Teşekkürler! Ellerine sağlık!",fr:"Merci ! « Santé à tes mains ! »"}]}
+ ]},
+ {name:"Au marché 🍅",steps:[
+  {npc:{tr:"Buyrun! Hoş geldiniz!",fr:"Je vous en prie ! Bienvenue !"},
+   opts:[{tr:"Merhaba! Domates var mı?",fr:"Bonjour ! Vous avez des tomates ?"},{tr:"Merhaba! Elma var mı?",fr:"Bonjour ! Vous avez des pommes ?"}]},
+  {npc:{tr:"Var, çok taze! Kaç kilo?",fr:"Oui, très fraîches ! Combien de kilos ?"},
+   opts:[{tr:"Bir kilo, lütfen.",fr:"Un kilo, s'il vous plaît."},{tr:"İki kilo, lütfen.",fr:"Deux kilos, s'il vous plaît."}]},
+  {npc:{tr:"Tabii. Başka bir şey?",fr:"Bien sûr. Autre chose ?"},
+   opts:[{tr:"Bir kilo portakal, lütfen.",fr:"Un kilo d'oranges, s'il vous plaît."},{tr:"Hayır, teşekkürler.",fr:"Non, merci."}]},
+  {npc:{tr:"Buyrun. Hepsi kırk lira.",fr:"Voilà. En tout, quarante lires."},
+   opts:[{tr:"Buyrun. Teşekkürler!",fr:"Voici. Merci !"},{tr:"Bu ne kadar?… Ah, tamam!",fr:"C'est combien ?… Ah, d'accord !"}]},
+  {npc:{tr:"Ben teşekkür ederim. İyi günler!",fr:"C'est moi qui vous remercie. Bonne journée !"},
+   opts:[{tr:"İyi günler!",fr:"Bonne journée !"}]}
+ ]}
+];
+var dlgI=0, dlgStep=0;
+function dlgBubble(box,who,tr,fr){
+  var d=document.createElement("div");
+  d.className="bub "+who;
+  d.innerHTML='<div class="tr" lang="tr">'+tr+'</div>'+(fr?'<div class="fr">'+fr+'</div>':'');
+  box.appendChild(d);
+  d.onclick=function(){ say(tr); };
+  return d;
+}
+function dlgPlay(){
+  var sc=DIALOGS[dlgI], box=el("dlg-box"), opts=el("dlg-opts");
+  if(dlgStep>=sc.steps.length){
+    opts.innerHTML="";
+    var again=document.createElement("button");
+    again.className="chip"; again.textContent="Rejouer la scène 🔁";
+    again.onclick=function(){ dlgStart(dlgI); };
+    opts.appendChild(again);
+    return;
+  }
+  var st=sc.steps[dlgStep];
+  dlgBubble(box,"npc",st.npc.tr,st.npc.fr);
+  say(st.npc.tr);
+  box.scrollIntoView({block:"end",behavior:"smooth"});
+  opts.innerHTML="";
+  st.opts.forEach(function(o){
+    var b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML='<span lang="tr">'+o.tr+'</span><span class="sub">'+o.fr+'</span>';
+    b.onclick=function(){
+      dlgBubble(box,"me",o.tr,o.fr);
+      say(o.tr);
+      dlgStep++;
+      opts.innerHTML="";
+      setTimeout(dlgPlay,1600);
+    };
+    opts.appendChild(b);
+  });
+}
+function dlgStart(i){
+  dlgI=i; dlgStep=0;
+  el("dlg-box").innerHTML="";
+  var cats=el("dlg-scenes");
+  Array.prototype.forEach.call(cats.children,function(x,j){ x.setAttribute("aria-pressed", j===i?"true":"false"); });
+  dlgPlay();
+}
+(function(){
+  var cats=el("dlg-scenes"); if(!cats) return;
+  DIALOGS.forEach(function(d,i){
+    var b=document.createElement("button");
+    b.className="catbtn"; b.textContent=d.name;
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){ dlgStart(i); };
+    cats.appendChild(b);
+  });
+  dlgStart(0);
+})();
+
+/* ---------- 11. le mode IA (connecté) ---------- */
+var AI_SYS="Tu es Ayşe, une amie turque chaleureuse et patiente. Tu aides une débutante (niveau A1) à pratiquer le turc. Réponds TOUJOURS ainsi : une ou deux phrases très simples en turc (présent, vocabulaire du quotidien), puis la traduction française entre parenthèses. Termine par une petite question simple en turc pour relancer. Si elle fait une erreur, redonne la forme correcte avec bienveillance. Si elle écrit en français, réponds quand même en turc simple avec la traduction. Reste courte : 3 lignes maximum.";
+var aiHist=[];
+function aiUrl(){ try{ return window.localStorage.getItem("yavas-ai-url")||""; }catch(e){ return ""; } }
+function aiSend(){
+  var inp=el("ai-input"), box=el("ai-box");
+  var txt=(inp.value||"").trim();
+  if(!txt) return;
+  var url=aiUrl();
+  if(!url){
+    el("ai-setup").open=true;
+    dlgBubble(box,"npc","Önce ayar lazım!","Il faut d'abord le réglage : ouvre « Brancher l'IA » ci-dessus et colle l'adresse de ta passerelle (mode d'emploi dans ia/brancher-l-ia.md).");
+    return;
+  }
+  inp.value="";
+  dlgBubble(box,"me",txt,"");
+  aiHist.push({role:"user",content:txt});
+  var wait=dlgBubble(box,"npc","…","Ayşe réfléchit");
+  fetch(url,{method:"POST",headers:{"content-type":"application/json"},
+    body:JSON.stringify({system:AI_SYS,messages:aiHist})})
+  .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+  .then(function(d){
+    var t=(d&&d.text)?d.text:"(réponse vide)";
+    wait.innerHTML='<div class="tr" lang="tr">'+t.replace(/</g,"&lt;")+'</div>';
+    wait.onclick=function(){ say(t.split("(")[0]); };
+    aiHist.push({role:"assistant",content:t});
+    say(t.split("(")[0]);
+  })
+  .catch(function(e){
+    wait.innerHTML='<div class="tr">Bağlantı yok 😕</div><div class="fr">Pas de connexion à la passerelle ('+String(e.message||e).replace(/</g,"&lt;")+'). Vérifie internet et l\u2019adresse dans le réglage.</div>';
+  });
+}
+(function(){
+  var send=el("ai-send"); if(!send) return;
+  send.onclick=aiSend;
+  el("ai-input").addEventListener("keydown",function(ev){ if(ev.key==="Enter") aiSend(); });
+  var urlIn=el("ai-url");
+  urlIn.value=aiUrl();
+  urlIn.addEventListener("change",function(){
+    try{ window.localStorage.setItem("yavas-ai-url",urlIn.value.trim()); }catch(e){}
+  });
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(SR){
+    var mic=el("ai-mic"); mic.hidden=false;
+    var rec=null, on=false;
+    mic.onclick=function(){
+      if(on){ try{rec.stop();}catch(e){} return; }
+      rec=new SR(); rec.lang="tr-TR"; rec.interimResults=false;
+      rec.onresult=function(ev){
+        var t=ev.results[0][0].transcript;
+        el("ai-input").value=t;
+      };
+      rec.onend=function(){ on=false; mic.removeAttribute("data-on"); };
+      rec.onerror=function(){ on=false; mic.removeAttribute("data-on"); };
+      try{ rec.start(); on=true; mic.setAttribute("data-on","1"); }catch(e){}
+    };
+  }
+})();
 
 /* ---------- les couleurs (choix dans « Note pour le prof ») ---------- */
 var THEME_META={bosphore:"#0C1524",iznik:"#FAF8F1",lokum:"#FBF1EF",egee:"#EEF4F6",figue:"#261B29"};
