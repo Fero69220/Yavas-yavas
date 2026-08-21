@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yavaş yavaş — niveau A2</title>
+<meta name="description" content="Le turc niveau A2 : le passé, le futur, les cas — dix minutes par jour.">
+<meta name="referrer" content="no-referrer">
+<meta property="og:title" content="Yavaş yavaş — niveau A2">
+<meta property="og:description" content="Apprendre le turc, dix minutes par jour, pour francophones.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://fero69220.github.io/Yavas-yavas/a2.html">
+<meta property="og:image" content="https://fero69220.github.io/Yavas-yavas/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0C1524">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Yavaş yavaş">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..650&family=Manrope:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --display:"Fraunces","Georgia",serif;
+  --body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --mono:"Spline Sans Mono","SFMono-Regular",Consolas,monospace;
+}
+/* ================= Les thèmes =================
+   Le choix se fait dans « Note pour le prof » et
+   il est retenu sur l'appareil (yavas-theme). */
+
+/* Bosphore — le thème d'origine : nuit, laiton, İznik */
+body{
+  --bg:#0C1524;
+  --text:#F8F4EB; --text-dim:#D8D2C3;
+  --ink:#0C1524;
+  --card:#F8F4EB; --card-hover:#FFFDF8;
+  --card-muted:#5E6A7D; --card-faint:#8A97A8;
+  --paper-line:rgba(12,21,36,.10); --paper-line-strong:rgba(12,21,36,.2);
+  --brass-line:rgba(201,159,85,.32);
+  --bg-line:rgba(248,244,235,.3); --bg-line-strong:rgba(248,244,235,.38);
+  --bg-line-faint:rgba(248,244,235,.16); --bg-tint:rgba(248,244,235,.03);
+  --cobalt:#2F5C9E; --turquoise:#1E8E81; --teal-bright:#5BBFB2;
+  --coral:#BE4B36; --amber:#C99F55;
+  --accent:#C99F55; --on-accent:#0C1524;
+  --on-turquoise:#04241F; --on-amber:#3A2600; --on-coral:#fff; --on-cobalt:#fff;
+  --machine-top:#12233C; --machine-bottom:#101E33;
+  --machine-line:rgba(201,159,85,.32); --machine-accent:#C99F55;
+  --machine-text:#F8F4EB; --machine-text-dim:#D8D2C3;
+  --machine-line1:rgba(248,244,235,.24); --machine-line2:rgba(248,244,235,.38);
+  --dust:rgba(201,159,85,.14);
+  --glow1:rgba(47,92,158,.30); --glow2:rgba(30,142,129,.16);
+  --shadow-card:0 1px 2px rgba(0,0,0,.25), 0 20px 44px -30px rgba(0,0,0,.65);
+  --shadow-flip:0 1px 2px rgba(0,0,0,.25), 0 24px 48px -32px rgba(0,0,0,.7);
+  --shadow-hover:0 12px 26px -16px rgba(0,0,0,.55);
+  --shadow-morph:0 6px 16px -8px rgba(0,0,0,.55);
+}
+/* Porcelaine d'İznik — la céramique : blanc, cobalt, turquoise, tomate */
+body[data-theme="iznik"]{
+  --bg:#FAF8F1;
+  --text:#1B2A4A; --text-dim:#5A6579;
+  --ink:#1B2A4A;
+  --card:#FFFFFF; --card-hover:#FDFCF6;
+  --card-muted:#64708A; --card-faint:#93A0B4;
+  --paper-line:rgba(27,42,74,.10); --paper-line-strong:rgba(27,42,74,.22);
+  --brass-line:rgba(169,126,47,.45);
+  --bg-line:rgba(27,42,74,.26); --bg-line-strong:rgba(27,42,74,.34);
+  --bg-line-faint:rgba(27,42,74,.16); --bg-tint:rgba(27,42,74,.04);
+  --cobalt:#2451A6; --turquoise:#16897C; --teal-bright:#8FD8CD;
+  --coral:#C2402E; --amber:#96701F;
+  --accent:#2451A6; --on-accent:#fff;
+  --on-turquoise:#fff; --on-amber:#3A2600; --on-coral:#fff; --on-cobalt:#fff;
+  --machine-top:#274F92; --machine-bottom:#1C3A6E;
+  --machine-line:rgba(255,255,255,.28); --machine-accent:#EBCB7F;
+  --machine-text:#F4F7FF; --machine-text-dim:#C4D0E8;
+  --machine-line1:rgba(244,247,255,.3); --machine-line2:rgba(244,247,255,.44);
+  --dust:rgba(36,81,166,.10);
+  --glow1:rgba(36,81,166,.12); --glow2:rgba(22,137,124,.10);
+  --shadow-card:0 1px 2px rgba(27,42,74,.06), 0 16px 34px -26px rgba(27,42,74,.3);
+  --shadow-flip:0 1px 2px rgba(27,42,74,.06), 0 20px 40px -30px rgba(27,42,74,.32);
+  --shadow-hover:0 10px 22px -14px rgba(27,42,74,.28);
+  --shadow-morph:0 5px 14px -8px rgba(0,0,0,.35);
+}
+/* Lokum — rose poudré, framboise, pistache */
+body[data-theme="lokum"]{
+  --bg:#FBF1EF;
+  --text:#46283A; --text-dim:#8A6E7C;
+  --ink:#46283A;
+  --card:#FFFAF6; --card-hover:#FFFDFA;
+  --card-muted:#96808B; --card-faint:#B49CA6;
+  --paper-line:rgba(70,40,58,.10); --paper-line-strong:rgba(70,40,58,.22);
+  --brass-line:rgba(185,138,74,.45);
+  --bg-line:rgba(70,40,58,.26); --bg-line-strong:rgba(70,40,58,.34);
+  --bg-line-faint:rgba(70,40,58,.15); --bg-tint:rgba(70,40,58,.04);
+  --cobalt:#A94E76; --turquoise:#56814C; --teal-bright:#BFE0B4;
+  --coral:#C4476B; --amber:#9A6E33;
+  --accent:#C4476B; --on-accent:#fff;
+  --on-turquoise:#fff; --on-amber:#3A2600; --on-coral:#fff; --on-cobalt:#fff;
+  --machine-top:#5A2B41; --machine-bottom:#452133;
+  --machine-line:rgba(255,240,244,.26); --machine-accent:#F2BCCA;
+  --machine-text:#FFF4F0; --machine-text-dim:#E3C8CE;
+  --machine-line1:rgba(255,244,240,.3); --machine-line2:rgba(255,244,240,.44);
+  --dust:rgba(196,71,107,.10);
+  --glow1:rgba(196,71,107,.12); --glow2:rgba(86,129,76,.10);
+  --shadow-card:0 1px 2px rgba(70,40,58,.06), 0 16px 34px -26px rgba(70,40,58,.3);
+  --shadow-flip:0 1px 2px rgba(70,40,58,.06), 0 20px 40px -30px rgba(70,40,58,.32);
+  --shadow-hover:0 10px 22px -14px rgba(70,40,58,.28);
+  --shadow-morph:0 5px 14px -8px rgba(0,0,0,.35);
+}
+/* Mer Égée — écume, mer profonde, olive, soleil */
+body[data-theme="egee"]{
+  --bg:#EEF4F6;
+  --text:#14324A; --text-dim:#5C7284;
+  --ink:#14324A;
+  --card:#FFFFFF; --card-hover:#FAFCFD;
+  --card-muted:#6C8092; --card-faint:#9AACBB;
+  --paper-line:rgba(20,50,74,.10); --paper-line-strong:rgba(20,50,74,.22);
+  --brass-line:rgba(201,143,46,.45);
+  --bg-line:rgba(20,50,74,.26); --bg-line-strong:rgba(20,50,74,.34);
+  --bg-line-faint:rgba(20,50,74,.15); --bg-tint:rgba(20,50,74,.04);
+  --cobalt:#0F4C75; --turquoise:#5C6A34; --teal-bright:#CBD99B;
+  --coral:#C05330; --amber:#A87718;
+  --accent:#1A6FA8; --on-accent:#fff;
+  --on-turquoise:#fff; --on-amber:#3A2600; --on-coral:#fff; --on-cobalt:#fff;
+  --machine-top:#12557F; --machine-bottom:#0C3E60;
+  --machine-line:rgba(255,255,255,.28); --machine-accent:#F2C069;
+  --machine-text:#F0F7FB; --machine-text-dim:#BFD5E2;
+  --machine-line1:rgba(240,247,251,.3); --machine-line2:rgba(240,247,251,.44);
+  --dust:rgba(26,111,168,.10);
+  --glow1:rgba(26,111,168,.14); --glow2:rgba(217,142,43,.10);
+  --shadow-card:0 1px 2px rgba(20,50,74,.06), 0 16px 34px -26px rgba(20,50,74,.3);
+  --shadow-flip:0 1px 2px rgba(20,50,74,.06), 0 20px 40px -30px rgba(20,50,74,.32);
+  --shadow-hover:0 10px 22px -14px rgba(20,50,74,.28);
+  --shadow-morph:0 5px 14px -8px rgba(0,0,0,.35);
+}
+/* Nuit de figue — sombre mais chaud : aubergine, rose, cuivre */
+body[data-theme="figue"]{
+  --bg:#261B29;
+  --text:#F5EDE4; --text-dim:#C9B4BC;
+  --ink:#2C1F2E;
+  --card:#F7F0E6; --card-hover:#FDF8F0;
+  --card-muted:#7C6E76; --card-faint:#A2939B;
+  --paper-line:rgba(44,31,46,.10); --paper-line-strong:rgba(44,31,46,.22);
+  --brass-line:rgba(217,164,65,.35);
+  --bg-line:rgba(245,237,228,.3); --bg-line-strong:rgba(245,237,228,.38);
+  --bg-line-faint:rgba(245,237,228,.16); --bg-tint:rgba(245,237,228,.03);
+  --cobalt:#7E5083; --turquoise:#4F7A63; --teal-bright:#A8D8C4;
+  --coral:#B84A56; --amber:#D9A441;
+  --accent:#E39BAA; --on-accent:#3A1F27;
+  --on-turquoise:#fff; --on-amber:#3A2600; --on-coral:#fff; --on-cobalt:#fff;
+  --machine-top:#382840; --machine-bottom:#2C2033;
+  --machine-line:rgba(227,155,170,.32); --machine-accent:#E9C08F;
+  --machine-text:#F5EDE4; --machine-text-dim:#CDB9C1;
+  --machine-line1:rgba(245,237,228,.24); --machine-line2:rgba(245,237,228,.38);
+  --dust:rgba(217,164,65,.12);
+  --glow1:rgba(227,155,170,.12); --glow2:rgba(192,118,74,.12);
+  --shadow-card:0 1px 2px rgba(0,0,0,.25), 0 20px 44px -30px rgba(0,0,0,.65);
+  --shadow-flip:0 1px 2px rgba(0,0,0,.25), 0 24px 48px -32px rgba(0,0,0,.7);
+  --shadow-hover:0 12px 26px -16px rgba(0,0,0,.55);
+  --shadow-morph:0 6px 16px -8px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16.5px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* Poussière d'or et lueur du soir — texture d'ambiance */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%, var(--dust) 0 1px, transparent 1.8px),
+    radial-gradient(820px 480px at 78% -12%, var(--glow1), transparent 62%),
+    radial-gradient(640px 420px at 4% -4%, var(--glow2), transparent 60%);
+  background-size:58px 58px, 100% 100%, 100% 100%;
+  opacity:.85;
+}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 20px 84px}
+
+/* ---- en-tête ---- */
+header{padding:56px 0 28px}
+.eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--amber);margin:0 0 18px;
+}
+.eyebrow::after{content:"";flex:0 0 42px;height:1px;background:var(--brass-line)}
+h1{
+  font-family:var(--display);font-weight:560;letter-spacing:-.015em;
+  font-size:clamp(48px,11vw,86px);line-height:.94;margin:0;
+  font-variation-settings:"opsz" 96;
+}
+h1 .accent{color:var(--amber);font-style:italic;font-weight:480}
+.tagline{margin:18px 0 0;max-width:48ch;color:var(--text-dim);font-weight:500}
+.tagline em{font-family:var(--display);font-style:italic;color:var(--text);letter-spacing:.01em}
+
+/* ---- navigation ---- */
+nav{
+  position:sticky;top:0;z-index:20;display:flex;gap:7px;overflow-x:auto;
+  padding:12px 0 14px;margin:26px 0 32px;
+  background:linear-gradient(var(--bg) 74%, transparent);
+  scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:0 0 auto;font-family:var(--body);font-weight:700;font-size:13.5px;
+  padding:9px 17px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  background:var(--bg-tint);color:var(--text-dim);
+  border:1px solid var(--bg-line-faint);
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+nav button:hover{border-color:var(--brass-line);color:var(--text)}
+nav button[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+/* ---- panneaux ---- */
+.panel{display:none;animation:fade .32s ease both}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h2{
+  font-family:var(--display);font-weight:540;letter-spacing:-.01em;
+  font-size:clamp(28px,6vw,34px);margin:0 0 8px;font-variation-settings:"opsz" 40;
+}
+.lede{color:var(--text-dim);margin:0 0 28px;max-width:58ch;font-weight:500}
+
+.card{
+  background:var(--card);color:var(--ink);
+  border-radius:14px;padding:24px;margin:0 0 16px;
+  border:1px solid var(--paper-line);
+  box-shadow:var(--shadow-card);
+}
+.card h3{
+  font-family:var(--display);font-weight:560;font-size:20px;margin:0 0 10px;
+  letter-spacing:-.005em;font-variation-settings:"opsz" 28;
+}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.muted{color:var(--card-muted)}
+small.note{display:block;color:var(--card-muted);font-size:13.5px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--paper-line)}
+
+/* ---- les sons ---- */
+.letters{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.letter{
+  background:var(--card);color:var(--ink);border-radius:12px;padding:16px 18px;
+  border:1px solid var(--paper-line);border-left:3px solid var(--cobalt);
+  text-align:left;font:inherit;cursor:pointer;width:100%;
+  transition:transform .18s,box-shadow .18s;
+}
+.letter:hover{background:var(--card-hover);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.letter .glyph{font-family:var(--display);font-weight:600;font-size:36px;line-height:1;color:var(--cobalt);font-variation-settings:"opsz" 60}
+.letter .say{font-family:var(--mono);font-size:13px;color:var(--coral);margin-top:7px}
+.letter .ex{font-size:14px;color:var(--card-muted);margin-top:6px}
+.letter.easy{border-left-color:var(--turquoise)}
+.letter.easy .glyph{color:var(--turquoise)}
+
+/* ---- la machine à mots (pièce maîtresse) ---- */
+.machine{
+  background:linear-gradient(180deg, var(--machine-top), var(--machine-bottom));
+  border-radius:18px;padding:30px 22px;margin-bottom:16px;
+  border:1px solid var(--machine-line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 26px 52px -30px rgba(0,0,0,.8);
+}
+.wordline{
+  display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end;justify-content:center;
+  min-height:96px;padding:8px 0 14px;cursor:pointer;
+}
+.morph{
+  font-family:var(--mono);font-weight:700;font-size:clamp(26px,7vw,42px);
+  padding:8px 13px;border-radius:9px;color:var(--ink);
+  animation:pop .24s ease both;
+  box-shadow:var(--shadow-morph);
+}
+@keyframes pop{from{opacity:0;transform:translateY(9px) scale(.94)}to{opacity:1;transform:none}}
+.m-stem{background:var(--card)}
+.m-pl{background:var(--turquoise);color:var(--on-turquoise)}
+.m-poss{background:var(--amber);color:var(--on-amber)}
+.m-loc{background:var(--coral);color:var(--on-coral)}
+.gloss{
+  text-align:center;font-family:var(--display);font-style:italic;font-weight:500;
+  font-size:clamp(20px,4.6vw,27px);color:var(--machine-accent);margin:0 0 4px;
+  letter-spacing:.005em;font-variation-settings:"opsz" 30;
+}
+.rule{text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--teal-bright);min-height:34px;margin-top:8px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.toggle{
+  font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:10px;cursor:pointer;
+  background:transparent;border:1.5px dashed var(--machine-line2);color:var(--machine-text-dim);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.toggle:hover{border-style:solid;color:var(--machine-text)}
+.toggle[aria-pressed="true"]{border-style:solid;color:var(--ink)}
+.toggle.t-pl[aria-pressed="true"]{background:var(--turquoise);border-color:var(--turquoise);color:var(--on-turquoise)}
+.toggle.t-poss[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:var(--on-amber)}
+.toggle.t-loc[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:var(--on-coral)}
+.stems{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:18px}
+.stem-btn{
+  font-family:var(--mono);font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--machine-line1);color:var(--machine-text-dim);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.stem-btn:hover{border-color:var(--machine-line2);color:var(--machine-text)}
+.stem-btn[aria-pressed="true"]{background:var(--card);color:var(--ink);border-color:var(--card)}
+
+/* ---- tableaux de conjugaison ---- */
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--paper-line)}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--card-muted);border-bottom-color:var(--paper-line-strong)}
+td.tr{font-family:var(--mono);font-weight:700;color:var(--cobalt);font-size:17px}
+td.tr em{font-style:normal;color:var(--coral)}
+
+/* ---- quiz ---- */
+.q{font-family:var(--display);font-weight:560;font-size:23px;margin:0 0 4px;letter-spacing:-.005em;font-variation-settings:"opsz" 30}
+.q-sub{color:var(--card-muted);font-size:14.5px;margin:0 0 16px}
+.opts{display:grid;gap:8px}
+.opt{
+  font-family:var(--mono);font-weight:700;font-size:17px;text-align:left;
+  padding:13px 16px;border-radius:11px;cursor:pointer;
+  background:var(--card-hover);border:1.5px solid var(--paper-line-strong);color:var(--ink);
+  transition:border-color .18s,transform .18s;
+}
+.opt:hover:not(:disabled){border-color:var(--cobalt);transform:translateY(-1px)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--turquoise);border-color:var(--turquoise);color:var(--on-turquoise)}
+.opt.wrong{background:var(--coral);border-color:var(--coral);color:var(--on-coral)}
+.verdict{margin-top:14px;font-size:15px;min-height:24px}
+.verdict b{color:var(--cobalt)}
+.scoreline{
+  display:flex;gap:20px;align-items:baseline;font-family:var(--mono);font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;
+}
+.scoreline b{font-family:var(--display);font-weight:560;font-size:22px;color:var(--amber);letter-spacing:0}
+
+/* ---- construire la phrase ---- */
+.build{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;
+  min-height:66px;background:var(--card-hover);border:1.5px dashed var(--paper-line-strong);border-radius:12px;
+  padding:12px;margin:14px 0;
+}
+.build .placeholder{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--card-faint)}
+.chip{
+  font-family:var(--mono);font-weight:700;font-size:17px;padding:10px 15px;border-radius:10px;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--paper-line-strong);color:var(--ink);
+  transition:border-color .18s,transform .18s;
+}
+.chip:hover:not(:disabled){border-color:var(--cobalt);transform:translateY(-1px)}
+.chip.in{background:var(--cobalt);border-color:var(--cobalt);color:var(--on-cobalt)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+
+/* ---- cartes à retourner ---- */
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.flip{
+  background:var(--card);color:var(--ink);border-radius:16px;padding:32px 24px;text-align:center;
+  cursor:pointer;width:100%;font:inherit;border:1px solid var(--paper-line);min-height:190px;
+  display:flex;flex-direction:column;justify-content:center;gap:9px;
+  box-shadow:var(--shadow-flip);
+  transition:transform .18s;
+}
+.flip:active{transform:scale(.99)}
+.flip .front{font-family:var(--display);font-weight:600;font-size:clamp(28px,7vw,40px);letter-spacing:-.01em;line-height:1.06;font-variation-settings:"opsz" 60}
+.flip .phon{font-family:var(--mono);font-size:13px;color:var(--coral)}
+.flip .back{font-size:19px;color:var(--cobalt);font-weight:700}
+.flip .hint{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--card-faint)}
+.deck-nav{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:12px}
+.ghost{
+  font:inherit;font-weight:700;font-size:14px;padding:10px 17px;border-radius:10px;cursor:pointer;
+  background:transparent;border:1px solid var(--bg-line);color:var(--text);
+  transition:border-color .2s,background .2s;
+}
+.ghost:hover{border-color:var(--amber)}
+.counter{font-family:var(--mono);font-size:12px;color:var(--text-dim)}
+.speak{
+  font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--cobalt);color:var(--cobalt);
+  transition:background .2s,color .2s;
+}
+.speak:hover{background:var(--cobalt);color:var(--on-cobalt)}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--text-dim);margin-top:18px;justify-content:center}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:4px;display:inline-block}
+
+footer{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--brass-line);
+  color:var(--text-dim);font-size:14px;
+}
+footer b{font-family:var(--display);font-style:italic;font-weight:520;color:var(--amber);font-size:16px;letter-spacing:.01em}
+
+#voice-box{margin-bottom:22px}
+#voice-box summary{font-size:13.5px;font-weight:700;color:var(--card-muted);cursor:pointer}
+#voice-box[data-alert="1"]{box-shadow:0 0 0 2px var(--coral)}
+#voice-box[data-alert="1"] summary{color:var(--coral)}
+.setrow{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.setrow label{font-size:14px;color:var(--card-muted);flex:0 0 76px}
+.setrow select{
+  flex:1;min-width:170px;font:inherit;font-size:14px;padding:7px 10px;
+  border:1px solid var(--paper-line-strong);border-radius:9px;background:var(--card-hover);color:var(--ink);
+}
+.setrow input[type=range]{flex:1;min-width:130px;accent-color:var(--coral);height:22px}
+.setrow output{font-family:var(--mono);font-size:13px;color:var(--coral);min-width:42px;text-align:right}
+
+/* ---- questions & réponses (se présenter) ---- */
+.catbtn{
+  font:inherit;font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--bg-line);color:var(--text-dim);
+  transition:background .2s,color .2s,border-color .2s;
+}
+.catbtn[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.qa-q{font-family:var(--display);font-weight:600;font-size:clamp(23px,5.6vw,32px);line-height:1.12;margin:0 0 6px;letter-spacing:-.008em}
+.qa-phon{font-family:var(--mono);font-size:13px;color:var(--coral);margin:0 0 3px}
+.qa-fr{color:var(--card-muted);margin:0 0 16px}
+.qa-a{border-top:1px dashed var(--paper-line-strong);padding-top:14px;margin-top:14px}
+.qa-a .tr{font-weight:700;font-size:19px;color:var(--cobalt)}
+.qa-a .fr{color:var(--card-muted);font-size:14.5px;margin-top:3px}
+.qa-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+/* ---- à table ---- */
+.letter.food .glyph{font-size:22px;letter-spacing:-.008em;line-height:1.15}
+.resto-line{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--paper-line)}
+.resto-line:last-child{border-bottom:0}
+.resto-line .tr{font-weight:700;font-size:16.5px}
+.resto-line .fr{color:var(--card-muted);font-size:13.5px;margin-top:2px}
+
+/* ---- la conversation ---- */
+.dlg{display:flex;flex-direction:column;gap:10px;margin:2px 0 14px;min-height:60px}
+.bub{max-width:88%;padding:10px 14px;border-radius:14px;line-height:1.45;animation:pop .24s ease both}
+.bub .tr{font-weight:700;font-size:16.5px}
+.bub .fr{font-size:13px;margin-top:2px}
+.bub.npc{align-self:flex-start;background:var(--card-hover);border:1px solid var(--paper-line-strong);border-bottom-left-radius:5px}
+.bub.npc .fr{color:var(--card-muted)}
+.bub.me{align-self:flex-end;background:var(--cobalt);color:var(--on-cobalt);border-bottom-right-radius:5px}
+.bub.me .fr{opacity:.78}
+.opt .sub{display:block;font-family:var(--body);font-weight:500;font-size:13px;color:var(--card-muted);margin-top:2px}
+.opt.right .sub,.opt.wrong .sub{color:inherit;opacity:.8}
+.ai-row{display:flex;gap:8px;margin-top:12px;align-items:stretch}
+.txt-in{
+  flex:1;min-width:0;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;
+  border:1.5px solid var(--paper-line-strong);background:var(--card-hover);color:var(--ink);
+}
+.chip.mic[data-on="1"]{background:var(--coral);border-color:var(--coral);color:var(--on-coral)}
+
+/* ---- choix des couleurs (dans « Note pour le prof ») ---- */
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px}
+.theme-btn{
+  font:inherit;font-size:13.5px;font-weight:700;text-align:left;cursor:pointer;
+  display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:11px;
+  background:var(--card-hover);border:1.5px solid var(--paper-line-strong);color:var(--ink);
+  transition:border-color .18s,transform .18s;
+}
+.theme-btn:hover{border-color:var(--cobalt);transform:translateY(-1px)}
+.theme-btn[aria-pressed="true"]{border-color:var(--cobalt);box-shadow:inset 0 0 0 1.5px var(--cobalt)}
+.theme-dots{display:flex;gap:3px;flex:0 0 auto}
+.theme-dots i{width:11px;height:11px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.18)}
+
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
+
+/* ---- iPhone / installé sur l'écran d'accueil ---- */
+body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-height:44px}
+.letter,.flip{min-height:auto}
+.flip{min-height:190px}
+#install{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;
+  background:var(--card);color:var(--ink);border-radius:14px;padding:14px 16px;
+  display:flex;gap:12px;align-items:center;font-size:14.5px;line-height:1.35;
+  border:1px solid var(--paper-line);
+  box-shadow:0 14px 40px rgba(0,0,0,.5);
+}
+#install b{display:block;font-family:var(--display);font-weight:560;font-size:16px;margin-bottom:2px}
+#install button{
+  flex:0 0 auto;font:inherit;font-weight:700;background:var(--ink);color:var(--card);
+  border:0;border-radius:9px;padding:9px 13px;cursor:pointer;min-height:0;
+}
+#install[hidden]{display:none}
+/* ---- séances, assiduité, « aujourd'hui » ---- */
+.scoreline{flex-wrap:wrap}
+.daybadge{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--amber);border:1px solid var(--brass-line);border-radius:999px;padding:5px 12px}
+.daybadge[hidden]{display:none}
+.bilan{text-align:center;padding:10px 0 4px}
+.bilan-score{font-family:var(--display);font-weight:600;font-size:clamp(40px,12vw,54px);color:var(--cobalt);line-height:1}
+.bilan-msg{font-weight:800;font-size:17px;margin-top:10px}
+.bilan-sub{color:var(--card-muted);font-size:14px;margin-top:6px}
+.know-row{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.know-row[hidden]{display:none}
+.continue-row{text-align:center;margin:26px 0 2px}
+.plan-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-weight:700;font-size:16px;
+  padding:13px 14px;margin-top:10px;border:1.5px solid var(--paper-line-strong);border-radius:12px;
+  background:transparent;color:var(--ink);cursor:pointer}
+.plan-item:hover{background:var(--card-hover)}
+.plan-num{font-family:var(--mono);font-size:12px;color:var(--card-muted);border:1px solid var(--paper-line-strong);border-radius:999px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.plan-arrow{margin-left:auto;color:var(--card-faint)}
+.levels{display:flex;gap:8px;margin:0 0 20px}
+.levels .lvl{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-decoration:none;
+  border:1px solid var(--bg-line-strong);color:var(--text-dim);border-radius:999px;padding:6px 14px;background:transparent;cursor:pointer}
+.levels .lvl.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+.levels .lvl.off{opacity:.45;border-style:dashed;cursor:default}
+.ev-bars{margin-top:18px}
+.ev-row{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:14px}
+.ev-lbl{width:104px;flex:none;color:var(--card-muted)}
+.ev-track{flex:1;height:10px;border-radius:999px;background:var(--paper-line);overflow:hidden}
+.ev-track i{display:block;height:100%;background:var(--turquoise);border-radius:999px}
+.ev-val{font-family:var(--mono);font-size:12px;width:44px;flex:none;text-align:right;color:var(--card-muted)}
+.ev-hist-line{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--paper-line)}
+.ev-hist-line:last-child{border-bottom:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:520px){
+  .wrap{padding:0 16px 60px}
+  header{padding:36px 0 18px}
+  .card{padding:19px}
+}
+@supports (padding:max(0px)){
+  .wrap{
+    padding-left:max(18px, env(safe-area-inset-left));
+    padding-right:max(18px, env(safe-area-inset-right));
+    padding-bottom:calc(90px + env(safe-area-inset-bottom));
+  }
+  header{padding-top:calc(40px + env(safe-area-inset-top))}
+  nav{top:env(safe-area-inset-top)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="levels" aria-label="Choix du niveau">
+  <a class="lvl" href="./index.html">A1</a>
+  <span class="lvl on" aria-current="page">A2</span>
+  <span class="lvl off" title="Plus tard !">B1</span>
+</nav>
+
+<header>
+  <p class="eyebrow">Türkçe · niveau A2</p>
+  <h1>Yavaş<br>yavaş<span class="accent">.</span></h1>
+  <p class="tagline">Le niveau A2, c'est raconter : ce qu'on <em>a fait</em> hier, ce qu'on <em>fera</em> demain. Deux nouveaux temps, quelques cas — et toujours l'harmonie vocalique, la seule règle que tu connais déjà par cœur.</p>
+  <p class="daybadge" id="daybadge" hidden></p>
+</header>
+
+<nav id="nav" role="tablist" aria-label="Leçons A2"></nav>
+
+<!-- ============ AUJOURD'HUI ============ -->
+<section class="panel" id="p-auj" role="tabpanel">
+  <h2 id="auj-hello">Merhaba !</h2>
+  <p class="lede" id="auj-lede"></p>
+  <div class="card" id="auj-plan"></div>
+  <div class="card" id="auj-stats"></div>
+</section>
+
+<!-- ============ PASSÉ ============ -->
+<section class="panel" id="p-passe" role="tabpanel">
+  <h2>Le passé</h2>
+  <p class="lede">Un seul suffixe pour tout raconter : <b>-di</b>. gel<b>dim</b> = je suis venue, yap<b>tık</b> = nous avons fait. La voyelle suit l'harmonie que tu connais, et après une lettre sourde (ç f h k p s ş t) le d devient t : git<b>ti</b>, yap<b>tı</b>.</p>
+  <div class="card">
+    <h3>Choisis un verbe</h3>
+    <div class="cats" id="pa-verbs"></div>
+    <table id="pa-conj"></table>
+    <small class="note">Les terminaisons du passé : -m, -n, (rien), -k, -nız, -ler. Et le passé marche aussi sur les adjectifs : hasta<b>ydım</b> = j'étais malade, güzel<b>di</b> = c'était beau.</small>
+  </div>
+  <div class="scoreline"><span>Score <b id="pa-score">0</b></span><span>Série <b id="pa-streak">0</b></span><span>Question <b id="pa-prog">0 / 10</b></span></div>
+  <div class="card" id="pa-card"></div>
+</section>
+
+<!-- ============ FUTUR ============ -->
+<section class="panel" id="p-futur" role="tabpanel">
+  <h2>Le futur</h2>
+  <p class="lede">Demain, plus tard : <b>-ecek / -acak</b>. gel<b>eceğim</b> = je viendrai, yap<b>acağız</b> = nous ferons. Devant une voyelle, le k s'adoucit en ğ — c'est la seule surprise.</p>
+  <div class="card">
+    <h3>Choisis un verbe</h3>
+    <div class="cats" id="fu-verbs"></div>
+    <table id="fu-conj"></table>
+    <small class="note">Deux verbes changent un peu de racine : ye → <b>yiyecek</b> (il mangera), git → <b>gidecek</b> (il ira). Le mot <b>gelecek</b> tout seul veut d'ailleurs dire « l'avenir ».</small>
+  </div>
+  <div class="scoreline"><span>Score <b id="fu-score">0</b></span><span>Série <b id="fu-streak">0</b></span><span>Question <b id="fu-prog">0 / 10</b></span></div>
+  <div class="card" id="fu-card"></div>
+</section>
+
+<!-- ============ CAS ============ -->
+<section class="panel" id="p-cas" role="tabpanel">
+  <h2>Les cas</h2>
+  <p class="lede">Tu connais déjà « vers » (-e) et « dans » (-de). Le niveau A2 en ajoute deux : <b>-i</b>, la marque du complément précis (kedi<b>yi</b> gördüm = j'ai vu <em>le</em> chat), et <b>-den</b>, « depuis / de » (ev<b>den</b> = depuis la maison).</p>
+  <div class="card">
+    <h3>Choisis un mot</h3>
+    <div class="cats" id="ca-words"></div>
+    <table id="ca-table"></table>
+    <small class="note">Le -i n'apparaît que si l'objet est précis : « je bois du thé » = çay içiyorum, mais « je bois LE thé (celui-là) » = çay<b>ı</b> içiyorum. Et -den sert aussi à comparer : çay kahve<b>den</b> daha güzel — le thé est meilleur <em>que</em> le café.</small>
+  </div>
+  <div class="scoreline"><span>Score <b id="ca-score">0</b></span><span>Série <b id="ca-streak">0</b></span><span>Question <b id="ca-prog">0 / 10</b></span></div>
+  <div class="card" id="ca-card"></div>
+</section>
+
+<!-- ============ CARTES ============ -->
+<section class="panel" id="p-cartes" role="tabpanel">
+  <h2>Les cartes A2</h2>
+  <p class="lede">Le vocabulaire pour sortir de la maison : la ville, les transports, le corps, le médecin, l'heure, les métiers. Même jeu qu'en A1 : retourne, dis si tu savais, inverse le sens.</p>
+  <div class="cats" id="deck-cats"></div>
+  <button class="flip" id="flip" aria-live="polite"></button>
+  <div class="know-row" id="know-row" hidden>
+    <button class="ghost" id="know-no">↻ À revoir</button>
+    <button class="ghost" id="know-yes">✓ Je savais</button>
+  </div>
+  <div class="deck-nav">
+    <button class="ghost" id="prev">← Précédente</button>
+    <span class="counter" id="counter"></span>
+    <button class="ghost" id="next">Suivante →</button>
+  </div>
+  <p style="margin:10px 0 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="ghost" id="shuffle">Mélanger les cartes</button><button class="ghost" id="direction">Sens : turc → français</button></p>
+</section>
+
+<!-- ============ LA PHRASE ============ -->
+<section class="panel" id="p-ordre" role="tabpanel">
+  <h2>La phrase A2</h2>
+  <p class="lede">Les mêmes règles qu'en A1 — le verbe à la fin — mais au passé et au futur. Remets les mots dans l'ordre, puis écoute.</p>
+  <div class="scoreline"><span>Score <b id="or-score">0</b></span><span>Série <b id="or-streak">0</b></span><span>Question <b id="or-prog">0 / 10</b></span></div>
+  <div class="card" id="or-card"></div>
+</section>
+
+<!-- ============ DIRE PLUS ============ -->
+<section class="panel" id="p-plus" role="tabpanel">
+  <h2>Dire plus</h2>
+  <p class="lede">Trois petits outils qui changent tout, puis un quiz pour choisir le bon temps — c'est LA compétence A2.</p>
+  <div class="card">
+    <h3>Pouvoir : -ebilir</h3>
+    <p><b>gelebilirim</b> = je peux venir · <b>konuşabilir misin?</b> = peux-tu parler ? <span class="muted">On glisse -(y)abil / -(y)ebil avant la terminaison.</span></p>
+  </div>
+  <div class="card">
+    <h3>Comparer : daha, en</h3>
+    <p><b>daha güzel</b> = plus beau · <b>en güzel</b> = le plus beau. <span class="muted">Et « que » se dit avec -den : İstanbul Paris'ten daha büyük.</span></p>
+  </div>
+  <div class="card">
+    <h3>Il faut : lazım · parce que : çünkü</h3>
+    <p><b>Bana su lazım</b> = il me faut de l'eau · <b>Doktora gittim çünkü hastaydım</b> = je suis allée chez le docteur parce que j'étais malade.</p>
+  </div>
+  <div class="scoreline"><span>Score <b id="pl-score">0</b></span><span>Série <b id="pl-streak">0</b></span><span>Question <b id="pl-prog">0 / 10</b></span></div>
+  <div class="card" id="pl-card"></div>
+</section>
+
+<!-- ============ CONVERSATION ============ -->
+<section class="panel" id="p-conv" role="tabpanel">
+  <h2>La conversation A2</h2>
+  <p class="lede">Deux scènes de la vraie vie, hors ligne. Dis ta réplique à voix haute avant d'appuyer. <span class="muted">Pour parler librement avec Ayşe (mode IA), rends-toi dans la partie A1, onglet « La conversation ».</span></p>
+  <div class="cats" id="dlg-scenes"></div>
+  <div class="card">
+    <div class="dlg" id="dlg-box"></div>
+    <div class="opts" id="dlg-opts"></div>
+  </div>
+</section>
+
+<!-- ============ ÉVALUATION ============ -->
+<section class="panel" id="p-eval" role="tabpanel">
+  <h2>Évaluation A2</h2>
+  <p class="lede">Vingt questions — passé, futur, cas, vocabulaire, phrases, choix du bon temps — pour situer la progression dans A2.</p>
+  <div class="scoreline"><span>Question <b id="ev-prog">— / 20</b></span></div>
+  <div class="card" id="ev-card"></div>
+  <div class="card" id="ev-histo" hidden></div>
+  <div class="card">
+    <h3>Ce que veut dire A2</h3>
+    <p>Raconter au passé, parler de projets, se débrouiller en ville, chez le médecin, dans les transports. Après : <b>B1</b>, raconter en détail et donner son avis — il arrivera ici plus tard.</p>
+    <small class="note">Estimation indicative, pas un diplôme. Refais le test toutes les deux ou trois semaines : c'est la courbe qui compte.</small>
+  </div>
+</section>
+
+<section class="panel" id="p-prof" role="tabpanel">
+  <h2>Note pour le prof</h2>
+  <p class="lede">Le cap A2 en trois repères.</p>
+  <div class="card">
+    <h3>Le passé d'abord, longtemps</h3>
+    <p>« Qu'est-ce que tu as fait aujourd'hui ? » est LA question à lui poser chaque soir. Le futur peut attendre que le -di soit un réflexe.</p>
+  </div>
+  <div class="card">
+    <h3>Les cas en douceur</h3>
+    <p>Ne présente pas -i comme un « accusatif » : dis « la marque du précis ». Kedi gördüm / kediyi gördüm — un chat / LE chat. Elle sentira la nuance avant de savoir la nommer.</p>
+  </div>
+  <div class="card">
+    <h3>Raconter la journée</h3>
+    <p>Le meilleur exercice A2 ne demande aucun écran : trois phrases au passé chaque soir, à table. Sabah kalktım, markete gittim, çay içtim — et la famille corrige en souriant.</p>
+  </div>
+</section>
+
+<footer>
+  Toujours yavaş yavaş — mais maintenant, elle peut raconter. <b>Devam !</b> (on continue)
+</footer>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- moteur : harmonie vocalique ---------- */
+var V="aeıioöuü", BACK="aıou", VOICELESS="çfhkpsşt";
+function lastVowel(w){for(var i=w.length-1;i>=0;i--){if(V.indexOf(w[i])>-1)return w[i];}return "a";}
+function two(w){return BACK.indexOf(lastVowel(w))>-1?"a":"e";}
+function four(w){var v=lastVowel(w);
+  if(v==="a"||v==="ı")return "ı"; if(v==="e"||v==="i")return "i";
+  if(v==="o"||v==="u")return "u"; return "ü";}
+function endsVowel(w){return V.indexOf(w[w.length-1])>-1;}
+function sfxPlural(w){return "l"+two(w)+"r";}
+function sfxPoss(w){return endsVowel(w)?"m":four(w)+"m";}
+function sfxLoc(w){return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+two(w);}
+function sfxDat(w){return (endsVowel(w)?"y":"")+two(w);}
+function person(w,p){
+  var v=four(w), y=endsVowel(w)?"y":"";
+  if(p==="1s")return y+v+"m";
+  if(p==="2s")return "s"+v+"n";
+  if(p==="3s")return "";
+  if(p==="1p")return y+v+"z";
+  if(p==="2p")return "s"+v+"n"+v+"z";
+  return "l"+two(w)+"r";
+}
+/* ---------- le son ---------- */
+/* Trois sources, dans cet ordre :
+   1. un vrai enregistrement, si un fichier existe dans audio/ (voir audio/index.json)
+   2. la voix choisie dans les réglages
+   3. n'importe quelle voix turque disponible                                  */
+function el(id){return document.getElementById(id);}
+var trVoices=[], trVoice=null, voiceReady=false;
+var rate=0.85, AUDIO={}, AUDIO2={}, audioOK=false;
+/* Clé normalisée : minuscules turques (Merhaba → merhaba, Iıİi corrects),
+   ponctuation finale retirée — sinon les cartes « Merhaba », « Lütfen »…
+   rataient leur enregistrement et retombaient sur la synthèse. */
+function normKey(t){
+  t=(t||"").trim().replace(/[?!.,…]+$/,"");
+  try{ return t.toLocaleLowerCase("tr"); }catch(e){ return t.toLowerCase(); }
+}
+
+try{
+  var sr=window.localStorage.getItem("yavas-rate");
+  if(sr) rate=Math.min(1.1,Math.max(0.5,parseFloat(sr)||0.85));
+}catch(e){}
+
+try{
+  fetch("audio/index.json").then(function(r){return r.ok?r.json():null;})
+   .then(function(j){
+      if(j&&typeof j==="object"){
+        var n=Object.keys(j).length;
+        if(n){
+          AUDIO=j; audioOK=true;
+          AUDIO2={};
+          Object.keys(j).forEach(function(k){ AUDIO2[normKey(k)]=j[k]; });
+          if(el("voice-files")) el("voice-files").textContent=
+            n+" enregistrement"+(n>1?"s":"")+" de vraies voix trouvé"+(n>1?"s":"")+" dans audio/ — ils passent avant la synthèse.";
+        }
+      }
+   }).catch(function(){});
+}catch(e){}
+
+function commentInstaller(){
+  var ua=navigator.userAgent;
+  if(/iPhone|iPad|iPod/.test(ua))
+    return "Sur iPhone : Réglages → Accessibilité → Contenu énoncé → Voix → Turc. Prends une voix « Améliorée » ou « Premium », nettement meilleure que celle par défaut.";
+  if(/Android/.test(ua))
+    return "Sur Android : Paramètres → Accessibilité → Sortie de synthèse vocale → Google → Installer les données vocales → Turc.";
+  if(/Mac OS X/.test(ua))
+    return "Sur Mac : Réglages Système → Accessibilité → Contenu énoncé → Voix du système → Gérer les voix → Turc. Relance ensuite le navigateur.";
+  if(/Windows/.test(ua))
+    return "Sur Windows : Paramètres → Heure et langue → Langue et région → Ajouter une langue → Turc, en cochant « Synthèse vocale ». Sur Windows 11, prends une voix « Naturelle ». Relance Chrome ensuite : les voix ne sont relues qu'au démarrage.";
+  return "Installe une voix turque dans les réglages de synthèse vocale de ton système, puis relance le navigateur.";
+}
+function pickVoice(){
+  if(!window.speechSynthesis) return;
+  var vs=[];
+  try{ vs=window.speechSynthesis.getVoices()||[]; }catch(e){}
+  if(!vs.length) return;
+  voiceReady=true;
+  trVoices=vs.filter(function(v){return /^tr([-_]|$)/i.test(v.lang||"");});
+
+  var saved=null;
+  try{ saved=window.localStorage.getItem("yavas-voice"); }catch(e){}
+  trVoice = trVoices.filter(function(v){return v.name===saved;})[0]
+         || trVoices.filter(function(v){return v.localService;})[0]
+         || trVoices[0] || null;
+
+  var box=el("voice-box");
+  if(box) box.setAttribute("data-alert", trVoice?"0":"1");
+  if(el("voice-alert")) el("voice-alert").hidden=!!trVoice;
+  if(!trVoice){
+    if(el("voice-how")) el("voice-how").textContent=commentInstaller();
+    if(el("voice-details")) el("voice-details").open=true;
+  }
+  var sel=el("voice-pick");
+  if(sel && trVoices.length){
+    el("voice-pick-row").hidden = trVoices.length<2;
+    if(sel.options.length!==trVoices.length){
+      sel.innerHTML="";
+      trVoices.forEach(function(v){
+        var o=document.createElement("option");
+        o.value=v.name; o.textContent=v.name+" ("+v.lang+(v.localService?"":", en ligne")+")";
+        sel.appendChild(o);
+      });
+    }
+    if(trVoice) sel.value=trVoice.name;
+  }
+  majNote();
+}
+function majNote(){
+  if(!el("voice-note")) return;
+  el("voice-note").textContent = trVoice ? "Voix active : "+trVoice.name
+    : (voiceReady?"Aucune voix turque disponible.":"Recherche des voix…");
+}
+function parle(t){
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);
+  if(trVoice){ u.voice=trVoice; u.lang=trVoice.lang; } else { u.lang="tr-TR"; }
+  u.rate=rate;
+  /* Chrome se bloque si speak() suit cancel() trop vite */
+  setTimeout(function(){ try{ window.speechSynthesis.speak(u); }catch(e){} },60);
+}
+function say(t){
+  var key=(t||"").trim();
+  var file = audioOK ? (AUDIO[key] || AUDIO2[normKey(key)]) : null;
+  if(file){
+    try{
+      var a=new Audio("audio/"+file);
+      try{ a.preservesPitch=true; a.mozPreservesPitch=true; a.webkitPreservesPitch=true; }catch(e2){}
+      a.playbackRate=Math.max(0.5,rate);
+      var fell=false;
+      var fallback=function(){ if(fell) return; fell=true; if(window.speechSynthesis) parle(key); };
+      a.onerror=fallback;
+      a.play().catch(fallback);
+      return;
+    }catch(e){}
+  }
+  if(!window.speechSynthesis) return;
+  try{ if(!voiceReady) pickVoice(); parle(key); }catch(e){}
+}
+if(window.speechSynthesis){
+  pickVoice();
+  window.speechSynthesis.onvoiceschanged=pickVoice;
+  setTimeout(pickVoice,500);
+  setTimeout(function(){
+    pickVoice();
+    if(!trVoice && el("voice-box")){
+      el("voice-box").setAttribute("data-alert","1");
+      if(el("voice-alert")) el("voice-alert").hidden=false;
+      if(el("voice-how")&&!el("voice-how").textContent) el("voice-how").textContent=commentInstaller();
+      majNote();
+    }
+  },2000);
+}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+
+/* ---------- mémoire A2 ---------- */
+var mem={pa:{s:0,k:0},fu:{s:0,k:0},ca:{s:0,k:0},or:{s:0,k:0},pl:{s:0,k:0}};
+function save(){ try{ window.localStorage.setItem("yavas2-progress", JSON.stringify(mem)); }catch(e){} }
+function load(){
+  try{
+    var raw=window.localStorage.getItem("yavas2-progress");
+    if(raw){ var d=JSON.parse(raw); if(d&&d.pa){ Object.keys(mem).forEach(function(k){ if(d[k]) mem[k]=d[k]; }); } }
+  }catch(e){}
+  paintScores();
+}
+function paintScores(){
+  Object.keys(mem).forEach(function(k){
+    if(el(k+"-score")) el(k+"-score").textContent=mem[k].s;
+    if(el(k+"-streak")) el(k+"-streak").textContent=mem[k].k;
+  });
+  paintAuj();
+}
+/* ---------- séances de dix & file « à revoir » ----------
+   Chaque quiz travaille par séries de 10 questions, puis affiche un bilan.
+   Une question ratée est remise dans la file et revient deux questions
+   plus tard (ou en tête de la série suivante) : on révise ce qu'on rate. */
+var SESSION_LEN=10;
+var sess={};
+function sessOf(id){ if(!sess[id]) sess[id]={n:0,ok:0,queue:[]}; return sess[id]; }
+function sessAnswer(id,ok,item){
+  var s=sessOf(id);
+  s.n++; if(ok) s.ok++;
+  else if(item!==null && item!==undefined) s.queue.push({item:item,due:s.n+2});
+  markPractice();
+  return s;
+}
+function sessTake(id){
+  var s=sessOf(id);
+  for(var i=0;i<s.queue.length;i++)
+    if(s.queue[i].due<=s.n) return s.queue.splice(i,1)[0].item;
+  return null;
+}
+function sessProg(id,progId){
+  var e=el(progId); if(e) e.textContent=Math.min(sessOf(id).n,SESSION_LEN)+" / "+SESSION_LEN;
+}
+function sessNext(id,cardId,progId,again){
+  if(sessOf(id).n>=SESSION_LEN) sessBilan(id,cardId,progId,again);
+  else again();
+}
+function sessBilan(id,cardId,progId,again){
+  var s=sessOf(id), ok=s.ok, msg;
+  if(ok>=9) msg="Harika ! (formidable)";
+  else if(ok>=7) msg="Çok iyi ! (très bien)";
+  else if(ok>=5) msg="İyi ! Ça rentre, continue comme ça.";
+  else msg="C'est en se trompant qu'on apprend — on remet ça ?";
+  var sub = s.queue.length
+    ? (s.queue.length>1 ? s.queue.length+" questions ratées reviendront" : "1 question ratée reviendra")+" au début de la prochaine série."
+    : "Séance faite. Une par jour suffit — à demain !";
+  var c=el(cardId);
+  c.innerHTML='<div class="bilan"><div class="bilan-score">'+ok+' / '+SESSION_LEN+'</div>'+
+    '<p class="bilan-msg">'+msg+'</p>'+
+    '<p class="bilan-sub">'+sub+'</p>'+
+    '<button class="ghost" style="margin-top:16px;border-color:var(--ink);color:var(--ink)" id="'+cardId+'-again">Nouvelle série de '+SESSION_LEN+'</button></div>';
+  el(cardId+"-again").onclick=function(){
+    var q=sessOf(id).queue;
+    sess[id]={n:0,ok:0,queue:q.map(function(x){return {item:x.item,due:0};})};
+    sessProg(id,progId); again();
+  };
+}
+
+/* ---------- assiduité : jours d'affilée ---------- */
+function dstr(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+function todayStr(){ return dstr(new Date()); }
+function yesterdayStr(){ return dstr(new Date(Date.now()-86400000)); }
+var days={last:"",n:0,best:0};
+try{ var dj=JSON.parse(window.localStorage.getItem("yavas-days")||"null"); if(dj&&dj.last!==undefined) days=dj; }catch(e){}
+function markPractice(){
+  var t=todayStr();
+  if(days.last===t) return;
+  days.n = (days.last===yesterdayStr()) ? days.n+1 : 1;
+  days.last=t; if(days.n>days.best) days.best=days.n;
+  try{ window.localStorage.setItem("yavas-days", JSON.stringify(days)); }catch(e){}
+  paintDays();
+}
+function paintDays(){
+  var b=el("daybadge");
+  if(b){
+    var t=todayStr(), y=yesterdayStr();
+    if(days.last===t){ b.hidden=false; b.textContent="🔥 "+days.n+" jour"+(days.n>1?"s":"")+" d'affilée"; }
+    else if(days.last===y){ b.hidden=false; b.textContent="🔥 "+days.n+" jour"+(days.n>1?"s":"")+" — continue aujourd'hui !"; }
+    else b.hidden=true;
+  }
+  paintAuj();
+}
+
+
+/* ---------- onglets A2 ---------- */
+var TABS=[
+  {id:"auj",label:"Aujourd'hui"},
+  {id:"passe",label:"Le passé"},
+  {id:"futur",label:"Le futur"},
+  {id:"cas",label:"Les cas"},
+  {id:"cartes",label:"Les cartes A2"},
+  {id:"ordre",label:"La phrase A2"},
+  {id:"plus",label:"Dire plus"},
+  {id:"conv",label:"La conversation"},
+  {id:"eval",label:"Évaluation A2"},
+  {id:"prof",label:"Note pour le prof"}
+];
+var nav=el("nav");
+function activateTab(i,scroll){
+  TABS.forEach(function(x,j){
+    var b=nav.children[j], on2=(j===i);
+    b.setAttribute("aria-selected", on2?"true":"false");
+    b.tabIndex=on2?0:-1;
+    el("p-"+x.id).classList.toggle("on", on2);
+  });
+  try{ window.localStorage.setItem("yavas2-tab", TABS[i].id); }catch(e){}
+  if(scroll) window.scrollTo({top:0,behavior:"smooth"});
+}
+TABS.forEach(function(t,i){
+  var b=document.createElement("button");
+  b.textContent=t.label; b.id="tab-"+t.id;
+  b.setAttribute("role","tab");
+  b.setAttribute("aria-controls","p-"+t.id);
+  b.onclick=function(){ activateTab(i,true); };
+  nav.appendChild(b);
+  el("p-"+t.id).setAttribute("aria-labelledby","tab-"+t.id);
+});
+nav.addEventListener("keydown",function(ev){
+  if(ev.key!=="ArrowRight"&&ev.key!=="ArrowLeft") return;
+  var cur2=0;
+  for(var k=0;k<nav.children.length;k++)
+    if(nav.children[k].getAttribute("aria-selected")==="true") cur2=k;
+  var nx=(cur2+(ev.key==="ArrowRight"?1:-1)+TABS.length)%TABS.length;
+  activateTab(nx,true); nav.children[nx].focus(); ev.preventDefault();
+});
+var startTab=0;
+try{
+  var st=window.localStorage.getItem("yavas2-tab");
+  TABS.forEach(function(x,ix){ if(x.id===st) startTab=ix; });
+}catch(e){}
+activateTab(startTab,false);
+
+function tabIx(id){ for(var q=0;q<TABS.length;q++) if(TABS[q].id===id) return q; return 0; }
+TABS.forEach(function(t,i){
+  if(t.id==="prof"||t.id==="auj") return;
+  var nxt=TABS[i+1]; if(!nxt) return;
+  var goHome=(nxt.id==="prof");
+  var row=document.createElement("p"); row.className="continue-row";
+  var b2=document.createElement("button"); b2.className="ghost";
+  b2.textContent = goHome ? "Terminé pour aujourd'hui → l'accueil" : "Continuer → "+nxt.label;
+  b2.onclick=function(){ activateTab(goHome?0:i+1,true); };
+  row.appendChild(b2); el("p-"+t.id).appendChild(row);
+});
+
+/* ---------- Aujourd'hui A2 ---------- */
+var PLAN=[
+  {t:["cartes","conv"], mot:"Dimanche : les cartes, puis une scène à jouer."},
+  {t:["passe","ordre"], mot:"Lundi : le passé, puis deux phrases à remettre en ordre."},
+  {t:["futur","plus"], mot:"Mardi : le futur, puis le quiz du bon temps."},
+  {t:["cartes","passe"], mot:"Mercredi : une dizaine de cartes, puis une série au passé."},
+  {t:["cas","ordre"], mot:"Jeudi : les cas, puis les phrases."},
+  {t:["passe","futur"], mot:"Vendredi : passé et futur — dix questions de chaque."},
+  {t:["plus","conv"], mot:"Samedi : le bon temps, puis chez le médecin ou en ville."}
+];
+function paintAuj(){
+  var box=el("auj-plan"); if(!box) return;
+  var d=new Date(), h=d.getHours();
+  var helloTr = h<12 ? "Günaydın" : (h<18 ? "Merhaba" : "İyi akşamlar");
+  var hh=el("auj-hello");
+  hh.textContent=helloTr+" !";
+  hh.style.cursor="pointer"; hh.title="Appuie pour écouter";
+  hh.onclick=function(){ say(helloTr); };
+  var dateStr="";
+  try{ dateStr=d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}); }catch(e){}
+  el("auj-lede").textContent="Nous sommes "+dateStr+" — niveau A2. Dix minutes suffisent : voici le programme du jour.";
+  var plan=PLAN[d.getDay()];
+  box.innerHTML='<h3>Le programme du jour</h3><p class="muted" style="font-size:14.5px">'+plan.mot+'</p>';
+  plan.t.forEach(function(id2,ix2){
+    var b3=document.createElement("button"); b3.className="plan-item";
+    b3.innerHTML='<span class="plan-num">'+(ix2+1)+'</span><span></span><span class="plan-arrow">→</span>';
+    b3.children[1].textContent=TABS[tabIx(id2)].label;
+    b3.onclick=function(){ activateTab(tabIx(id2),true); };
+    box.appendChild(b3);
+  });
+  var stats=el("auj-stats"), tot=0;
+  Object.keys(mem).forEach(function(k){ tot+=mem[k].s; });
+  var t2=todayStr(), y2=yesterdayStr(), line;
+  if(days.last===t2) line="🔥 <b>"+days.n+"</b> jour"+(days.n>1?"s":"")+" d'affilée — c'est fait pour aujourd'hui.";
+  else if(days.last===y2) line="🔥 Série en cours : <b>"+days.n+"</b> jour"+(days.n>1?"s":"")+". Une seule question aujourd'hui, et elle continue.";
+  else if(days.best>0) line="La série repart aujourd'hui — ton record : <b>"+days.best+"</b> jour"+(days.best>1?"s":"")+".";
+  else line="Réponds à une première question, et le compteur de jours s'allume. 🔥";
+  stats.innerHTML='<h3>L\'assiduité</h3><p>'+line+'</p>'+
+    '<p class="muted" style="font-size:14px;margin-top:6px">Le compteur de jours est commun aux niveaux A1 et A2'+(tot?" — et "+tot+" bonnes réponses ici, côté A2.":".")+'</p>';
+}
+
+/* ---------- grammaire A2 : passé, futur, cas ---------- */
+var PRON=[["1s","ben"],["2s","sen"],["3s","o"],["1p","biz"],["2p","siz"],["3p","onlar"]];
+function sfxPast(w){ return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+four(w); }
+function pastForm(root,p){
+  var b=root+sfxPast(root);
+  if(p==="1s")return b+"m";
+  if(p==="2s")return b+"n";
+  if(p==="3s")return b;
+  if(p==="1p")return b+"k";
+  if(p==="2p")return b+"n"+four(b)+"z";
+  return b+"l"+two(b)+"r";
+}
+function futBase(root){ return root+(endsVowel(root)?"y":"")+two(root)+"c"+two(root)+"k"; }
+function futForm(root,p){
+  var b=futBase(root), v=four(b);
+  if(p==="1s")return b.slice(0,-1)+"ğ"+v+"m";
+  if(p==="2s")return b+"s"+v+"n";
+  if(p==="3s")return b;
+  if(p==="1p")return b.slice(0,-1)+"ğ"+v+"z";
+  if(p==="2p")return b+"s"+v+"n"+v+"z";
+  return b+"l"+two(b)+"r";
+}
+function sfxAcc(w){ return (endsVowel(w)?"y":"")+four(w); }
+function sfxAbl(w){ return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+two(w)+"n"; }
+
+var PVERBS=[
+ {r:"gel",fr2:"gel",inf:"gelmek",fr:"venir",fp:["je suis venu·e","tu es venu·e","il / elle est venu·e","nous sommes venu·e·s","vous êtes venu·e·s","ils / elles sont venu·e·s"],ff:["je viendrai","tu viendras","il / elle viendra","nous viendrons","vous viendrez","ils / elles viendront"]},
+ {r:"git",fr2:"gid",inf:"gitmek",fr:"aller",fp:["je suis allé·e","tu es allé·e","il / elle est allé·e","nous sommes allé·e·s","vous êtes allé·e·s","ils / elles sont allé·e·s"],ff:["j'irai","tu iras","il / elle ira","nous irons","vous irez","ils / elles iront"]},
+ {r:"yap",fr2:"yap",inf:"yapmak",fr:"faire",fp:["j'ai fait","tu as fait","il / elle a fait","nous avons fait","vous avez fait","ils / elles ont fait"],ff:["je ferai","tu feras","il / elle fera","nous ferons","vous ferez","ils / elles feront"]},
+ {r:"iç",fr2:"iç",inf:"içmek",fr:"boire",fp:["j'ai bu","tu as bu","il / elle a bu","nous avons bu","vous avez bu","ils / elles ont bu"],ff:["je boirai","tu boiras","il / elle boira","nous boirons","vous boirez","ils / elles boiront"]},
+ {r:"ye",fr2:"yi",inf:"yemek",fr:"manger",fp:["j'ai mangé","tu as mangé","il / elle a mangé","nous avons mangé","vous avez mangé","ils / elles ont mangé"],ff:["je mangerai","tu mangeras","il / elle mangera","nous mangerons","vous mangerez","ils / elles mangeront"]},
+ {r:"gör",fr2:"gör",inf:"görmek",fr:"voir",fp:["j'ai vu","tu as vu","il / elle a vu","nous avons vu","vous avez vu","ils / elles ont vu"],ff:["je verrai","tu verras","il / elle verra","nous verrons","vous verrez","ils / elles verront"]},
+ {r:"al",fr2:"al",inf:"almak",fr:"prendre, acheter",fp:["j'ai pris","tu as pris","il / elle a pris","nous avons pris","vous avez pris","ils / elles ont pris"],ff:["je prendrai","tu prendras","il / elle prendra","nous prendrons","vous prendrez","ils / elles prendront"]},
+ {r:"oku",fr2:"oku",inf:"okumak",fr:"lire",fp:["j'ai lu","tu as lu","il / elle a lu","nous avons lu","vous avez lu","ils / elles ont lu"],ff:["je lirai","tu liras","il / elle lira","nous lirons","vous lirez","ils / elles liront"]},
+ {r:"konuş",fr2:"konuş",inf:"konuşmak",fr:"parler",fp:["j'ai parlé","tu as parlé","il / elle a parlé","nous avons parlé","vous avez parlé","ils / elles ont parlé"],ff:["je parlerai","tu parleras","il / elle parlera","nous parlerons","vous parlerez","ils / elles parleront"]},
+ {r:"anla",fr2:"anla",inf:"anlamak",fr:"comprendre",fp:["j'ai compris","tu as compris","il / elle a compris","nous avons compris","vous avez compris","ils / elles ont compris"],ff:["je comprendrai","tu comprendras","il / elle comprendra","nous comprendrons","vous comprendrez","ils / elles comprendront"]}
+];
+
+/* tables de conjugaison cliquables */
+function makeConjTable(catsId, tableId, forms){
+  var cur=0, cats=el(catsId);
+  function render(){
+    var v=PVERBS[cur], t=el(tableId);
+    t.innerHTML="<tr><th>Pronom</th><th>Turc</th><th>Français</th></tr>";
+    PRON.forEach(function(p,idx){
+      var form=forms.fn(v,p[0]);
+      var row=document.createElement("tr");
+      row.innerHTML='<td class="muted">'+p[1]+'</td><td class="tr" lang="tr"></td><td></td>';
+      row.children[1].textContent=form;
+      row.children[2].textContent=forms.f(v)[idx];
+      row.style.cursor="pointer"; row.onclick=function(){ say(form); };
+      t.appendChild(row);
+    });
+  }
+  PVERBS.forEach(function(v,i){
+    var b=document.createElement("button"); b.className="stem-btn";
+    b.style.borderColor="var(--paper-line-strong)"; b.style.color="var(--ink)";
+    b.textContent=v.inf+" · "+v.fr;
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){
+      cur=i;
+      for(var k=0;k<cats.children.length;k++){
+        var on2=(k===i);
+        cats.children[k].setAttribute("aria-pressed", on2?"true":"false");
+        cats.children[k].style.background=on2?"var(--ink)":"transparent";
+        cats.children[k].style.color=on2?"var(--card)":"var(--ink)";
+      }
+      render();
+    };
+    cats.appendChild(b);
+  });
+  cats.children[0].style.background="var(--ink)"; cats.children[0].style.color="var(--card)";
+  render();
+}
+makeConjTable("pa-verbs","pa-conj",{fn:function(v,p){return pastForm(v.r,p);}, f:function(v){return v.fp;}});
+makeConjTable("fu-verbs","fu-conj",{fn:function(v,p){return futForm(v.fr2,p);}, f:function(v){return v.ff;}});
+
+/* fabrique de quiz à choix ---------- */
+function quizFactory(id, cardId, progId, gen){
+  function next(){
+    var q=gen(sessTake(id));
+    var card=el(cardId);
+    card.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="opts" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+    card.querySelector(".q").textContent=q.prompt;
+    card.querySelector(".q-sub").textContent=q.sub||"";
+    var box=card.querySelector(".opts"), verdict=card.querySelector(".verdict");
+    q.opts.forEach(function(o){
+      var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+      b.onclick=function(){
+        Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+        var win=(o===q.good);
+        if(win){ b.classList.add("right"); mem[id].s++; mem[id].k++;
+          verdict.innerHTML="Oui : <b>"+q.good+"</b>."+(q.why?" "+q.why:"");
+        }else{ b.classList.add("wrong"); mem[id].k=0;
+          Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===q.good) x.classList.add("right");});
+          verdict.innerHTML="C'est <b>"+q.good+"</b>."+(q.why?" "+q.why:"");
+        }
+        say(q.good); paintScores(); save();
+        var st=sessAnswer(id,win,win?null:q.item);
+        sessProg(id,progId);
+        var nb=document.createElement("button");
+        nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
+        nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+        nb.onclick=function(){ sessNext(id,cardId,progId,next); };
+        card.appendChild(nb); nb.focus();
+      };
+      box.appendChild(b);
+    });
+  }
+  return next;
+}
+function conjOpts(fn, v, pi){
+  var good=fn(v,PRON[pi][0]), opts=[good];
+  shuffle(PRON.slice()).forEach(function(x){
+    var c2=fn(v,x[0]);
+    if(opts.indexOf(c2)<0 && opts.length<4) opts.push(c2);
+  });
+  return {good:good, opts:shuffle(opts)};
+}
+function genPast(rv){
+  var v,pi;
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(PVERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var o=conjOpts(function(vv,p){return pastForm(vv.r,p);}, v, pi);
+  return {prompt:"« "+v.fp[pi]+" » ?", sub:v.inf+" = "+v.fr+"  ·  pronom "+PRON[pi][1], opts:o.opts, good:o.good, item:{v:v,pi:pi}};
+}
+function genFut(rv){
+  var v,pi;
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(PVERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var o=conjOpts(function(vv,p){return futForm(vv.fr2,p);}, v, pi);
+  return {prompt:"« "+v.ff[pi]+" » ?", sub:v.inf+" = "+v.fr+"  ·  pronom "+PRON[pi][1], opts:o.opts, good:o.good, item:{v:v,pi:pi}};
+}
+var CWORDS=[
+ {tr:"ev",fr:"maison"},{tr:"okul",fr:"école"},{tr:"araba",fr:"voiture"},{tr:"kedi",fr:"chat"},
+ {tr:"sepet",fr:"panier"},{tr:"kapı",fr:"porte"},{tr:"köy",fr:"village"},{tr:"otobüs",fr:"bus"},
+ {tr:"market",fr:"supérette"},{tr:"deniz",fr:"mer"},{tr:"süt",fr:"lait"},{tr:"yol",fr:"route"}
+];
+var CKINDS=[
+ {fn:sfxAcc, ask:"le / la {fr} (précis : je LE vois)", why:"la marque du précis, -(y)i"},
+ {fn:sfxDat, ask:"vers le / la {fr}", why:"-(y)e, la direction"},
+ {fn:sfxLoc, ask:"dans le / la {fr}", why:"-de, le lieu"},
+ {fn:sfxAbl, ask:"depuis le / la {fr}", why:"-den, la provenance"}
+];
+function genCas(rv){
+  var w,k;
+  if(rv){ w=rv.w; k=rv.k; } else { w=pick(CWORDS); k=pick(CKINDS); }
+  var good=w.tr+k.fn(w.tr), opts=[good];
+  CKINDS.forEach(function(k2){ var c2=w.tr+k2.fn(w.tr); if(opts.indexOf(c2)<0&&opts.length<4) opts.push(c2); });
+  return {prompt:"« "+k.ask.replace("{fr}",w.fr)+" » ?", sub:w.tr+" = "+w.fr, opts:shuffle(opts), good:good, why:"("+k.why+")", item:{w:w,k:k}};
+}
+var TENSEQ=[
+ {fr:"je suis venue",good:"geldim",opts:["geliyorum","geleceğim","gelebilirim"]},
+ {fr:"je viendrai",good:"geleceğim",opts:["geldim","geliyorum","gelebilirim"]},
+ {fr:"je peux venir",good:"gelebilirim",opts:["geldim","geleceğim","geliyorum"]},
+ {fr:"je viens (là, maintenant)",good:"geliyorum",opts:["geldim","geleceğim","gelebilirim"]},
+ {fr:"nous avons vu",good:"gördük",opts:["görüyoruz","göreceğiz","gördünüz"]},
+ {fr:"tu iras",good:"gideceksin",opts:["gittin","gidiyorsun","gideceğiz"]},
+ {fr:"plus beau",good:"daha güzel",opts:["en güzel","çok güzel","güzeldi"]},
+ {fr:"le plus beau",good:"en güzel",opts:["daha güzel","çok güzel","güzel"]},
+ {fr:"il me faut de l'eau",good:"bana su lazım",opts:["su istiyorum","su içtim","su var"]},
+ {fr:"peux-tu parler ?",good:"konuşabilir misin?",opts:["konuştun mu?","konuşacak mısın?","konuşuyor musun?"]},
+ {fr:"c'était très beau",good:"çok güzeldi",opts:["çok güzel","daha güzel","güzel olacak"]},
+ {fr:"nous mangerons",good:"yiyeceğiz",opts:["yedik","yiyoruz","yediniz"]}
+];
+function genPlus(rv){
+  var i = (rv!==null && rv!==undefined) ? rv : Math.floor(Math.random()*TENSEQ.length);
+  var q=TENSEQ[i];
+  return {prompt:"« "+q.fr+" » ?", sub:"choisis la bonne forme", opts:shuffle([q.good].concat(q.opts)), good:q.good, item:i};
+}
+var newPast=quizFactory("pa","pa-card","pa-prog",genPast);
+var newFut=quizFactory("fu","fu-card","fu-prog",genFut);
+var newCas=quizFactory("ca","ca-card","ca-prog",genCas);
+var newPlus=quizFactory("pl","pl-card","pl-prog",genPlus);
+newPast(); newFut(); newCas(); newPlus();
+
+/* ---------- cartes A2 ---------- */
+var DECKS={
+ "En ville":[
+  ["sokak","so-KAK","rue"],["cadde","djad-DÉ","avenue"],["market","mar-KÈT","supérette"],
+  ["eczane","èdj-za-NÉ","pharmacie"],["hastane","has-ta-NÉ","hôpital"],["banka","ban-KA","banque"],
+  ["postane","pos-ta-NÉ","poste"],["park","PARK","parc"],["cami","dja-MI","mosquée"],
+  ["köprü","keup-RU","pont"],["meydan","meï-DAN","place"],["müze","mu-ZÉ","musée"]
+ ],
+ "Les transports":[
+  ["otobüs","o-to-BUS","bus"],["dolmuş","dol-MOUCH","minibus partagé"],["taksi","tak-SI","taxi"],
+  ["tren","TRÈN","train"],["uçak","ou-TCHAK","avion"],["vapur","va-POUR","ferry"],
+  ["bilet","bi-LÈT","billet"],["durak","dou-RAK","arrêt"],["istasyon","is-tas-YON","gare"],
+  ["havalimanı","ha-va-li-ma-NEU","aéroport"]
+ ],
+ "Le corps":[
+  ["baş","BACH","tête"],["saç","SATCH","cheveux"],["ağız","a-EUZ","bouche"],["burun","bou-ROUN","nez"],
+  ["kulak","kou-LAK","oreille"],["diş","DICH","dent"],["boğaz","bo-AZ","gorge"],["karın","ka-REUN","ventre"],
+  ["sırt","SEURT","dos"],["bacak","ba-DJAK","jambe"],["ayak","a-YAK","pied"],["kol","KOL","bras"]
+ ],
+ "Chez le médecin":[
+  ["doktor","dok-TOR","médecin"],["ilaç","i-LATCH","médicament"],["ağrı","aa-REU","douleur"],
+  ["ateş","a-TÈCH","fièvre"],["öksürük","euk-su-RUK","toux"],["randevu","ran-dé-VOU","rendez-vous"],
+  ["Neyiniz var?","NÉ-yi-niz VAR","Qu'avez-vous ?"],["Başım ağrıyor","ba-CHEUM aa-REU-yor","J'ai mal à la tête"],
+  ["Boğazım ağrıyor","bo-a-ZEUM aa-REU-yor","J'ai mal à la gorge"],["Geçmiş olsun","guètch-MICH ol-SOUN","Bon rétablissement (déjà vue en A1 !)"]
+ ],
+ "L'heure qui passe":[
+  ["saat","sa-AT","heure / montre"],["dakika","da-ki-KA","minute"],["buçuk","bou-TCHOUK","et demie (saat üç buçuk)"],
+  ["çeyrek","tchèï-RÈK","quart"],["erken","èr-KÈN","tôt"],["geç","GUÈTCH","tard"],
+  ["önce","eun-DJÉ","avant"],["geçen hafta","gué-TCHÈN haf-TA","la semaine dernière"],
+  ["gelecek yıl","gué-lé-DJÈK YEUL","l'année prochaine"],["her gün","hèr GUNN","chaque jour"],
+  ["bazen","ba-ZÈN","parfois"],["her zaman","hèr za-MAN","toujours"]
+ ],
+ "Les métiers":[
+  ["öğretmen","eu-rèt-MÈN","professeur·e"],["mühendis","mu-hèn-DIS","ingénieur·e"],["aşçı","ach-TCHEU","cuisinier·ère"],
+  ["garson","gar-SON","serveur"],["hemşire","hèm-chi-RÉ","infirmier·ère"],["polis","po-LIS","policier·ère"],
+  ["avukat","a-vou-KAT","avocat·e"],["işçi","ich-TCHI","ouvrier·ère"],["emekli","é-mèk-LI","retraité·e"]
+ ]
+};
+var deckName=Object.keys(DECKS)[0], deck=DECKS[deckName], di=0, flipped=false, dirRev=false;
+var dc=el("deck-cats");
+Object.keys(DECKS).forEach(function(name,i){
+  var b=document.createElement("button"); b.className="stem-btn";
+  b.textContent=name; b.setAttribute("aria-pressed", i===0?"true":"false");
+  b.onclick=function(){
+    deckName=name; deck=DECKS[name]; di=0; flipped=false;
+    for(var k=0;k<dc.children.length;k++) dc.children[k].setAttribute("aria-pressed", dc.children[k].textContent===name?"true":"false");
+    renderCard();
+  };
+  dc.appendChild(b);
+});
+function renderCard(){
+  var c=deck[di], f=el("flip"), kr=el("know-row");
+  if(!flipped){
+    if(dirRev){
+      f.innerHTML='<div class="back"></div><div class="hint">dis-le en turc, puis appuie</div>';
+      f.querySelector(".back").textContent=c[2];
+    }else{
+      f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><div class="hint">appuyer pour la traduction</div>';
+      f.querySelector(".front").textContent=c[0];
+      f.querySelector(".phon").textContent=c[1];
+    }
+  }else{
+    if(dirRev){
+      f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
+      f.querySelector(".front").textContent=c[0];
+      f.querySelector(".phon").textContent=c[1];
+    }else{
+      f.innerHTML='<div class="back"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
+      f.querySelector(".back").textContent=c[2];
+    }
+    f.querySelector(".speak").onclick=function(ev){ev.stopPropagation();say(c[0]);};
+  }
+  if(kr) kr.hidden=!flipped;
+  el("counter").textContent=(di+1)+" / "+deck.length+"  ·  "+deckName;
+}
+function deckStep(){ di=(di+1)%deck.length; flipped=false; renderCard(); }
+el("flip").onclick=function(){ flipped=!flipped; if(flipped){ say(deck[di][0]); markPractice(); } renderCard(); };
+el("next").onclick=function(){ deckStep(); };
+el("prev").onclick=function(){ di=(di-1+deck.length)%deck.length; flipped=false; renderCard(); };
+el("shuffle").onclick=function(){ deck=shuffle(deck.slice()); di=0; flipped=false; renderCard(); };
+el("know-yes").onclick=function(){ deckStep(); };
+el("know-no").onclick=function(){
+  var card=deck[di];
+  if(deck===DECKS[deckName]) deck=deck.slice();
+  deck.splice(di,1);
+  deck.splice(Math.min(di+3,deck.length),0,card);
+  flipped=false; renderCard();
+};
+el("direction").onclick=function(){
+  dirRev=!dirRev; flipped=false;
+  this.textContent = dirRev ? "Sens : français → turc" : "Sens : turc → français";
+  renderCard();
+};
+renderCard();
+
+/* ---------- la phrase A2 ---------- */
+var SENT=[
+ {tr:["Dün","pazara","gittim"],fr:"Hier je suis allée au marché",lit:"hier · marché-vers · je-suis-allée"},
+ {tr:["Sabah","çay","içtik"],fr:"Ce matin nous avons bu du thé",lit:"matin · thé · nous-avons-bu"},
+ {tr:["Akşam","ne","yaptın"],fr:"Qu'as-tu fait ce soir ?",lit:"soir · quoi · tu-as-fait"},
+ {tr:["Film","çok","güzeldi"],fr:"Le film était très beau",lit:"film · très · était-beau"},
+ {tr:["Otobüs","geç","geldi"],fr:"Le bus est arrivé en retard",lit:"bus · tard · est-venu"},
+ {tr:["Geçen","hafta","çok","çalıştım"],fr:"La semaine dernière j'ai beaucoup travaillé",lit:"dernière · semaine · beaucoup · j'ai-travaillé"},
+ {tr:["Anneanne","çorba","yaptı"],fr:"Mamie a fait de la soupe",lit:"mamie · soupe · elle-a-fait"},
+ {tr:["Ben","seni","aradım"],fr:"Je t'ai appelé·e",lit:"moi · toi · j'ai-appelé"},
+ {tr:["Biz","filmi","gördük"],fr:"Nous avons vu le film",lit:"nous · film-LE · nous-avons-vu"},
+ {tr:["Kediyi","gördün","mü"],fr:"As-tu vu le chat ?",lit:"chat-LE · tu-as-vu · est-ce-que"},
+ {tr:["Sen","ne","dedin"],fr:"Qu'as-tu dit ?",lit:"toi · quoi · tu-as-dit"},
+ {tr:["Biraz","Türkçe","öğrendim"],fr:"J'ai appris un peu de turc",lit:"un-peu · turc · j'ai-appris"},
+ {tr:["Yarın","erken","kalkacağım"],fr:"Demain je me lèverai tôt",lit:"demain · tôt · je-me-lèverai"},
+ {tr:["Gelecek","yıl","Türkiye'ye","gideceğiz"],fr:"L'année prochaine nous irons en Turquie",lit:"prochaine · année · Turquie-vers · nous-irons"},
+ {tr:["Yarın","hava","güzel","olacak"],fr:"Demain il fera beau",lit:"demain · air · beau · sera"},
+ {tr:["Markete","gideceğim"],fr:"J'irai à la supérette",lit:"supérette-vers · j'irai"},
+ {tr:["Uçak","havalimanına","geldi"],fr:"L'avion est arrivé à l'aéroport",lit:"avion · aéroport-vers · est-venu"},
+ {tr:["Doktora","gittim","çünkü","hastaydım"],fr:"Je suis allée chez le docteur parce que j'étais malade",lit:"docteur-vers · je-suis-allée · parce-que · j'étais-malade"}
+];
+var sentIdx=-1;
+function buildOrder(cardId, s, onDone){
+  var ans=[], pool=s.tr.slice(), done=false, card=el(cardId);
+  do{ shuffle(pool); }while(pool.join(" ")===s.tr.join(" "));
+  card.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="build" lang="tr"></div><div class="pool" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  card.querySelector(".q").textContent="« "+s.fr+" »";
+  card.querySelector(".q-sub").textContent="mot à mot : "+s.lit;
+  var build=card.querySelector(".build"), poolBox=card.querySelector(".pool"), verdict=card.querySelector(".verdict");
+  function renderBuild(){
+    build.innerHTML="";
+    if(!ans.length){
+      var ph=document.createElement("span"); ph.className="placeholder";
+      ph.textContent="appuie sur les mots, dans l'ordre";
+      build.appendChild(ph); return;
+    }
+    ans.forEach(function(w,idx){
+      var b=document.createElement("button"); b.className="chip in"; b.textContent=w;
+      b.onclick=function(){
+        if(done) return;
+        ans.splice(idx,1);
+        for(var k2=0;k2<poolBox.children.length;k2++){
+          var pc=poolBox.children[k2];
+          if(pc.textContent===w && pc.disabled){ pc.disabled=false; pc.style.opacity="1"; break; }
+        }
+        renderBuild();
+      };
+      build.appendChild(b);
+    });
+  }
+  pool.forEach(function(w){
+    var b=document.createElement("button"); b.className="chip"; b.textContent=w;
+    b.onclick=function(){
+      if(b.disabled||done) return;
+      b.disabled=true; b.style.opacity=".35";
+      ans.push(w); renderBuild();
+      if(ans.length===s.tr.length){
+        done=true;
+        var good=s.tr.join(" "), win=(ans.join(" ")===good);
+        Array.prototype.forEach.call(poolBox.children,function(x){x.disabled=true;});
+        Array.prototype.forEach.call(build.children,function(x){
+          x.style.background=win?"var(--turquoise)":"var(--coral)";
+          x.style.borderColor=win?"var(--turquoise)":"var(--coral)";
+          x.style.color=win?"var(--on-turquoise)":"var(--on-coral)";
+        });
+        verdict.innerHTML=win?"Oui : <b>"+good+"</b>.":"C'était <b>"+good+"</b> — "+s.lit+".";
+        say(good);
+        onDone(win, card);
+      }
+    };
+    poolBox.appendChild(b);
+  });
+  renderBuild();
+}
+function newSent(){
+  var rv=sessTake("or"), i;
+  if(rv!==null){ i=rv; }
+  else{ do{ i=Math.floor(Math.random()*SENT.length); }while(i===sentIdx && SENT.length>1); }
+  sentIdx=i;
+  buildOrder("or-card", SENT[i], function(win, card){
+    if(win){ mem.or.s++; mem.or.k++; } else mem.or.k=0;
+    paintScores(); save();
+    var st=sessAnswer("or",win,win?null:i);
+    sessProg("or","or-prog");
+    var nb=document.createElement("button");
+    nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
+    nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+    nb.onclick=function(){ sessNext("or","or-card","or-prog",newSent); };
+    card.appendChild(nb); nb.focus();
+  });
+}
+newSent();
+
+/* ---------- dialogues A2 ---------- */
+var DIALOGS=[
+ {name:"Chez le médecin 🩺",steps:[
+  {npc:{tr:"Buyrun, geçin. Neyiniz var?",fr:"Entrez, je vous en prie. Qu'avez-vous ?"},
+   opts:[{tr:"Başım ağrıyor.",fr:"J'ai mal à la tête."},{tr:"Boğazım ağrıyor.",fr:"J'ai mal à la gorge."},{tr:"Karnım ağrıyor.",fr:"J'ai mal au ventre."}]},
+  {npc:{tr:"Ne zaman başladı?",fr:"Quand est-ce que ça a commencé ?"},
+   opts:[{tr:"Dün başladı.",fr:"Ça a commencé hier."},{tr:"Sabah başladı.",fr:"Ça a commencé ce matin."}]},
+  {npc:{tr:"Ateşiniz var mı?",fr:"Avez-vous de la fièvre ?"},
+   opts:[{tr:"Evet, biraz var.",fr:"Oui, un peu."},{tr:"Hayır, yok.",fr:"Non, pas de fièvre."}]},
+  {npc:{tr:"Bu ilacı alın. Geçmiş olsun!",fr:"Prenez ce médicament. Bon rétablissement !"},
+   opts:[{tr:"Teşekkür ederim, doktor bey!",fr:"Merci, docteur !"},{tr:"Çok teşekkürler!",fr:"Merci beaucoup !"}]}
+ ]},
+ {name:"Demander son chemin 🗺️",steps:[
+  {npc:{tr:"Buyrun, yardım edeyim mi?",fr:"Je peux vous aider ?"},
+   opts:[{tr:"Affedersiniz, müze nerede?",fr:"Excusez-moi, où est le musée ?"},{tr:"Affedersiniz, eczane nerede?",fr:"Excusez-moi, où est la pharmacie ?"}]},
+  {npc:{tr:"Şu caddeden düz gidin.",fr:"Allez tout droit par cette avenue."},
+   opts:[{tr:"Uzak mı?",fr:"C'est loin ?"},{tr:"Kaç dakika?",fr:"Combien de minutes ?"}]},
+  {npc:{tr:"On dakika. Köprüden sonra solda.",fr:"Dix minutes. Après le pont, à gauche."},
+   opts:[{tr:"Anladım, çok teşekkür ederim!",fr:"Compris, merci beaucoup !"},{tr:"Teşekkürler, iyi günler!",fr:"Merci, bonne journée !"}]},
+  {npc:{tr:"Rica ederim. İyi günler!",fr:"Je vous en prie. Bonne journée !"},
+   opts:[{tr:"İyi günler!",fr:"Bonne journée !"}]}
+ ]}
+];
+var dlgI=0, dlgStep=0;
+function dlgBubble(box,who,tr,fr){
+  var d=document.createElement("div");
+  d.className="bub "+who;
+  d.innerHTML='<div class="tr" lang="tr"></div>'+(fr?'<div class="fr"></div>':'');
+  d.children[0].textContent=tr;
+  if(fr) d.children[1].textContent=fr;
+  box.appendChild(d);
+  d.onclick=function(){ say(tr); };
+  return d;
+}
+function dlgPlay(){
+  var sc=DIALOGS[dlgI], box=el("dlg-box"), opts=el("dlg-opts");
+  if(dlgStep>=sc.steps.length){
+    opts.innerHTML="";
+    var again=document.createElement("button");
+    again.className="chip"; again.textContent="Rejouer la scène 🔁";
+    again.onclick=function(){ dlgStart(dlgI); };
+    opts.appendChild(again);
+    return;
+  }
+  var st=sc.steps[dlgStep];
+  dlgBubble(box,"npc",st.npc.tr,st.npc.fr);
+  say(st.npc.tr);
+  if(box.scrollIntoView) box.scrollIntoView({block:"end",behavior:"smooth"});
+  opts.innerHTML="";
+  st.opts.forEach(function(o){
+    var b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML='<span lang="tr"></span><span class="sub"></span>';
+    b.children[0].textContent=o.tr; b.children[1].textContent=o.fr;
+    b.onclick=function(){
+      dlgBubble(box,"me",o.tr,o.fr);
+      say(o.tr); markPractice();
+      dlgStep++;
+      opts.innerHTML="";
+      setTimeout(dlgPlay,1600);
+    };
+    opts.appendChild(b);
+  });
+}
+function dlgStart(i){
+  dlgI=i; dlgStep=0;
+  el("dlg-box").innerHTML="";
+  var cats=el("dlg-scenes");
+  Array.prototype.forEach.call(cats.children,function(x,j){ x.setAttribute("aria-pressed", j===i?"true":"false"); });
+  dlgPlay();
+}
+(function(){
+  var cats=el("dlg-scenes");
+  DIALOGS.forEach(function(d,i){
+    var b=document.createElement("button");
+    b.className="catbtn"; b.textContent=d.name;
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){ dlgStart(i); };
+    cats.appendChild(b);
+  });
+  dlgStart(0);
+})();
+
+/* ---------- évaluation A2 ---------- */
+var EV_N=20, EV_HIST=[];
+try{ EV_HIST=JSON.parse(window.localStorage.getItem("yavas2-eval")||"[]"); }catch(e){}
+var EV_CATN={passe:"Le passé",futur:"Le futur",cas:"Les cas",vocab:"Vocabulaire",phrase:"Phrases",temps:"Le bon temps"};
+var EV_ADVICE={passe:"passe",futur:"futur",cas:"cas",vocab:"cartes",phrase:"ordre",temps:"plus"};
+var VOCA2=[];
+["En ville","Les transports","Le corps","Les métiers"].forEach(function(n){
+  DECKS[n].forEach(function(c2){ if(c2[0].indexOf(" ")<0 && c2[0].indexOf("?")<0) VOCA2.push({tr:c2[0],fr:c2[2]}); });
+});
+function evBank(){
+  var qs=[];
+  shuffle(PVERBS.slice()).slice(0,4).forEach(function(v){
+    var pi=Math.floor(Math.random()*PRON.length);
+    var o=conjOpts(function(vv,p){return pastForm(vv.r,p);}, v, pi);
+    qs.push({cat:"passe",prompt:"« "+v.fp[pi]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
+  });
+  shuffle(PVERBS.slice()).slice(0,4).forEach(function(v){
+    var pi=Math.floor(Math.random()*PRON.length);
+    var o=conjOpts(function(vv,p){return futForm(vv.fr2,p);}, v, pi);
+    qs.push({cat:"futur",prompt:"« "+v.ff[pi]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
+  });
+  shuffle(CWORDS.slice()).slice(0,4).forEach(function(w,ix){
+    var k=CKINDS[ix%CKINDS.length], good=w.tr+k.fn(w.tr), opts=[good];
+    CKINDS.forEach(function(k2){ var c2=w.tr+k2.fn(w.tr); if(opts.indexOf(c2)<0&&opts.length<4) opts.push(c2); });
+    qs.push({cat:"cas",prompt:"« "+k.ask.replace("{fr}",w.fr)+" » ?",sub:w.tr+" = "+w.fr,opts:shuffle(opts),good:good,say:good});
+  });
+  shuffle(VOCA2.slice()).slice(0,4).forEach(function(w){
+    var wrong=shuffle(VOCA2.filter(function(x){return x!==w;})).slice(0,3).map(function(x){return x.tr;});
+    qs.push({cat:"vocab",prompt:"Comment dit-on « "+w.fr+" » ?",sub:"",opts:shuffle([w.tr].concat(wrong)),good:w.tr,say:w.tr});
+  });
+  shuffle(TENSEQ.slice()).slice(0,2).forEach(function(q){
+    qs.push({cat:"temps",prompt:"« "+q.fr+" » ?",sub:"choisis la bonne forme",opts:shuffle([q.good].concat(q.opts)),good:q.good,say:q.good});
+  });
+  shuffle(SENT.filter(function(s){return s.tr.length>=3;})).slice(0,2).forEach(function(s){
+    qs.push({cat:"phrase",order:s});
+  });
+  return shuffle(qs).slice(0,EV_N);
+}
+var evQs=[], evI=0, evOk=0, evCats={};
+function evStart(){
+  evQs=evBank(); evI=0; evOk=0; evCats={};
+  Object.keys(EV_CATN).forEach(function(k){ evCats[k]=[0,0]; });
+  el("ev-histo").hidden=true;
+  evRender();
+}
+function evScored(cat,win){ evCats[cat][1]++; if(win){ evCats[cat][0]++; evOk++; } markPractice(); }
+function evNextBtn(card){
+  var last=(evI>=evQs.length-1);
+  var nb=document.createElement("button");
+  nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
+  nb.textContent = last ? "Voir le résultat →" : "Suivant →";
+  nb.onclick=function(){ evI++; if(evI>=evQs.length) evResult(); else evRender(); };
+  card.appendChild(nb); nb.focus();
+}
+function evRender(){
+  var q=evQs[evI], card=el("ev-card");
+  el("ev-prog").textContent=(evI+1)+" / "+evQs.length;
+  if(q.order){
+    buildOrder("ev-card", q.order, function(win, card2){ evScored("phrase",win); evNextBtn(card2); });
+    return;
+  }
+  card.innerHTML='<p class="q"></p><p class="q-sub"></p><div class="opts" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+  card.querySelector(".q").textContent=q.prompt;
+  card.querySelector(".q-sub").textContent=q.sub||"";
+  var box=card.querySelector(".opts"), verdict=card.querySelector(".verdict");
+  q.opts.forEach(function(o){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+      var win=(o===q.good);
+      if(win){ b.classList.add("right"); verdict.innerHTML="Oui !"; }
+      else{
+        b.classList.add("wrong");
+        Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===q.good) x.classList.add("right");});
+        verdict.innerHTML="C'était « <b>"+q.good+"</b> ».";
+      }
+      if(q.say) say(q.say);
+      evScored(q.cat,win); evNextBtn(card);
+    };
+    box.appendChild(b);
+  });
+}
+function evLevel(s){
+  if(s<=7)  return ["A1 consolidé","l'A2 démarre — le passé d'abord, tout est normal"];
+  if(s<=12) return ["A2 en cours","A2.1 — raconter commence à venir"];
+  if(s<=16) return ["A2 avancé","A2.2 — presque tout y est"];
+  return ["A2 acquis","cap sur B1 — il arrivera ici plus tard !"];
+}
+function evResult(){
+  var n=evQs.length, lv=evLevel(evOk), card=el("ev-card");
+  var out='<div class="bilan"><div class="bilan-score">'+evOk+' / '+n+'</div>'+
+    '<p class="bilan-msg">Niveau estimé : '+lv[0]+'</p>'+
+    '<p class="bilan-sub">'+lv[1]+'</p></div><div class="ev-bars">';
+  var weak=null, weakR=2;
+  Object.keys(EV_CATN).forEach(function(k2){
+    var c2=evCats[k2]; if(!c2[1]) return;
+    var r=c2[0]/c2[1], pc=Math.round(100*r);
+    if(r<weakR){ weakR=r; weak=k2; }
+    out+='<div class="ev-row"><span class="ev-lbl">'+EV_CATN[k2]+'</span><span class="ev-track"><i style="width:'+pc+'%"></i></span><span class="ev-val">'+c2[0]+' / '+c2[1]+'</span></div>';
+  });
+  out+='</div>';
+  out+= (weak && weakR<1) ? '<p style="margin-top:16px">Le point à travailler : <b>'+EV_CATN[weak].toLowerCase()+'</b>.</p>'
+                          : '<p style="margin-top:16px">Sans faute — <b lang="tr">harika</b> !</p>';
+  card.innerHTML=out;
+  if(weak && weakR<1){
+    var go=document.createElement("button"); go.className="plan-item";
+    go.innerHTML='<span></span><span class="plan-arrow">→</span>';
+    go.children[0].textContent="Aller à « "+TABS[tabIx(EV_ADVICE[weak])].label+" »";
+    go.onclick=function(){ activateTab(tabIx(EV_ADVICE[weak]),true); };
+    card.appendChild(go);
+  }
+  var again=document.createElement("button");
+  again.className="ghost"; again.style.marginTop="16px"; again.style.borderColor="var(--ink)"; again.style.color="var(--ink)";
+  again.textContent="Refaire un test"; again.onclick=evStart;
+  card.appendChild(again);
+  var d2="";
+  try{ d2=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ d2=todayStr(); }
+  EV_HIST.push({d:d2,s:evOk,n:n,lvl:lv[0]});
+  EV_HIST=EV_HIST.slice(-10);
+  try{ window.localStorage.setItem("yavas2-eval", JSON.stringify(EV_HIST)); }catch(e){}
+  evHisto();
+  el("ev-prog").textContent=n+" / "+n;
+}
+function evHisto(){
+  var h=el("ev-histo"); if(!h) return;
+  if(!EV_HIST.length){ h.hidden=true; return; }
+  h.hidden=false;
+  var out='<h3>Les tests précédents</h3>';
+  EV_HIST.slice().reverse().forEach(function(r){
+    out+='<div class="ev-hist-line"><span>'+r.d+'</span><span><b>'+r.s+' / '+r.n+'</b> · '+r.lvl+'</span></div>';
+  });
+  h.innerHTML=out;
+}
+(function evIntro(){
+  var card=el("ev-card");
+  card.innerHTML='<h3>Le test</h3>'+
+    '<p>Vingt questions, environ cinq minutes. Réponds sans aide — c\'est une photo, pas un contrôle.</p>'+
+    '<p style="margin-top:14px"><button class="ghost" style="border-color:var(--ink);color:var(--ink)" id="ev-start">Commencer le test →</button></p>';
+  el("ev-start").onclick=evStart;
+  evHisto();
+})();
+
+/* ---------- thème partagé avec la page A1 ---------- */
+var THEME_META={bosphore:"#0C1524",iznik:"#FAF8F1",lokum:"#FBF1EF",egee:"#EEF4F6",figue:"#261B29"};
+try{
+  var th=window.localStorage.getItem("yavas-theme")||"bosphore";
+  if(th!=="bosphore" && THEME_META[th]) document.body.setAttribute("data-theme",th);
+  var mtc=document.querySelector('meta[name="theme-color"]');
+  if(mtc && THEME_META[th]) mtc.setAttribute("content",THEME_META[th]);
+}catch(e){}
+
+load(); paintScores(); paintDays();
+
+if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+
+})();
+</script>
+</body>
+</html>

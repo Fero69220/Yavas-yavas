@@ -496,6 +496,11 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 .plan-item:hover{background:var(--card-hover)}
 .plan-num{font-family:var(--mono);font-size:12px;color:var(--card-muted);border:1px solid var(--paper-line-strong);border-radius:999px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;flex:none}
 .plan-arrow{margin-left:auto;color:var(--card-faint)}
+.levels{display:flex;gap:8px;margin:0 0 20px}
+.levels .lvl{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-decoration:none;
+  border:1px solid var(--bg-line-strong);color:var(--text-dim);border-radius:999px;padding:6px 14px;background:transparent;cursor:pointer}
+.levels .lvl.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+.levels .lvl.off{opacity:.45;border-style:dashed;cursor:default}
 .ev-bars{margin-top:18px}
 .ev-row{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:14px}
 .ev-lbl{width:104px;flex:none;color:var(--card-muted)}
@@ -523,6 +528,12 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 </head>
 <body>
 <div class="wrap">
+
+<nav class="levels" aria-label="Choix du niveau">
+  <span class="lvl on" aria-current="page">A1</span>
+  <a class="lvl" href="./a2.html">A2</a>
+  <span class="lvl off" title="Plus tard !">B1</span>
+</nav>
 
 <header>
   <p class="eyebrow">Türkçe · pour francophones</p>
@@ -2405,7 +2416,7 @@ function evLevel(s){
   if(s<=7)  return ["D\u00e9couverte","pr\u00e9-A1 \u2014 les bases se mettent en place, tout est normal"];
   if(s<=12) return ["A1 en cours","A1.1 \u2014 la moiti\u00e9 du chemin est faite"];
   if(s<=16) return ["A1 avanc\u00e9","A1.2 \u2014 presque tout y est"];
-  return ["A1 acquis","pr\u00eate \u00e0 viser A2 : le pass\u00e9, le futur, les r\u00e9cits \u2014 l'\u00e9tape d'apr\u00e8s"];
+  return ["A1 acquis","pr\u00eate pour la suite \u2014 appuie sur \u00ab A2 \u00bb en haut \u00e0 gauche !"];
 }
 function evResult(){
   var n=evQs.length, lv=evLevel(evOk), card=el("ev-card");

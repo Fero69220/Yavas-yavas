@@ -1,12 +1,13 @@
 /* Yavaş yavaş — cache hors ligne.
-   Change CACHE en "yavas-v16", "yavas-v17"... à chaque modification du contenu,
+   Change CACHE en "yavas-v17", "yavas-v18"... à chaque modification du contenu,
    sinon les téléphones garderont l'ancienne version.
    (Les pages elles-mêmes sont "réseau d'abord" : les changements de
    index.html arrivent même sans changer le numéro.) */
-const CACHE = "yavas-v15";
+const CACHE = "yavas-v16";
 const CORE = [
   "./",
   "./index.html",
+  "./a2.html",
   "./manifest.webmanifest",
   "./icon-180.png",
   "./icon-192.png",
@@ -56,10 +57,10 @@ self.addEventListener("fetch", (e) => {
       fetch(req)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put("./index.html", copy));
+          caches.open(CACHE).then((c) => c.put(req, copy));
           return res;
         })
-        .catch(() => caches.match("./index.html"))
+        .catch(() => caches.match(req).then((hit) => hit || caches.match("./index.html")))
     );
     return;
   }
