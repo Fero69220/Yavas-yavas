@@ -44,6 +44,9 @@ kız şeker bahçe güzel emin burada cam dağ kahve
 elbise pantolon gömlek tişört kazak ceket mont etek ayakkabı çorap şapka atkı eldiven çanta
 ocak şubat mart nisan mayıs haziran temmuz ağustos eylül ekim kasım aralık
 ilkbahar yaz sonbahar kış
+otuz kırk elli altmış yetmiş seksen doksan gri kahverengi hava güneş bulut yağmur kar rüzgar sıcak soğuk kebap köfte pide lahmacun mantı dolma sarma börek baklava künefe sütlaç lokum helva dondurma kurabiye revani ayran yoğurt tereyağı zeytinyağı pirinç mercimek nohut tamam tabii belki canım aşkım kim nerede nereye nasıl neden kaç hangisi var yok değil
+sokak cadde market eczane hastane banka postane park cami köprü meydan müze otobüs dolmuş taksi tren uçak vapur bilet durak istasyon havalimanı baş saç ağız burun kulak diş boğaz karın sırt bacak ayak kol doktor ilaç ağrı ateş öksürük randevu saat dakika buçuk çeyrek erken geç önce bazen öğretmen mühendis aşçı garson hemşire polis avukat işçi emekli gelmek gitmek yapmak içmek yemek görmek almak okumak konuşmak anlamak
+kızgın heyecanlı şaşkın korku endişeli sakin gururlu utangaç neşeli umut iş toplantı patron maaş tatil izin ofis meslek proje seyahat otel rezervasyon pasaport valiz harita plaj gezi anı orman göl nehir ada çiçek ağaç hayvan fırtına sis gökkuşağı bence sanırım önemli fikir eğer yani mesela ayrıca çalışmak
 """.split()
 
 
@@ -124,7 +127,26 @@ def main():
 
     os.makedirs(DOSSIER, exist_ok=True)
     voulus = {minuscule_tr(m): m for m in MOTS}
-    print("%d mots recherchés.\n" % len(voulus))
+    print("%d mots recherchés." % len(voulus))
+
+    # On fusionne avec l'existant : les mots déjà couverts par index.json
+    # ne sont pas retéléchargés, et rien n'est écrasé.
+    deja = {}
+    chemin_index = os.path.join(DOSSIER, "index.json")
+    if os.path.exists(chemin_index):
+        try:
+            with open(chemin_index, encoding="utf-8") as f:
+                deja = json.load(f)
+        except Exception:
+            deja = {}
+    if deja:
+        couverts = {minuscule_tr(k) for k in deja}
+        voulus = {c2: m for c2, m in voulus.items() if c2 not in couverts}
+        print("%d déjà couverts par audio/index.json — reste %d nouveaux à chercher.\n"
+              % (len(deja), len(voulus)))
+    if not voulus:
+        print("Tout est déjà couvert, rien à faire.")
+        return
 
     print("Lecture des catégories Commons…")
     titres = []
@@ -187,9 +209,18 @@ def main():
                         m.get("licence") or "?", m.get("page") or ""))
         print("  ✓ %-14s %s" % (voulus[cle], final))
 
+    fusion = dict(deja)
+    fusion.update(index)
     with open(os.path.join(DOSSIER, "index.json"), "w", encoding="utf-8") as f:
-        json.dump(index, f, ensure_ascii=False, indent=1)
+        json.dump(fusion, f, ensure_ascii=False, indent=1)
 
+    chemin_credits = os.path.join(DOSSIER, "credits.md")
+    if credits and os.path.exists(chemin_credits):
+        # on ajoute les nouvelles lignes au fichier de crédits existant
+        with open(chemin_credits, "a", encoding="utf-8") as f:
+            for mot, fich, aut, lic, page in credits:
+                f.write("| %s | %s | %s | %s | %s |\n" % (mot, fich, aut, lic, page))
+        credits = []
     with open(os.path.join(DOSSIER, "CREDITS.md"), "w", encoding="utf-8") as f:
         f.write("# Crédits des enregistrements\n\n")
         f.write("Fichiers issus de Wikimedia Commons, pour l'essentiel du projet\n")

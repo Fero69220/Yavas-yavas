@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yavaş yavaş — niveau A2</title>
-<meta name="description" content="Le turc niveau A2 : le passé, le futur, les cas — dix minutes par jour.">
+<title>Yavaş yavaş — niveau B1</title>
+<meta name="description" content="Le turc niveau B1 : l’habitude, le -miş, devoir, relier les idées.">
 <meta name="referrer" content="no-referrer">
-<meta property="og:title" content="Yavaş yavaş — niveau A2">
+<meta property="og:title" content="Yavaş yavaş — niveau B1">
 <meta property="og:description" content="Apprendre le turc, dix minutes par jour, pour francophones.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://fero69220.github.io/Yavas-yavas/a2.html">
+<meta property="og:url" content="https://fero69220.github.io/Yavas-yavas/b1.html">
 <meta property="og:image" content="https://fero69220.github.io/Yavas-yavas/icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0C1524">
@@ -531,18 +531,18 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 
 <nav class="levels" aria-label="Choix du niveau">
   <a class="lvl" href="./index.html">A1</a>
-  <span class="lvl on" aria-current="page">A2</span>
-  <a class="lvl" href="./b1.html">B1</a>
+  <a class="lvl" href="./a2.html">A2</a>
+  <span class="lvl on" aria-current="page">B1</span>
 </nav>
 
 <header>
-  <p class="eyebrow">Türkçe · niveau A2</p>
+  <p class="eyebrow">Türkçe · niveau B1</p>
   <h1>Yavaş<br>yavaş<span class="accent">.</span></h1>
-  <p class="tagline">Le niveau A2, c'est raconter : ce qu'on <em>a fait</em> hier, ce qu'on <em>fera</em> demain. Deux nouveaux temps, quelques cas — et toujours l'harmonie vocalique, la seule règle que tu connais déjà par cœur.</p>
+  <p class="tagline">Le niveau B1, c'est la nuance : ce qu'on fait <em>d'habitude</em>, ce qu'on <em>a entendu dire</em>, ce qu'on <em>doit</em> faire — et relier tout ça en vraies histoires.</p>
   <p class="daybadge" id="daybadge" hidden></p>
 </header>
 
-<nav id="nav" role="tablist" aria-label="Leçons A2"></nav>
+<nav id="nav" role="tablist" aria-label="Leçons B1"></nav>
 
 <!-- ============ AUJOURD'HUI ============ -->
 <section class="panel" id="p-auj" role="tabpanel">
@@ -552,52 +552,52 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
   <div class="card" id="auj-stats"></div>
 </section>
 
-<!-- ============ PASSÉ ============ -->
-<section class="panel" id="p-passe" role="tabpanel">
-  <h2>Le passé</h2>
-  <p class="lede">Un seul suffixe pour tout raconter : <b>-di</b>. gel<b>dim</b> = je suis venue, yap<b>tık</b> = nous avons fait. La voyelle suit l'harmonie que tu connais, et après une lettre sourde (ç f h k p s ş t) le d devient t : git<b>ti</b>, yap<b>tı</b>.</p>
+<!-- ============ HABITUDE ============ -->
+<section class="panel" id="p-habit" role="tabpanel">
+  <h2>L'habitude</h2>
+  <p class="lede">Le « présent large » en <b>-r</b> : ce qui est vrai en général. Her sabah çay iç<b>erim</b> = chaque matin je bois du thé. C'est aussi le temps de la politesse : bir çay al<b>ırım</b> = je prendrais bien un thé.</p>
   <div class="card">
     <h3>Choisis un verbe</h3>
-    <div class="cats" id="pa-verbs"></div>
-    <table id="pa-conj"></table>
-    <small class="note">Les terminaisons du passé : -m, -n, (rien), -k, -nız, -ler. Et le passé marche aussi sur les adjectifs : hasta<b>ydım</b> = j'étais malade, güzel<b>di</b> = c'était beau.</small>
+    <div class="cats" id="ao-verbs"></div>
+    <table id="ao-conj"></table>
+    <small class="note">La règle : voyelle finale → -r (oku<b>r</b>), verbe long → -ir (konuş<b>ur</b>), verbe court → -er/-ar (yap<b>ar</b>). Et treize petits verbes courts trichent et prennent -ir quand même : gel<b>ir</b>, gör<b>ür</b>, al<b>ır</b>, ver<b>ir</b>, ol<b>ur</b>, bil<b>ir</b>… — ce sont les plus courants, l'oreille les apprend vite.</small>
   </div>
-  <div class="scoreline"><span>Score <b id="pa-score">0</b></span><span>Série <b id="pa-streak">0</b></span><span>Question <b id="pa-prog">0 / 10</b></span></div>
-  <div class="card" id="pa-card"></div>
+  <div class="scoreline"><span>Score <b id="ao-score">0</b></span><span>Série <b id="ao-streak">0</b></span><span>Question <b id="ao-prog">0 / 10</b></span></div>
+  <div class="card" id="ao-card"></div>
 </section>
 
-<!-- ============ FUTUR ============ -->
-<section class="panel" id="p-futur" role="tabpanel">
-  <h2>Le futur</h2>
-  <p class="lede">Demain, plus tard : <b>-ecek / -acak</b>. gel<b>eceğim</b> = je viendrai, yap<b>acağız</b> = nous ferons. Devant une voyelle, le k s'adoucit en ğ — c'est la seule surprise.</p>
+<!-- ============ MIŞ ============ -->
+<section class="panel" id="p-mis" role="tabpanel">
+  <h2>Le -miş</h2>
+  <p class="lede">Le temps du « il paraît que » : ce qu'on n'a pas vu soi-même. Anneanne gel<b>miş</b>! = il paraît que mamie est arrivée ! C'est le temps des nouvelles, des contes — et des surprises : kar yağ<b>mış</b>! = tiens, il a neigé !</p>
   <div class="card">
     <h3>Choisis un verbe</h3>
-    <div class="cats" id="fu-verbs"></div>
-    <table id="fu-conj"></table>
-    <small class="note">Deux verbes changent un peu de racine : ye → <b>yiyecek</b> (il mangera), git → <b>gidecek</b> (il ira). Le mot <b>gelecek</b> tout seul veut d'ailleurs dire « l'avenir ».</small>
+    <div class="cats" id="mi-verbs"></div>
+    <table id="mi-conj"></table>
+    <small class="note">Aucun piège : m + i·ı·u·ü + ş, puis les terminaisons que tu connais. Sur soi-même, il exprime la surprise : uyu<b>muşum</b>! = (tiens,) je me suis endormie !</small>
   </div>
-  <div class="scoreline"><span>Score <b id="fu-score">0</b></span><span>Série <b id="fu-streak">0</b></span><span>Question <b id="fu-prog">0 / 10</b></span></div>
-  <div class="card" id="fu-card"></div>
+  <div class="scoreline"><span>Score <b id="mi-score">0</b></span><span>Série <b id="mi-streak">0</b></span><span>Question <b id="mi-prog">0 / 10</b></span></div>
+  <div class="card" id="mi-card"></div>
 </section>
 
-<!-- ============ CAS ============ -->
-<section class="panel" id="p-cas" role="tabpanel">
-  <h2>Les cas</h2>
-  <p class="lede">Tu connais déjà « vers » (-e) et « dans » (-de). Le niveau A2 en ajoute deux : <b>-i</b>, la marque du complément précis (kedi<b>yi</b> gördüm = j'ai vu <em>le</em> chat), et <b>-den</b>, « depuis / de » (ev<b>den</b> = depuis la maison).</p>
+<!-- ============ MELI ============ -->
+<section class="panel" id="p-meli" role="tabpanel">
+  <h2>Devoir : -meli</h2>
+  <p class="lede">L'obligation se colle au verbe : git<b>meliyim</b> = je dois partir, çalış<b>malısın</b> = tu dois travailler. Pas de verbe « devoir » à conjuguer — le suffixe fait tout.</p>
   <div class="card">
-    <h3>Choisis un mot</h3>
-    <div class="cats" id="ca-words"></div>
-    <table id="ca-table"></table>
-    <small class="note">Le -i n'apparaît que si l'objet est précis : « je bois du thé » = çay içiyorum, mais « je bois LE thé (celui-là) » = çay<b>ı</b> içiyorum. Et -den sert aussi à comparer : çay kahve<b>den</b> daha güzel — le thé est meilleur <em>que</em> le café.</small>
+    <h3>Choisis un verbe</h3>
+    <div class="cats" id="me-verbs"></div>
+    <table id="me-conj"></table>
+    <small class="note">-meli après e·i·ö·ü, -malı après a·ı·o·u — la même harmonie que toujours. Une variante plus douce existe avec lazım : git<b>mem lazım</b> = il faut que j'y aille.</small>
   </div>
-  <div class="scoreline"><span>Score <b id="ca-score">0</b></span><span>Série <b id="ca-streak">0</b></span><span>Question <b id="ca-prog">0 / 10</b></span></div>
-  <div class="card" id="ca-card"></div>
+  <div class="scoreline"><span>Score <b id="me-score">0</b></span><span>Série <b id="me-streak">0</b></span><span>Question <b id="me-prog">0 / 10</b></span></div>
+  <div class="card" id="me-card"></div>
 </section>
 
 <!-- ============ CARTES ============ -->
 <section class="panel" id="p-cartes" role="tabpanel">
-  <h2>Les cartes A2</h2>
-  <p class="lede">Le vocabulaire pour sortir de la maison : la ville, les transports, le corps, le médecin, l'heure, les métiers. Même jeu qu'en A1 : retourne, dis si tu savais, inverse le sens.</p>
+  <h2>Les cartes B1</h2>
+  <p class="lede">Le vocabulaire des vraies conversations : les émotions, le travail, le voyage, la nature, donner son avis, relier les idées.</p>
   <div class="cats" id="deck-cats"></div>
   <button class="flip" id="flip" aria-live="polite"></button>
   <div class="know-row" id="know-row" hidden>
@@ -614,36 +614,36 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 
 <!-- ============ LA PHRASE ============ -->
 <section class="panel" id="p-ordre" role="tabpanel">
-  <h2>La phrase A2</h2>
-  <p class="lede">Les mêmes règles qu'en A1 — le verbe à la fin — mais au passé et au futur. Remets les mots dans l'ordre, puis écoute.</p>
+  <h2>La phrase B1</h2>
+  <p class="lede">Des phrases avec l'habitude, le -miş, le devoir et les connecteurs. Remets les mots dans l'ordre, puis écoute.</p>
   <div class="scoreline"><span>Score <b id="or-score">0</b></span><span>Série <b id="or-streak">0</b></span><span>Question <b id="or-prog">0 / 10</b></span></div>
   <div class="card" id="or-card"></div>
 </section>
 
-<!-- ============ DIRE PLUS ============ -->
-<section class="panel" id="p-plus" role="tabpanel">
-  <h2>Dire plus</h2>
-  <p class="lede">Trois petits outils qui changent tout, puis un quiz pour choisir le bon temps — c'est LA compétence A2.</p>
+<!-- ============ RELIER ============ -->
+<section class="panel" id="p-lier" role="tabpanel">
+  <h2>Relier les idées</h2>
+  <p class="lede">Les petits mots qui transforment des phrases en récit — puis le quiz « choisis la bonne forme », LA compétence B1.</p>
   <div class="card">
-    <h3>Pouvoir : -ebilir</h3>
-    <p><b>gelebilirim</b> = je peux venir · <b>konuşabilir misin?</b> = peux-tu parler ? <span class="muted">On glisse -(y)abil / -(y)ebil avant la terminaison.</span></p>
+    <h3>Avant, après, pendant</h3>
+    <p><b>yemeden önce</b> = avant de manger · <b>yedikten sonra</b> = après avoir mangé · <b>çay içerken</b> = en buvant du thé.</p>
   </div>
   <div class="card">
-    <h3>Comparer : daha, en</h3>
-    <p><b>daha güzel</b> = plus beau · <b>en güzel</b> = le plus beau. <span class="muted">Et « que » se dit avec -den : İstanbul Paris'ten daha büyük.</span></p>
+    <h3>Si : -se</h3>
+    <p><b>gelirsen</b> = si tu viens · <b>yağmur yağarsa evde kalırız</b> = s'il pleut, nous restons à la maison. <span class="muted">Le -se se glisse après le -r de l'habitude.</span></p>
   </div>
   <div class="card">
-    <h3>Il faut : lazım · parce que : çünkü</h3>
-    <p><b>Bana su lazım</b> = il me faut de l'eau · <b>Doktora gittim çünkü hastaydım</b> = je suis allée chez le docteur parce que j'étais malade.</p>
+    <h3>Pour, c'est-à-dire, par exemple</h3>
+    <p><b>öğrenmek için</b> = pour apprendre · <b>yani</b> = c'est-à-dire · <b>mesela</b> = par exemple · <b>ayrıca</b> = de plus.</p>
   </div>
-  <div class="scoreline"><span>Score <b id="pl-score">0</b></span><span>Série <b id="pl-streak">0</b></span><span>Question <b id="pl-prog">0 / 10</b></span></div>
-  <div class="card" id="pl-card"></div>
+  <div class="scoreline"><span>Score <b id="li-score">0</b></span><span>Série <b id="li-streak">0</b></span><span>Question <b id="li-prog">0 / 10</b></span></div>
+  <div class="card" id="li-card"></div>
 </section>
 
 <!-- ============ CONVERSATION ============ -->
 <section class="panel" id="p-conv" role="tabpanel">
-  <h2>La conversation A2</h2>
-  <p class="lede">Deux scènes de la vraie vie, hors ligne. Dis ta réplique à voix haute avant d'appuyer. <span class="muted">Pour parler librement avec Ayşe (mode IA), rends-toi dans la partie A1, onglet « La conversation ».</span></p>
+  <h2>La conversation B1</h2>
+  <p class="lede">Deux scènes hors ligne. Dis ta réplique à voix haute avant d'appuyer. <span class="muted">Pour parler librement avec Ayşe (mode IA), c'est dans la partie A1.</span></p>
   <div class="cats" id="dlg-scenes"></div>
   <div class="card">
     <div class="dlg" id="dlg-box"></div>
@@ -653,37 +653,37 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 
 <!-- ============ ÉVALUATION ============ -->
 <section class="panel" id="p-eval" role="tabpanel">
-  <h2>Évaluation A2</h2>
-  <p class="lede">Vingt questions — passé, futur, cas, vocabulaire, phrases, choix du bon temps — pour situer la progression dans A2.</p>
+  <h2>Évaluation B1</h2>
+  <p class="lede">Vingt questions — habitude, -miş, devoir, connecteurs, vocabulaire, phrases — pour situer la progression dans B1.</p>
   <div class="scoreline"><span>Question <b id="ev-prog">— / 20</b></span></div>
   <div class="card" id="ev-card"></div>
   <div class="card" id="ev-histo" hidden></div>
   <div class="card">
-    <h3>Ce que veut dire A2</h3>
-    <p>Raconter au passé, parler de projets, se débrouiller en ville, chez le médecin, dans les transports. Après : <b>B1</b>, raconter en détail, rapporter ce qu'on a entendu, donner son avis — le bouton t'attend en haut à gauche.</p>
-    <small class="note">Estimation indicative, pas un diplôme. Refais le test toutes les deux ou trois semaines : c'est la courbe qui compte.</small>
+    <h3>Ce que veut dire B1</h3>
+    <p>Raconter en détail, rapporter ce qu'on a entendu, exprimer une obligation, un avis, une condition — tenir une vraie conversation sur les sujets du quotidien. C'est le niveau où l'on cesse de traduire dans sa tête.</p>
+    <small class="note">Estimation indicative, pas un diplôme. Au-delà de B1, la meilleure école n'est plus une appli : c'est la table familiale, les séries turques et le téléphone avec la belle-famille.</small>
   </div>
 </section>
 
 <section class="panel" id="p-prof" role="tabpanel">
   <h2>Note pour le prof</h2>
-  <p class="lede">Le cap A2 en trois repères.</p>
+  <p class="lede">Le cap B1 en trois repères.</p>
   <div class="card">
-    <h3>Le passé d'abord, longtemps</h3>
-    <p>« Qu'est-ce que tu as fait aujourd'hui ? » est LA question à lui poser chaque soir. Le futur peut attendre que le -di soit un réflexe.</p>
+    <h3>L'aoriste s'attrape à l'oreille</h3>
+    <p>Ne fais pas apprendre la liste des treize irréguliers : utilise-les. Gelir misin? Olur! Bilmem. Görürüz! — ces petites phrases de tous les jours les installent sans effort.</p>
   </div>
   <div class="card">
-    <h3>Les cas en douceur</h3>
-    <p>Ne présente pas -i comme un « accusatif » : dis « la marque du précis ». Kedi gördüm / kediyi gördüm — un chat / LE chat. Elle sentira la nuance avant de savoir la nommer.</p>
+    <h3>Le -miş par les histoires</h3>
+    <p>Raconte-lui un potin de famille ou un conte (Bir varmış, bir yokmuş… = il était une fois). Le -miş est le temps des histoires : c'est en en écoutant qu'on le sent.</p>
   </div>
   <div class="card">
-    <h3>Raconter la journée</h3>
-    <p>Le meilleur exercice A2 ne demande aucun écran : trois phrases au passé chaque soir, à table. Sabah kalktım, markete gittim, çay içtim — et la famille corrige en souriant.</p>
+    <h3>Le vrai examen</h3>
+    <p>À ce niveau, l'appli devient un échauffement. Le vrai exercice : dix minutes de conversation sans français, un appel à la belle-famille, un épisode de série sans sous-titres français. Kolay gelsin !</p>
   </div>
 </section>
 
 <footer>
-  Toujours yavaş yavaş — mais maintenant, elle peut raconter. <b>Devam !</b> (on continue)
+  Bir varmış, bir yokmuş… — maintenant, elle peut raconter des histoires. <b>Bravo !</b>
 </footer>
 
 </div>
@@ -846,13 +846,13 @@ function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()
 function pick(a){return a[Math.floor(Math.random()*a.length)];}
 
 
-/* ---------- mémoire A2 ---------- */
-var mem={pa:{s:0,k:0},fu:{s:0,k:0},ca:{s:0,k:0},or:{s:0,k:0},pl:{s:0,k:0}};
-function save(){ try{ window.localStorage.setItem("yavas2-progress", JSON.stringify(mem)); }catch(e){} }
+/* ---------- mémoire B1 ---------- */
+var mem={ao:{s:0,k:0},mi:{s:0,k:0},me:{s:0,k:0},or:{s:0,k:0},li:{s:0,k:0}};
+function save(){ try{ window.localStorage.setItem("yavas3-progress", JSON.stringify(mem)); }catch(e){} }
 function load(){
   try{
-    var raw=window.localStorage.getItem("yavas2-progress");
-    if(raw){ var d=JSON.parse(raw); if(d&&d.pa){ Object.keys(mem).forEach(function(k){ if(d[k]) mem[k]=d[k]; }); } }
+    var raw=window.localStorage.getItem("yavas3-progress");
+    if(raw){ var d=JSON.parse(raw); if(d&&d.ao){ Object.keys(mem).forEach(function(k){ if(d[k]) mem[k]=d[k]; }); } }
   }catch(e){}
   paintScores();
 }
@@ -937,17 +937,17 @@ function paintDays(){
 }
 
 
-/* ---------- onglets A2 ---------- */
+/* ---------- onglets B1 ---------- */
 var TABS=[
   {id:"auj",label:"Aujourd'hui"},
-  {id:"passe",label:"Le passé"},
-  {id:"futur",label:"Le futur"},
-  {id:"cas",label:"Les cas"},
-  {id:"cartes",label:"Les cartes A2"},
-  {id:"ordre",label:"La phrase A2"},
-  {id:"plus",label:"Dire plus"},
+  {id:"habit",label:"L'habitude"},
+  {id:"mis",label:"Le -miş"},
+  {id:"meli",label:"Devoir : -meli"},
+  {id:"cartes",label:"Les cartes B1"},
+  {id:"ordre",label:"La phrase B1"},
+  {id:"lier",label:"Relier les idées"},
   {id:"conv",label:"La conversation"},
-  {id:"eval",label:"Évaluation A2"},
+  {id:"eval",label:"Évaluation B1"},
   {id:"prof",label:"Note pour le prof"}
 ];
 var nav=el("nav");
@@ -958,7 +958,7 @@ function activateTab(i,scroll){
     b.tabIndex=on2?0:-1;
     el("p-"+x.id).classList.toggle("on", on2);
   });
-  try{ window.localStorage.setItem("yavas2-tab", TABS[i].id); }catch(e){}
+  try{ window.localStorage.setItem("yavas3-tab", TABS[i].id); }catch(e){}
   if(scroll) window.scrollTo({top:0,behavior:"smooth"});
 }
 TABS.forEach(function(t,i){
@@ -980,7 +980,7 @@ nav.addEventListener("keydown",function(ev){
 });
 var startTab=0;
 try{
-  var st=window.localStorage.getItem("yavas2-tab");
+  var st=window.localStorage.getItem("yavas3-tab");
   TABS.forEach(function(x,ix){ if(x.id===st) startTab=ix; });
 }catch(e){}
 activateTab(startTab,false);
@@ -997,15 +997,16 @@ TABS.forEach(function(t,i){
   row.appendChild(b2); el("p-"+t.id).appendChild(row);
 });
 
-/* ---------- Aujourd'hui A2 ---------- */
+
+/* ---------- Aujourd'hui B1 ---------- */
 var PLAN=[
-  {t:["cartes","conv"], mot:"Dimanche : les cartes, puis une scène à jouer."},
-  {t:["passe","ordre"], mot:"Lundi : le passé, puis deux phrases à remettre en ordre."},
-  {t:["futur","plus"], mot:"Mardi : le futur, puis le quiz du bon temps."},
-  {t:["cartes","passe"], mot:"Mercredi : une dizaine de cartes, puis une série au passé."},
-  {t:["cas","ordre"], mot:"Jeudi : les cas, puis les phrases."},
-  {t:["passe","futur"], mot:"Vendredi : passé et futur — dix questions de chaque."},
-  {t:["plus","conv"], mot:"Samedi : le bon temps, puis chez le médecin ou en ville."}
+  {t:["cartes","conv"], mot:"Dimanche : les cartes, puis une scène au téléphone ou en voyage."},
+  {t:["habit","ordre"], mot:"Lundi : l'habitude, puis deux phrases à remettre en ordre."},
+  {t:["mis","cartes"], mot:"Mardi : le -miş, puis une dizaine de cartes."},
+  {t:["meli","lier"], mot:"Mercredi : le devoir, puis le quiz de la bonne forme."},
+  {t:["habit","mis"], mot:"Jeudi : habitude et -miş — dix questions de chaque."},
+  {t:["lier","ordre"], mot:"Vendredi : relier les idées, puis les phrases."},
+  {t:["conv","eval"], mot:"Samedi : une scène, et pourquoi pas le test ?"}
 ];
 function paintAuj(){
   var box=el("auj-plan"); if(!box) return;
@@ -1017,7 +1018,7 @@ function paintAuj(){
   hh.onclick=function(){ say(helloTr); };
   var dateStr="";
   try{ dateStr=d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}); }catch(e){}
-  el("auj-lede").textContent="Nous sommes "+dateStr+" — niveau A2. Dix minutes suffisent : voici le programme du jour.";
+  el("auj-lede").textContent="Nous sommes "+dateStr+" — niveau B1. Dix minutes suffisent : voici le programme du jour.";
   var plan=PLAN[d.getDay()];
   box.innerHTML='<h3>Le programme du jour</h3><p class="muted" style="font-size:14.5px">'+plan.mot+'</p>';
   plan.t.forEach(function(id2,ix2){
@@ -1035,52 +1036,66 @@ function paintAuj(){
   else if(days.best>0) line="La série repart aujourd'hui — ton record : <b>"+days.best+"</b> jour"+(days.best>1?"s":"")+".";
   else line="Réponds à une première question, et le compteur de jours s'allume. 🔥";
   stats.innerHTML='<h3>L\'assiduité</h3><p>'+line+'</p>'+
-    '<p class="muted" style="font-size:14px;margin-top:6px">Le compteur de jours est commun aux niveaux A1 et A2'+(tot?" — et "+tot+" bonnes réponses ici, côté A2.":".")+'</p>';
+    '<p class="muted" style="font-size:14px;margin-top:6px">Le compteur de jours est commun aux trois niveaux'+(tot?" — et "+tot+" bonnes réponses ici, côté B1.":".")+'</p>';
 }
 
-/* ---------- grammaire A2 : passé, futur, cas ---------- */
+/* ---------- grammaire B1 : aoriste, -miş, -meli ---------- */
 var PRON=[["1s","ben"],["2s","sen"],["3s","o"],["1p","biz"],["2p","siz"],["3p","onlar"]];
-function sfxPast(w){ return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+four(w); }
-function pastForm(root,p){
-  var b=root+sfxPast(root);
-  if(p==="1s")return b+"m";
-  if(p==="2s")return b+"n";
+function nV(w){ var n=0; for(var i=0;i<w.length;i++) if(V.indexOf(w[i])>-1) n++; return n; }
+function aorBase(v){
+  var r=v.r2;
+  if(endsVowel(r)) return r+"r";
+  if(v.ir) return r+four(r)+"r";           /* les 13 irréguliers : gelir, görür, alır… */
+  if(nV(r)===1) return r+two(r)+"r";       /* court : yapar, içer */
+  return r+four(r)+"r";                    /* long : konuşur, çalışır */
+}
+function aorForm(v,p){
+  var b=aorBase(v), vw=four(b);
+  if(p==="1s")return b+(vw)+"m";
+  if(p==="2s")return b+"s"+vw+"n";
   if(p==="3s")return b;
-  if(p==="1p")return b+"k";
-  if(p==="2p")return b+"n"+four(b)+"z";
+  if(p==="1p")return b+vw+"z";
+  if(p==="2p")return b+"s"+vw+"n"+vw+"z";
   return b+"l"+two(b)+"r";
 }
-function futBase(root){ return root+(endsVowel(root)?"y":"")+two(root)+"c"+two(root)+"k"; }
-function futForm(root,p){
-  var b=futBase(root), v=four(b);
-  if(p==="1s")return b.slice(0,-1)+"ğ"+v+"m";
-  if(p==="2s")return b+"s"+v+"n";
+function misBase(r){ return r+"m"+four(r)+"ş"; }
+function misForm(v,p){
+  var b=misBase(v.r), vw=four(b);
+  if(p==="1s")return b+vw+"m";
+  if(p==="2s")return b+"s"+vw+"n";
   if(p==="3s")return b;
-  if(p==="1p")return b.slice(0,-1)+"ğ"+v+"z";
-  if(p==="2p")return b+"s"+v+"n"+v+"z";
+  if(p==="1p")return b+vw+"z";
+  if(p==="2p")return b+"s"+vw+"n"+vw+"z";
   return b+"l"+two(b)+"r";
 }
-function sfxAcc(w){ return (endsVowel(w)?"y":"")+four(w); }
-function sfxAbl(w){ return (VOICELESS.indexOf(w[w.length-1])>-1?"t":"d")+two(w)+"n"; }
-
-var PVERBS=[
- {r:"gel",fr2:"gel",inf:"gelmek",fr:"venir",fp:["je suis venu·e","tu es venu·e","il / elle est venu·e","nous sommes venu·e·s","vous êtes venu·e·s","ils / elles sont venu·e·s"],ff:["je viendrai","tu viendras","il / elle viendra","nous viendrons","vous viendrez","ils / elles viendront"]},
- {r:"git",fr2:"gid",inf:"gitmek",fr:"aller",fp:["je suis allé·e","tu es allé·e","il / elle est allé·e","nous sommes allé·e·s","vous êtes allé·e·s","ils / elles sont allé·e·s"],ff:["j'irai","tu iras","il / elle ira","nous irons","vous irez","ils / elles iront"]},
- {r:"yap",fr2:"yap",inf:"yapmak",fr:"faire",fp:["j'ai fait","tu as fait","il / elle a fait","nous avons fait","vous avez fait","ils / elles ont fait"],ff:["je ferai","tu feras","il / elle fera","nous ferons","vous ferez","ils / elles feront"]},
- {r:"iç",fr2:"iç",inf:"içmek",fr:"boire",fp:["j'ai bu","tu as bu","il / elle a bu","nous avons bu","vous avez bu","ils / elles ont bu"],ff:["je boirai","tu boiras","il / elle boira","nous boirons","vous boirez","ils / elles boiront"]},
- {r:"ye",fr2:"yi",inf:"yemek",fr:"manger",fp:["j'ai mangé","tu as mangé","il / elle a mangé","nous avons mangé","vous avez mangé","ils / elles ont mangé"],ff:["je mangerai","tu mangeras","il / elle mangera","nous mangerons","vous mangerez","ils / elles mangeront"]},
- {r:"gör",fr2:"gör",inf:"görmek",fr:"voir",fp:["j'ai vu","tu as vu","il / elle a vu","nous avons vu","vous avez vu","ils / elles ont vu"],ff:["je verrai","tu verras","il / elle verra","nous verrons","vous verrez","ils / elles verront"]},
- {r:"al",fr2:"al",inf:"almak",fr:"prendre, acheter",fp:["j'ai pris","tu as pris","il / elle a pris","nous avons pris","vous avez pris","ils / elles ont pris"],ff:["je prendrai","tu prendras","il / elle prendra","nous prendrons","vous prendrez","ils / elles prendront"]},
- {r:"oku",fr2:"oku",inf:"okumak",fr:"lire",fp:["j'ai lu","tu as lu","il / elle a lu","nous avons lu","vous avez lu","ils / elles ont lu"],ff:["je lirai","tu liras","il / elle lira","nous lirons","vous lirez","ils / elles liront"]},
- {r:"konuş",fr2:"konuş",inf:"konuşmak",fr:"parler",fp:["j'ai parlé","tu as parlé","il / elle a parlé","nous avons parlé","vous avez parlé","ils / elles ont parlé"],ff:["je parlerai","tu parleras","il / elle parlera","nous parlerons","vous parlerez","ils / elles parleront"]},
- {r:"anla",fr2:"anla",inf:"anlamak",fr:"comprendre",fp:["j'ai compris","tu as compris","il / elle a compris","nous avons compris","vous avez compris","ils / elles ont compris"],ff:["je comprendrai","tu comprendras","il / elle comprendra","nous comprendrons","vous comprendrez","ils / elles comprendront"]}
+function meliBase(r){ return r+"m"+two(r)+"l"+(two(r)==="a"?"ı":"i"); }
+function meliForm(v,p){
+  var b=meliBase(v.r), vw=four(b);
+  if(p==="1s")return b+"y"+vw+"m";
+  if(p==="2s")return b+"s"+vw+"n";
+  if(p==="3s")return b;
+  if(p==="1p")return b+"y"+vw+"z";
+  if(p==="2p")return b+"s"+vw+"n"+vw+"z";
+  return b+"l"+two(b)+"r";
+}
+var DEV=["je dois","tu dois","il / elle doit","nous devons","vous devez","ils / elles doivent"];
+var BVERBS=[
+ {r:"gel",r2:"gel",ir:true,inf:"gelmek",fr:"venir",fa:["je viens","tu viens","il / elle vient","nous venons","vous venez","ils / elles viennent"],fp:["je suis venu·e","tu es venu·e","il / elle est venu·e","nous sommes venu·e·s","vous êtes venu·e·s","ils / elles sont venu·e·s"]},
+ {r:"git",r2:"gid",ir:false,inf:"gitmek",fr:"aller",fa:["je vais","tu vas","il / elle va","nous allons","vous allez","ils / elles vont"],fp:["je suis allé·e","tu es allé·e","il / elle est allé·e","nous sommes allé·e·s","vous êtes allé·e·s","ils / elles sont allé·e·s"]},
+ {r:"yap",r2:"yap",ir:false,inf:"yapmak",fr:"faire",fa:["je fais","tu fais","il / elle fait","nous faisons","vous faites","ils / elles font"],fp:["j'ai fait","tu as fait","il / elle a fait","nous avons fait","vous avez fait","ils / elles ont fait"]},
+ {r:"iç",r2:"iç",ir:false,inf:"içmek",fr:"boire",fa:["je bois","tu bois","il / elle boit","nous buvons","vous buvez","ils / elles boivent"],fp:["j'ai bu","tu as bu","il / elle a bu","nous avons bu","vous avez bu","ils / elles ont bu"]},
+ {r:"ye",r2:"ye",ir:false,inf:"yemek",fr:"manger",fa:["je mange","tu manges","il / elle mange","nous mangeons","vous mangez","ils / elles mangent"],fp:["j'ai mangé","tu as mangé","il / elle a mangé","nous avons mangé","vous avez mangé","ils / elles ont mangé"]},
+ {r:"gör",r2:"gör",ir:true,inf:"görmek",fr:"voir",fa:["je vois","tu vois","il / elle voit","nous voyons","vous voyez","ils / elles voient"],fp:["j'ai vu","tu as vu","il / elle a vu","nous avons vu","vous avez vu","ils / elles ont vu"]},
+ {r:"al",r2:"al",ir:true,inf:"almak",fr:"prendre, acheter",fa:["je prends","tu prends","il / elle prend","nous prenons","vous prenez","ils / elles prennent"],fp:["j'ai pris","tu as pris","il / elle a pris","nous avons pris","vous avez pris","ils / elles ont pris"]},
+ {r:"oku",r2:"oku",ir:false,inf:"okumak",fr:"lire",fa:["je lis","tu lis","il / elle lit","nous lisons","vous lisez","ils / elles lisent"],fp:["j'ai lu","tu as lu","il / elle a lu","nous avons lu","vous avez lu","ils / elles ont lu"]},
+ {r:"konuş",r2:"konuş",ir:false,inf:"konuşmak",fr:"parler",fa:["je parle","tu parles","il / elle parle","nous parlons","vous parlez","ils / elles parlent"],fp:["j'ai parlé","tu as parlé","il / elle a parlé","nous avons parlé","vous avez parlé","ils / elles ont parlé"]},
+ {r:"çalış",r2:"çalış",ir:false,inf:"çalışmak",fr:"travailler",fa:["je travaille","tu travailles","il / elle travaille","nous travaillons","vous travaillez","ils / elles travaillent"],fp:["j'ai travaillé","tu as travaillé","il / elle a travaillé","nous avons travaillé","vous avez travaillé","ils / elles ont travaillé"]}
 ];
-
 /* tables de conjugaison cliquables */
 function makeConjTable(catsId, tableId, forms){
   var cur=0, cats=el(catsId);
   function render(){
-    var v=PVERBS[cur], t=el(tableId);
+    var v=BVERBS[cur], t=el(tableId);
     t.innerHTML="<tr><th>Pronom</th><th>Turc</th><th>Français</th></tr>";
     PRON.forEach(function(p,idx){
       var form=forms.fn(v,p[0]);
@@ -1092,7 +1107,7 @@ function makeConjTable(catsId, tableId, forms){
       t.appendChild(row);
     });
   }
-  PVERBS.forEach(function(v,i){
+  BVERBS.forEach(function(v,i){
     var b=document.createElement("button"); b.className="stem-btn";
     b.style.borderColor="var(--paper-line-strong)"; b.style.color="var(--ink)";
     b.textContent=v.inf+" · "+v.fr;
@@ -1112,9 +1127,6 @@ function makeConjTable(catsId, tableId, forms){
   cats.children[0].style.background="var(--ink)"; cats.children[0].style.color="var(--card)";
   render();
 }
-makeConjTable("pa-verbs","pa-conj",{fn:function(v,p){return pastForm(v.r,p);}, f:function(v){return v.fp;}});
-makeConjTable("fu-verbs","fu-conj",{fn:function(v,p){return futForm(v.fr2,p);}, f:function(v){return v.ff;}});
-
 /* fabrique de quiz à choix ---------- */
 function quizFactory(id, cardId, progId, gen){
   function next(){
@@ -1157,97 +1169,92 @@ function conjOpts(fn, v, pi){
   });
   return {good:good, opts:shuffle(opts)};
 }
-function genPast(rv){
+
+makeConjTable("ao-verbs","ao-conj",{fn:aorForm, f:function(v){ return v.fa.map(function(x){return x+" (en général)";}); }});
+makeConjTable("mi-verbs","mi-conj",{fn:misForm, f:function(v){ return v.fp.map(function(x){return "il paraît que "+x;}); }});
+makeConjTable("me-verbs","me-conj",{fn:meliForm, f:function(v){ return DEV.map(function(d){return d+" "+v.fr.split(",")[0];}); }});
+
+function genAor(rv){
   var v,pi;
-  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(PVERBS); pi=Math.floor(Math.random()*PRON.length); }
-  var o=conjOpts(function(vv,p){return pastForm(vv.r,p);}, v, pi);
-  return {prompt:"« "+v.fp[pi]+" » ?", sub:v.inf+" = "+v.fr+"  ·  pronom "+PRON[pi][1], opts:o.opts, good:o.good, item:{v:v,pi:pi}};
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(BVERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var o=conjOpts(aorForm, v, pi);
+  return {prompt:"« "+v.fa[pi]+" » — l'habitude ?", sub:v.inf+" = "+v.fr+"  ·  pronom "+PRON[pi][1], opts:o.opts, good:o.good, item:{v:v,pi:pi}};
 }
-function genFut(rv){
+function genMis(rv){
   var v,pi;
-  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(PVERBS); pi=Math.floor(Math.random()*PRON.length); }
-  var o=conjOpts(function(vv,p){return futForm(vv.fr2,p);}, v, pi);
-  return {prompt:"« "+v.ff[pi]+" » ?", sub:v.inf+" = "+v.fr+"  ·  pronom "+PRON[pi][1], opts:o.opts, good:o.good, item:{v:v,pi:pi}};
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(BVERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var o=conjOpts(misForm, v, pi);
+  return {prompt:"« il paraît que "+v.fp[pi]+" » ?", sub:v.inf+" = "+v.fr, opts:o.opts, good:o.good, item:{v:v,pi:pi}};
 }
-var CWORDS=[
- {tr:"ev",fr:"maison"},{tr:"okul",fr:"école"},{tr:"araba",fr:"voiture"},{tr:"kedi",fr:"chat"},
- {tr:"sepet",fr:"panier"},{tr:"kapı",fr:"porte"},{tr:"köy",fr:"village"},{tr:"otobüs",fr:"bus"},
- {tr:"market",fr:"supérette"},{tr:"deniz",fr:"mer"},{tr:"süt",fr:"lait"},{tr:"yol",fr:"route"}
-];
-var CKINDS=[
- {fn:sfxAcc, ask:"le / la {fr} (précis : je LE vois)", why:"la marque du précis, -(y)i"},
- {fn:sfxDat, ask:"vers le / la {fr}", why:"-(y)e, la direction"},
- {fn:sfxLoc, ask:"dans le / la {fr}", why:"-de, le lieu"},
- {fn:sfxAbl, ask:"depuis le / la {fr}", why:"-den, la provenance"}
-];
-function genCas(rv){
-  var w,k;
-  if(rv){ w=rv.w; k=rv.k; } else { w=pick(CWORDS); k=pick(CKINDS); }
-  var good=w.tr+k.fn(w.tr), opts=[good];
-  CKINDS.forEach(function(k2){ var c2=w.tr+k2.fn(w.tr); if(opts.indexOf(c2)<0&&opts.length<4) opts.push(c2); });
-  return {prompt:"« "+k.ask.replace("{fr}",w.fr)+" » ?", sub:w.tr+" = "+w.fr, opts:shuffle(opts), good:good, why:"("+k.why+")", item:{w:w,k:k}};
+function genMeli(rv){
+  var v,pi;
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(BVERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var o=conjOpts(meliForm, v, pi);
+  return {prompt:"« "+DEV[pi]+" "+v.fr.split(",")[0]+" » ?", sub:v.inf+" = "+v.fr, opts:o.opts, good:o.good, item:{v:v,pi:pi}};
 }
-var TENSEQ=[
- {fr:"je suis venue",good:"geldim",opts:["geliyorum","geleceğim","gelebilirim"]},
- {fr:"je viendrai",good:"geleceğim",opts:["geldim","geliyorum","gelebilirim"]},
- {fr:"je peux venir",good:"gelebilirim",opts:["geldim","geleceğim","geliyorum"]},
- {fr:"je viens (là, maintenant)",good:"geliyorum",opts:["geldim","geleceğim","gelebilirim"]},
- {fr:"nous avons vu",good:"gördük",opts:["görüyoruz","göreceğiz","gördünüz"]},
- {fr:"tu iras",good:"gideceksin",opts:["gittin","gidiyorsun","gideceğiz"]},
- {fr:"plus beau",good:"daha güzel",opts:["en güzel","çok güzel","güzeldi"]},
- {fr:"le plus beau",good:"en güzel",opts:["daha güzel","çok güzel","güzel"]},
- {fr:"il me faut de l'eau",good:"bana su lazım",opts:["su istiyorum","su içtim","su var"]},
- {fr:"peux-tu parler ?",good:"konuşabilir misin?",opts:["konuştun mu?","konuşacak mısın?","konuşuyor musun?"]},
- {fr:"c'était très beau",good:"çok güzeldi",opts:["çok güzel","daha güzel","güzel olacak"]},
- {fr:"nous mangerons",good:"yiyeceğiz",opts:["yedik","yiyoruz","yediniz"]}
+var LIERQ=[
+ {fr:"si tu viens",good:"gelirsen",opts:["geldin","geleceksin","gelirsin"]},
+ {fr:"s'il pleut",good:"yağmur yağarsa",opts:["yağmur yağıyor","yağmur yağdı","yağmur yağacak"]},
+ {fr:"en buvant du thé",good:"çay içerken",opts:["çay içtim","çay içerim","çay içeceğim"]},
+ {fr:"avant de manger",good:"yemeden önce",opts:["yedikten sonra","yemek için","yerken"]},
+ {fr:"après avoir mangé",good:"yedikten sonra",opts:["yemeden önce","yemek için","yerken"]},
+ {fr:"pour apprendre",good:"öğrenmek için",opts:["öğrendikten sonra","öğrenmeden önce","öğrenirken"]},
+ {fr:"je dois travailler",good:"çalışmalıyım",opts:["çalışırım","çalıştım","çalışacağım"]},
+ {fr:"il paraît qu'il est parti",good:"gitmiş",opts:["gitti","gider","gidecek"]},
+ {fr:"il part (en général)",good:"gider",opts:["gitti","gitmiş","gidecek"]},
+ {fr:"je crois / je pense",good:"sanırım",opts:["bence","belki","tabii"]},
+ {fr:"à mon avis",good:"bence",opts:["benim","bana","bende"]},
+ {fr:"par exemple",good:"mesela",opts:["yani","ayrıca","çünkü"]}
 ];
-function genPlus(rv){
-  var i = (rv!==null && rv!==undefined) ? rv : Math.floor(Math.random()*TENSEQ.length);
-  var q=TENSEQ[i];
+function genLier(rv){
+  var i = (rv!==null && rv!==undefined) ? rv : Math.floor(Math.random()*LIERQ.length);
+  var q=LIERQ[i];
   return {prompt:"« "+q.fr+" » ?", sub:"choisis la bonne forme", opts:shuffle([q.good].concat(q.opts)), good:q.good, item:i};
 }
-var newPast=quizFactory("pa","pa-card","pa-prog",genPast);
-var newFut=quizFactory("fu","fu-card","fu-prog",genFut);
-var newCas=quizFactory("ca","ca-card","ca-prog",genCas);
-var newPlus=quizFactory("pl","pl-card","pl-prog",genPlus);
-newPast(); newFut(); newCas(); newPlus();
+var newAor=quizFactory("ao","ao-card","ao-prog",genAor);
+var newMis=quizFactory("mi","mi-card","mi-prog",genMis);
+var newMeli=quizFactory("me","me-card","me-prog",genMeli);
+var newLier=quizFactory("li","li-card","li-prog",genLier);
+newAor(); newMis(); newMeli(); newLier();
 
-/* ---------- cartes A2 ---------- */
+/* ---------- cartes B1 ---------- */
 var DECKS={
- "En ville":[
-  ["sokak","so-KAK","rue"],["cadde","djad-DÉ","avenue"],["market","mar-KÈT","supérette"],
-  ["eczane","èdj-za-NÉ","pharmacie"],["hastane","has-ta-NÉ","hôpital"],["banka","ban-KA","banque"],
-  ["postane","pos-ta-NÉ","poste"],["park","PARK","parc"],["cami","dja-MI","mosquée"],
-  ["köprü","keup-RU","pont"],["meydan","meï-DAN","place"],["müze","mu-ZÉ","musée"]
+ "Les émotions":[
+  ["kızgın","keuz-GUEUN","en colère"],["heyecanlı","hé-yé-djan-LEU","ému·e, excité·e"],
+  ["şaşkın","chach-KEUN","étonné·e"],["endişeli","èn-di-ché-LI","inquiet·ète"],
+  ["sakin","sa-KIN","calme"],["gururlu","gou-rour-LOU","fier·ère"],
+  ["utangaç","ou-tan-GATCH","timide"],["neşeli","né-ché-LI","joyeux·se"],
+  ["korku","kor-KOU","la peur"],["umut","ou-MOUT","l'espoir"]
  ],
- "Les transports":[
-  ["otobüs","o-to-BUS","bus"],["dolmuş","dol-MOUCH","minibus partagé"],["taksi","tak-SI","taxi"],
-  ["tren","TRÈN","train"],["uçak","ou-TCHAK","avion"],["vapur","va-POUR","ferry"],
-  ["bilet","bi-LÈT","billet"],["durak","dou-RAK","arrêt"],["istasyon","is-tas-YON","gare"],
-  ["havalimanı","ha-va-li-ma-NEU","aéroport"]
+ "Le travail":[
+  ["iş","ICH","le travail"],["toplantı","top-lan-TEU","réunion"],["patron","pa-TRON","patron·ne"],
+  ["maaş","ma-ACH","salaire"],["tatil","ta-TIL","vacances"],["izin","i-ZIN","congé"],
+  ["ofis","o-FIS","bureau"],["meslek","mès-LÈK","métier"],["proje","pro-JÉ","projet"],
+  ["İşe gidiyorum","i-CHÉ gi-di-yo-roum","Je vais au travail"]
  ],
- "Le corps":[
-  ["baş","BACH","tête"],["saç","SATCH","cheveux"],["ağız","a-EUZ","bouche"],["burun","bou-ROUN","nez"],
-  ["kulak","kou-LAK","oreille"],["diş","DICH","dent"],["boğaz","bo-AZ","gorge"],["karın","ka-REUN","ventre"],
-  ["sırt","SEURT","dos"],["bacak","ba-DJAK","jambe"],["ayak","a-YAK","pied"],["kol","KOL","bras"]
+ "Le voyage":[
+  ["seyahat","sé-ya-HAT","voyage"],["otel","o-TÈL","hôtel"],["rezervasyon","ré-zèr-vas-YON","réservation"],
+  ["pasaport","pa-sa-PORT","passeport"],["valiz","va-LIZ","valise"],["harita","ha-ri-TA","carte, plan"],
+  ["plaj","PLAJ","plage"],["gezi","gué-ZI","excursion"],["anı","a-NEU","souvenir"],
+  ["yurt dışı","YOURT deu-cheu","l'étranger"]
  ],
- "Chez le médecin":[
-  ["doktor","dok-TOR","médecin"],["ilaç","i-LATCH","médicament"],["ağrı","aa-REU","douleur"],
-  ["ateş","a-TÈCH","fièvre"],["öksürük","euk-su-RUK","toux"],["randevu","ran-dé-VOU","rendez-vous"],
-  ["Neyiniz var?","NÉ-yi-niz VAR","Qu'avez-vous ?"],["Başım ağrıyor","ba-CHEUM aa-REU-yor","J'ai mal à la tête"],
-  ["Boğazım ağrıyor","bo-a-ZEUM aa-REU-yor","J'ai mal à la gorge"],["Geçmiş olsun","guètch-MICH ol-SOUN","Bon rétablissement (déjà vue en A1 !)"]
+ "La nature":[
+  ["orman","or-MAN","forêt"],["göl","GEUL","lac"],["nehir","né-HIR","rivière"],["ada","a-DA","île"],
+  ["çiçek","tchi-TCHÈK","fleur"],["ağaç","a-ATCH","arbre"],["hayvan","haï-VAN","animal"],
+  ["fırtına","feur-teu-NA","tempête"],["sis","SIS","brouillard"],["gökkuşağı","gueuk-kou-cha-EU","arc-en-ciel"]
  ],
- "L'heure qui passe":[
-  ["saat","sa-AT","heure / montre"],["dakika","da-ki-KA","minute"],["buçuk","bou-TCHOUK","et demie (saat üç buçuk)"],
-  ["çeyrek","tchèï-RÈK","quart"],["erken","èr-KÈN","tôt"],["geç","GUÈTCH","tard"],
-  ["önce","eun-DJÉ","avant"],["geçen hafta","gué-TCHÈN haf-TA","la semaine dernière"],
-  ["gelecek yıl","gué-lé-DJÈK YEUL","l'année prochaine"],["her gün","hèr GUNN","chaque jour"],
-  ["bazen","ba-ZÈN","parfois"],["her zaman","hèr za-MAN","toujours"]
+ "Donner son avis":[
+  ["bence","bèn-DJÉ","à mon avis"],["sanırım","sa-neu-REUM","je crois"],
+  ["katılıyorum","ka-teu-leu-YO-roum","je suis d'accord"],["katılmıyorum","ka-teul-MEU-yo-roum","je ne suis pas d'accord"],
+  ["haklısın","hak-leu-SEUN","tu as raison"],["emin değilim","é-MIN dé-yi-lim","je ne suis pas sûr·e"],
+  ["önemli","eu-nèm-LI","important"],["fikir","fi-KIR","idée"],
+  ["Ne düşünüyorsun?","né du-chu-NU-yor-soun","Qu'en penses-tu ?"]
  ],
- "Les métiers":[
-  ["öğretmen","eu-rèt-MÈN","professeur·e"],["mühendis","mu-hèn-DIS","ingénieur·e"],["aşçı","ach-TCHEU","cuisinier·ère"],
-  ["garson","gar-SON","serveur"],["hemşire","hèm-chi-RÉ","infirmier·ère"],["polis","po-LIS","policier·ère"],
-  ["avukat","a-vou-KAT","avocat·e"],["işçi","ich-TCHI","ouvrier·ère"],["emekli","é-mèk-LI","retraité·e"]
+ "Relier les idées":[
+  ["ama","a-MA","mais"],["çünkü","tchun-KU","parce que (revue d'A2 !)"],["için","i-TCHIN","pour"],
+  ["eğer","é-ÈR","si (annonce le -se)"],["yani","ya-NI","c'est-à-dire"],["mesela","mé-sé-LA","par exemple"],
+  ["ayrıca","aï-reu-DJA","de plus"],["-meden önce","mé-dèn eun-DJÉ","avant de (yemeden önce)"],
+  ["-dikten sonra","dik-tèn son-RA","après avoir (yedikten sonra)"],["-ken","kèn","en faisant (içerken)"]
  ]
 };
 var deckName=Object.keys(DECKS)[0], deck=DECKS[deckName], di=0, flipped=false, dirRev=false;
@@ -1307,26 +1314,25 @@ el("direction").onclick=function(){
 };
 renderCard();
 
-/* ---------- la phrase A2 ---------- */
+
+/* ---------- la phrase B1 ---------- */
 var SENT=[
- {tr:["Dün","pazara","gittim"],fr:"Hier je suis allée au marché",lit:"hier · marché-vers · je-suis-allée"},
- {tr:["Sabah","çay","içtik"],fr:"Ce matin nous avons bu du thé",lit:"matin · thé · nous-avons-bu"},
- {tr:["Akşam","ne","yaptın"],fr:"Qu'as-tu fait ce soir ?",lit:"soir · quoi · tu-as-fait"},
- {tr:["Film","çok","güzeldi"],fr:"Le film était très beau",lit:"film · très · était-beau"},
- {tr:["Otobüs","geç","geldi"],fr:"Le bus est arrivé en retard",lit:"bus · tard · est-venu"},
- {tr:["Geçen","hafta","çok","çalıştım"],fr:"La semaine dernière j'ai beaucoup travaillé",lit:"dernière · semaine · beaucoup · j'ai-travaillé"},
- {tr:["Anneanne","çorba","yaptı"],fr:"Mamie a fait de la soupe",lit:"mamie · soupe · elle-a-fait"},
- {tr:["Ben","seni","aradım"],fr:"Je t'ai appelé·e",lit:"moi · toi · j'ai-appelé"},
- {tr:["Biz","filmi","gördük"],fr:"Nous avons vu le film",lit:"nous · film-LE · nous-avons-vu"},
- {tr:["Kediyi","gördün","mü"],fr:"As-tu vu le chat ?",lit:"chat-LE · tu-as-vu · est-ce-que"},
- {tr:["Sen","ne","dedin"],fr:"Qu'as-tu dit ?",lit:"toi · quoi · tu-as-dit"},
- {tr:["Biraz","Türkçe","öğrendim"],fr:"J'ai appris un peu de turc",lit:"un-peu · turc · j'ai-appris"},
- {tr:["Yarın","erken","kalkacağım"],fr:"Demain je me lèverai tôt",lit:"demain · tôt · je-me-lèverai"},
- {tr:["Gelecek","yıl","Türkiye'ye","gideceğiz"],fr:"L'année prochaine nous irons en Turquie",lit:"prochaine · année · Turquie-vers · nous-irons"},
- {tr:["Yarın","hava","güzel","olacak"],fr:"Demain il fera beau",lit:"demain · air · beau · sera"},
- {tr:["Markete","gideceğim"],fr:"J'irai à la supérette",lit:"supérette-vers · j'irai"},
- {tr:["Uçak","havalimanına","geldi"],fr:"L'avion est arrivé à l'aéroport",lit:"avion · aéroport-vers · est-venu"},
- {tr:["Doktora","gittim","çünkü","hastaydım"],fr:"Je suis allée chez le docteur parce que j'étais malade",lit:"docteur-vers · je-suis-allée · parce-que · j'étais-malade"}
+ {tr:["Her","sabah","çay","içerim"],fr:"Chaque matin je bois du thé",lit:"chaque · matin · thé · je-bois-toujours"},
+ {tr:["Babam","erken","kalkar"],fr:"Mon père se lève tôt (d'habitude)",lit:"mon-père · tôt · se-lève-toujours"},
+ {tr:["Yağmur","yağarsa","evde","kalırız"],fr:"S'il pleut, nous restons à la maison",lit:"pluie · si-tombe · maison-dans · nous-restons"},
+ {tr:["Yemekten","sonra","çay","içeriz"],fr:"Après le repas nous buvons du thé",lit:"repas-de · après · thé · nous-buvons"},
+ {tr:["Anneanne","gelmiş"],fr:"Il paraît que mamie est arrivée !",lit:"mamie · serait-venue"},
+ {tr:["Film","çok","güzelmiş"],fr:"Il paraît que le film est très beau",lit:"film · très · serait-beau"},
+ {tr:["Erken","yatmalıyım"],fr:"Je dois me coucher tôt",lit:"tôt · je-dois-me-coucher"},
+ {tr:["Daha","çok","çalışmalısın"],fr:"Tu dois travailler davantage",lit:"plus · beaucoup · tu-dois-travailler"},
+ {tr:["Bence","bu","fikir","çok","güzel"],fr:"À mon avis, cette idée est très belle",lit:"selon-moi · cette · idée · très · belle"},
+ {tr:["Türkçe","öğrenmek","için","çalışıyorum"],fr:"Je travaille pour apprendre le turc",lit:"turc · apprendre · pour · je-travaille"},
+ {tr:["Kahvaltıdan","önce","koşarım"],fr:"Avant le petit-déjeuner, je cours",lit:"petit-déjeuner-de · avant · je-cours-toujours"},
+ {tr:["İşten","sonra","markete","gideriz"],fr:"Après le travail nous allons à la supérette",lit:"travail-de · après · supérette-vers · nous-allons"},
+ {tr:["Sanırım","yarın","yağmur","yağacak"],fr:"Je crois qu'il pleuvra demain",lit:"je-crois · demain · pluie · tombera"},
+ {tr:["Tatilde","denize","gitmeliyiz"],fr:"En vacances, nous devons aller à la mer",lit:"vacances-dans · mer-vers · nous-devons-aller"},
+ {tr:["Çay","içerken","konuşuruz"],fr:"Nous parlons en buvant du thé",lit:"thé · en-buvant · nous-parlons"},
+ {tr:["Eğer","istersen","beraber","gideriz"],fr:"Si tu veux, nous y allons ensemble",lit:"si · tu-veux · ensemble · nous-allons"}
 ];
 var sentIdx=-1;
 function buildOrder(cardId, s, onDone){
@@ -1400,27 +1406,28 @@ function newSent(){
 }
 newSent();
 
-/* ---------- dialogues A2 ---------- */
+
+/* ---------- dialogues B1 ---------- */
 var DIALOGS=[
- {name:"Chez le médecin 🩺",steps:[
-  {npc:{tr:"Buyrun, geçin. Neyiniz var?",fr:"Entrez, je vous en prie. Qu'avez-vous ?"},
-   opts:[{tr:"Başım ağrıyor.",fr:"J'ai mal à la tête."},{tr:"Boğazım ağrıyor.",fr:"J'ai mal à la gorge."},{tr:"Karnım ağrıyor.",fr:"J'ai mal au ventre."}]},
-  {npc:{tr:"Ne zaman başladı?",fr:"Quand est-ce que ça a commencé ?"},
-   opts:[{tr:"Dün başladı.",fr:"Ça a commencé hier."},{tr:"Sabah başladı.",fr:"Ça a commencé ce matin."}]},
-  {npc:{tr:"Ateşiniz var mı?",fr:"Avez-vous de la fièvre ?"},
-   opts:[{tr:"Evet, biraz var.",fr:"Oui, un peu."},{tr:"Hayır, yok.",fr:"Non, pas de fièvre."}]},
-  {npc:{tr:"Bu ilacı alın. Geçmiş olsun!",fr:"Prenez ce médicament. Bon rétablissement !"},
-   opts:[{tr:"Teşekkür ederim, doktor bey!",fr:"Merci, docteur !"},{tr:"Çok teşekkürler!",fr:"Merci beaucoup !"}]}
+ {name:"Au téléphone ☎️",steps:[
+  {npc:{tr:"Alo? Buyrun.",fr:"Allô ? J'écoute."},
+   opts:[{tr:"Merhaba, ben Claire. Ayşe orada mı?",fr:"Bonjour, c'est Claire. Ayşe est là ?"},{tr:"İyi günler, Ayşe ile görüşebilir miyim?",fr:"Bonjour, pourrais-je parler à Ayşe ?"}]},
+  {npc:{tr:"Bir dakika lütfen… Ayşe şu anda yok.",fr:"Un instant… Ayşe n'est pas là pour le moment."},
+   opts:[{tr:"Ne zaman gelir?",fr:"Quand revient-elle (d'habitude) ?"},{tr:"Mesaj bırakabilir miyim?",fr:"Puis-je laisser un message ?"}]},
+  {npc:{tr:"Akşam gelir. Mesajınızı iletirim.",fr:"Elle rentre le soir. Je transmettrai votre message."},
+   opts:[{tr:"Claire aradı deyin, lütfen.",fr:"Dites que Claire a appelé, s'il vous plaît."},{tr:"Beni arasın, lütfen.",fr:"Qu'elle me rappelle, s'il vous plaît."}]},
+  {npc:{tr:"Tabii, iletirim. İyi günler!",fr:"Bien sûr, je transmets. Bonne journée !"},
+   opts:[{tr:"Çok teşekkürler, iyi günler!",fr:"Merci beaucoup, bonne journée !"}]}
  ]},
- {name:"Demander son chemin 🗺️",steps:[
-  {npc:{tr:"Buyrun, yardım edeyim mi?",fr:"Je peux vous aider ?"},
-   opts:[{tr:"Affedersiniz, müze nerede?",fr:"Excusez-moi, où est le musée ?"},{tr:"Affedersiniz, eczane nerede?",fr:"Excusez-moi, où est la pharmacie ?"}]},
-  {npc:{tr:"Şu caddeden düz gidin.",fr:"Allez tout droit par cette avenue."},
-   opts:[{tr:"Uzak mı?",fr:"C'est loin ?"},{tr:"Kaç dakika?",fr:"Combien de minutes ?"}]},
-  {npc:{tr:"On dakika. Köprüden sonra solda.",fr:"Dix minutes. Après le pont, à gauche."},
-   opts:[{tr:"Anladım, çok teşekkür ederim!",fr:"Compris, merci beaucoup !"},{tr:"Teşekkürler, iyi günler!",fr:"Merci, bonne journée !"}]},
-  {npc:{tr:"Rica ederim. İyi günler!",fr:"Je vous en prie. Bonne journée !"},
-   opts:[{tr:"İyi günler!",fr:"Bonne journée !"}]}
+ {name:"Préparer un voyage ✈️",steps:[
+  {npc:{tr:"Bu yaz nereye gidelim?",fr:"Où allons-nous cet été ?"},
+   opts:[{tr:"Bence denize gidelim!",fr:"À mon avis, allons à la mer !"},{tr:"Kapadokya'ya gitmeliyiz!",fr:"Nous devons aller en Cappadoce !"}]},
+  {npc:{tr:"Harika fikir! Otel mi, ev mi?",fr:"Excellente idée ! Hôtel ou maison ?"},
+   opts:[{tr:"Otel daha rahat.",fr:"L'hôtel est plus confortable."},{tr:"Ev daha ucuz olur.",fr:"Une maison serait moins chère."}]},
+  {npc:{tr:"Tamam. Ne zaman gidelim?",fr:"D'accord. Quand partons-nous ?"},
+   opts:[{tr:"Temmuzda gidelim.",fr:"Partons en juillet."},{tr:"Ağustosta gideriz.",fr:"Nous partirons en août."}]},
+  {npc:{tr:"Süper! Biletleri yarın alırım.",fr:"Super ! J'achète les billets demain."},
+   opts:[{tr:"Anlaştık! Çok heyecanlıyım!",fr:"Marché conclu ! Je suis toute excitée !"}]}
  ]}
 ];
 var dlgI=0, dlgStep=0;
@@ -1483,38 +1490,39 @@ function dlgStart(i){
   dlgStart(0);
 })();
 
-/* ---------- évaluation A2 ---------- */
+
+/* ---------- évaluation B1 ---------- */
 var EV_N=20, EV_HIST=[];
-try{ EV_HIST=JSON.parse(window.localStorage.getItem("yavas2-eval")||"[]"); }catch(e){}
-var EV_CATN={passe:"Le passé",futur:"Le futur",cas:"Les cas",vocab:"Vocabulaire",phrase:"Phrases",temps:"Le bon temps"};
-var EV_ADVICE={passe:"passe",futur:"futur",cas:"cas",vocab:"cartes",phrase:"ordre",temps:"plus"};
-var VOCA2=[];
-["En ville","Les transports","Le corps","Les métiers"].forEach(function(n){
-  DECKS[n].forEach(function(c2){ if(c2[0].indexOf(" ")<0 && c2[0].indexOf("?")<0) VOCA2.push({tr:c2[0],fr:c2[2]}); });
+try{ EV_HIST=JSON.parse(window.localStorage.getItem("yavas3-eval")||"[]"); }catch(e){}
+var EV_CATN={habit:"L'habitude",racont:"Le -miş",devoir:"Devoir",vocab:"Vocabulaire",lier:"Relier",phrase:"Phrases"};
+var EV_ADVICE={habit:"habit",racont:"mis",devoir:"meli",vocab:"cartes",lier:"lier",phrase:"ordre"};
+var VOCB1=[];
+["Les émotions","Le travail","Le voyage","La nature"].forEach(function(n){
+  DECKS[n].forEach(function(c2){ if(c2[0].indexOf(" ")<0 && c2[0].indexOf("?")<0 && c2[0].indexOf("-")!==0) VOCB1.push({tr:c2[0],fr:c2[2]}); });
 });
 function evBank(){
   var qs=[];
-  shuffle(PVERBS.slice()).slice(0,4).forEach(function(v){
+  shuffle(BVERBS.slice()).slice(0,4).forEach(function(v){
     var pi=Math.floor(Math.random()*PRON.length);
-    var o=conjOpts(function(vv,p){return pastForm(vv.r,p);}, v, pi);
-    qs.push({cat:"passe",prompt:"« "+v.fp[pi]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
+    var o=conjOpts(aorForm, v, pi);
+    qs.push({cat:"habit",prompt:"« "+v.fa[pi]+" » — l'habitude ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
   });
-  shuffle(PVERBS.slice()).slice(0,4).forEach(function(v){
+  shuffle(BVERBS.slice()).slice(0,3).forEach(function(v){
     var pi=Math.floor(Math.random()*PRON.length);
-    var o=conjOpts(function(vv,p){return futForm(vv.fr2,p);}, v, pi);
-    qs.push({cat:"futur",prompt:"« "+v.ff[pi]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
+    var o=conjOpts(misForm, v, pi);
+    qs.push({cat:"racont",prompt:"« il paraît que "+v.fp[pi]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
   });
-  shuffle(CWORDS.slice()).slice(0,4).forEach(function(w,ix){
-    var k=CKINDS[ix%CKINDS.length], good=w.tr+k.fn(w.tr), opts=[good];
-    CKINDS.forEach(function(k2){ var c2=w.tr+k2.fn(w.tr); if(opts.indexOf(c2)<0&&opts.length<4) opts.push(c2); });
-    qs.push({cat:"cas",prompt:"« "+k.ask.replace("{fr}",w.fr)+" » ?",sub:w.tr+" = "+w.fr,opts:shuffle(opts),good:good,say:good});
+  shuffle(BVERBS.slice()).slice(0,3).forEach(function(v){
+    var pi=Math.floor(Math.random()*PRON.length);
+    var o=conjOpts(meliForm, v, pi);
+    qs.push({cat:"devoir",prompt:"« "+DEV[pi]+" "+v.fr.split(",")[0]+" » ?",sub:v.inf+" = "+v.fr,opts:o.opts,good:o.good,say:o.good});
   });
-  shuffle(VOCA2.slice()).slice(0,4).forEach(function(w){
-    var wrong=shuffle(VOCA2.filter(function(x){return x!==w;})).slice(0,3).map(function(x){return x.tr;});
+  shuffle(VOCB1.slice()).slice(0,4).forEach(function(w){
+    var wrong=shuffle(VOCB1.filter(function(x){return x!==w;})).slice(0,3).map(function(x){return x.tr;});
     qs.push({cat:"vocab",prompt:"Comment dit-on « "+w.fr+" » ?",sub:"",opts:shuffle([w.tr].concat(wrong)),good:w.tr,say:w.tr});
   });
-  shuffle(TENSEQ.slice()).slice(0,2).forEach(function(q){
-    qs.push({cat:"temps",prompt:"« "+q.fr+" » ?",sub:"choisis la bonne forme",opts:shuffle([q.good].concat(q.opts)),good:q.good,say:q.good});
+  shuffle(LIERQ.slice()).slice(0,4).forEach(function(q){
+    qs.push({cat:"lier",prompt:"« "+q.fr+" » ?",sub:"choisis la bonne forme",opts:shuffle([q.good].concat(q.opts)),good:q.good,say:q.good});
   });
   shuffle(SENT.filter(function(s){return s.tr.length>=3;})).slice(0,2).forEach(function(s){
     qs.push({cat:"phrase",order:s});
@@ -1565,11 +1573,12 @@ function evRender(){
     box.appendChild(b);
   });
 }
+
 function evLevel(s){
-  if(s<=7)  return ["A1 consolidé","l'A2 démarre — le passé d'abord, tout est normal"];
-  if(s<=12) return ["A2 en cours","A2.1 — raconter commence à venir"];
-  if(s<=16) return ["A2 avancé","A2.2 — presque tout y est"];
-  return ["A2 acquis","cap sur B1 — appuie sur « B1 » en haut à gauche !"];
+  if(s<=7)  return ["A2 consolidé","le B1 démarre — l'habitude d'abord, tout est normal"];
+  if(s<=12) return ["B1 en cours","B1.1 — le récit se met en place"];
+  if(s<=16) return ["B1 avancé","B1.2 — presque tout y est"];
+  return ["B1 acquis","bravo — le turc du quotidien est à toi. La suite se joue en vrai, à table !"];
 }
 function evResult(){
   var n=evQs.length, lv=evLevel(evOk), card=el("ev-card");
@@ -1602,7 +1611,7 @@ function evResult(){
   try{ d2=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ d2=todayStr(); }
   EV_HIST.push({d:d2,s:evOk,n:n,lvl:lv[0]});
   EV_HIST=EV_HIST.slice(-10);
-  try{ window.localStorage.setItem("yavas2-eval", JSON.stringify(EV_HIST)); }catch(e){}
+  try{ window.localStorage.setItem("yavas3-eval", JSON.stringify(EV_HIST)); }catch(e){}
   evHisto();
   el("ev-prog").textContent=n+" / "+n;
 }
@@ -1625,7 +1634,8 @@ function evHisto(){
   evHisto();
 })();
 
-/* ---------- thème partagé avec la page A1 ---------- */
+
+/* ---------- thème partagé ---------- */
 var THEME_META={bosphore:"#0C1524",iznik:"#FAF8F1",lokum:"#FBF1EF",egee:"#EEF4F6",figue:"#261B29"};
 try{
   var th=window.localStorage.getItem("yavas-theme")||"bosphore";
