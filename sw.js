@@ -1,24 +1,30 @@
 /* Yavaş yavaş — cache hors ligne.
-   Change CACHE en "yavas-v9", "yavas-v10"... à chaque modification du contenu,
-   sinon les téléphones garderont l'ancienne version. */
-const CACHE = "yavas-v12";
+   Change CACHE en "yavas-v14", "yavas-v15"... à chaque modification du contenu,
+   sinon les téléphones garderont l'ancienne version.
+   (Les pages elles-mêmes sont "réseau d'abord" : les changements de
+   index.html arrivent même sans changer le numéro.) */
+const CACHE = "yavas-v13";
 const CORE = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./icon-180.png",
   "./icon-192.png",
-  "./icon-512.png"
+  "./icon-512.png",
+  /* Les polices : précachées pour que le hors ligne soit complet
+     dès la première visite. Un échec n'est pas bloquant. */
+  "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..650&family=Manrope:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap"
 ];
 
 self.addEventListener("install", (e) => {
   e.waitUntil((async () => {
     const c = await caches.open(CACHE);
-    await c.addAll(CORE);
+    /* Chaque fichier est mis en cache individuellement : un échec
+       (fichier renommé, réseau qui saute) n'empêche pas les autres. */
+    await Promise.all(CORE.map((u) => c.add(u).catch(() => {})));
     /* Les vraies voix (audio/) sont mises en cache dès l'installation :
        elles fonctionnent donc hors ligne dès la première ouverture,
-       sans avoir dû écouter chaque mot une fois. Un échec sur un fichier
-       n'empêche pas les autres. */
+       sans avoir dû écouter chaque mot une fois. */
     try {
       const r = await fetch("./audio/index.json", { cache: "no-cache" });
       if (r.ok) {

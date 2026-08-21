@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yavaş yavaş — le turc, petit à petit</title>
 <meta name="description" content="Apprendre le turc, dix minutes par jour, pour francophones.">
+<meta name="referrer" content="no-referrer">
+<meta property="og:title" content="Yavaş yavaş — le turc, petit à petit">
+<meta property="og:description" content="Apprendre le turc, dix minutes par jour, pour francophones.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://fero69220.github.io/Yavas-yavas/">
+<meta property="og:image" content="https://fero69220.github.io/Yavas-yavas/icon-512.png">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0C1524">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -512,7 +520,7 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
     </div>
     <div class="setrow">
       <label for="voice-rate">Vitesse</label>
-      <input type="range" id="voice-rate" min="0.4" max="1.1" step="0.05" value="0.85">
+      <input type="range" id="voice-rate" min="0.5" max="1.1" step="0.05" value="0.85">
       <output id="voice-rate-out">0,85</output>
     </div>
     <div class="setrow">
@@ -794,7 +802,7 @@ function normKey(t){
 
 try{
   var sr=window.localStorage.getItem("yavas-rate");
-  if(sr) rate=Math.min(1.1,Math.max(0.4,parseFloat(sr)||0.85));
+  if(sr) rate=Math.min(1.1,Math.max(0.5,parseFloat(sr)||0.85));
 }catch(e){}
 
 try{
@@ -912,19 +920,12 @@ function pick(a){return a[Math.floor(Math.random()*a.length)];}
 /* ---------- mémoire (facultative) ---------- */
 var mem={h:{s:0,k:0},e:{s:0,k:0},p:{s:0,k:0},v:{s:0,k:0}};
 function save(){
-  try{ window.localStorage.setItem("yavas-progress", JSON.stringify(mem)); return; }catch(e){}
-  try{ if(window.storage) window.storage.set("yavas-progress", JSON.stringify(mem)); }catch(e){}
+  try{ window.localStorage.setItem("yavas-progress", JSON.stringify(mem)); }catch(e){}
 }
 function load(){
   try{
     var raw=window.localStorage.getItem("yavas-progress");
-    if(raw){var d=JSON.parse(raw); if(d&&d.h&&d.e){mem=d; if(!mem.p)mem.p={s:0,k:0}; if(!mem.v)mem.v={s:0,k:0}; paintScores(); return;}}
-  }catch(e){}
-  try{
-    if(!window.storage)return;
-    window.storage.get("yavas-progress").then(function(r){
-      if(r&&r.value){var d2=JSON.parse(r.value); if(d2&&d2.h&&d2.e){mem=d2; if(!mem.p)mem.p={s:0,k:0}; if(!mem.v)mem.v={s:0,k:0}; paintScores();}}
-    }).catch(function(){});
+    if(raw){var d=JSON.parse(raw); if(d&&d.h&&d.e){mem=d; if(!mem.p)mem.p={s:0,k:0}; if(!mem.v)mem.v={s:0,k:0}; paintScores();}}
   }catch(e){}
 }
 function paintScores(){
@@ -2006,7 +2007,7 @@ function aiSend(){
 (function(){
   var send=el("ai-send"); if(!send) return;
   send.onclick=aiSend;
-  el("ai-input").addEventListener("keydown",function(ev){ if(ev.key==="Enter") aiSend(); });
+  el("ai-input").addEventListener("keydown",function(ev){ if(ev.key==="Enter" && !ev.isComposing) aiSend(); });
   var urlIn=el("ai-url");
   urlIn.value=aiUrl();
   urlIn.addEventListener("change",function(){
