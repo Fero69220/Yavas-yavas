@@ -1,9 +1,9 @@
 /* Yavaş yavaş — cache hors ligne.
-   Change CACHE en "yavas-v14", "yavas-v15"... à chaque modification du contenu,
+   Change CACHE en "yavas-v16", "yavas-v17"... à chaque modification du contenu,
    sinon les téléphones garderont l'ancienne version.
    (Les pages elles-mêmes sont "réseau d'abord" : les changements de
    index.html arrivent même sans changer le numéro.) */
-const CACHE = "yavas-v13";
+const CACHE = "yavas-v15";
 const CORE = [
   "./",
   "./index.html",

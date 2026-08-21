@@ -479,6 +479,31 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
   border:0;border-radius:9px;padding:9px 13px;cursor:pointer;min-height:0;
 }
 #install[hidden]{display:none}
+/* ---- séances, assiduité, « aujourd'hui » ---- */
+.scoreline{flex-wrap:wrap}
+.daybadge{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--amber);border:1px solid var(--brass-line);border-radius:999px;padding:5px 12px}
+.daybadge[hidden]{display:none}
+.bilan{text-align:center;padding:10px 0 4px}
+.bilan-score{font-family:var(--display);font-weight:600;font-size:clamp(40px,12vw,54px);color:var(--cobalt);line-height:1}
+.bilan-msg{font-weight:800;font-size:17px;margin-top:10px}
+.bilan-sub{color:var(--card-muted);font-size:14px;margin-top:6px}
+.know-row{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.know-row[hidden]{display:none}
+.continue-row{text-align:center;margin:26px 0 2px}
+.plan-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-weight:700;font-size:16px;
+  padding:13px 14px;margin-top:10px;border:1.5px solid var(--paper-line-strong);border-radius:12px;
+  background:transparent;color:var(--ink);cursor:pointer}
+.plan-item:hover{background:var(--card-hover)}
+.plan-num{font-family:var(--mono);font-size:12px;color:var(--card-muted);border:1px solid var(--paper-line-strong);border-radius:999px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.plan-arrow{margin-left:auto;color:var(--card-faint)}
+.ev-bars{margin-top:18px}
+.ev-row{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:14px}
+.ev-lbl{width:104px;flex:none;color:var(--card-muted)}
+.ev-track{flex:1;height:10px;border-radius:999px;background:var(--paper-line);overflow:hidden}
+.ev-track i{display:block;height:100%;background:var(--turquoise);border-radius:999px}
+.ev-val{font-family:var(--mono);font-size:12px;width:44px;flex:none;text-align:right;color:var(--card-muted)}
+.ev-hist-line{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--paper-line)}
+.ev-hist-line:last-child{border-bottom:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:520px){
   .wrap{padding:0 16px 60px}
@@ -503,6 +528,7 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
   <p class="eyebrow">Türkçe · pour francophones</p>
   <h1>Yavaş<br>yavaş<span class="accent">.</span></h1>
   <p class="tagline">« Doucement, petit à petit. » Le turc n'est pas difficile, il est <em>différent</em> : tout se colle à la fin des mots, selon des règles qui ne mentent presque jamais. Dix minutes par jour suffisent.</p>
+  <p class="daybadge" id="daybadge" hidden></p>
 </header>
 
 <nav id="nav" role="tablist" aria-label="Leçons"></nav>
@@ -531,6 +557,14 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
     <small class="note" id="voice-files"></small>
   </details>
 </div>
+
+<!-- ============ AUJOURD'HUI ============ -->
+<section class="panel" id="p-auj" role="tabpanel">
+  <h2 id="auj-hello">Merhaba !</h2>
+  <p class="lede" id="auj-lede"></p>
+  <div class="card" id="auj-plan"></div>
+  <div class="card" id="auj-stats"></div>
+</section>
 
 <!-- ============ SONS ============ -->
 <section class="panel" id="p-sons" role="tabpanel">
@@ -583,8 +617,9 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
 <!-- ============ HARMONIE ============ -->
 <section class="panel" id="p-harmonie" role="tabpanel">
   <h2>L'oreille</h2>
-  <p class="lede">Ici on ne réfléchit pas, on entend. Choisis la forme qui « sonne » juste — c'est exactement ce que fait un turcophone.</p>
-  <div class="scoreline"><span>Score <b id="h-score">0</b></span><span>Série <b id="h-streak">0</b></span></div>
+  <p class="lede">Ici on ne réfléchit pas, on entend. Deux exercices : choisis la forme qui « sonne » juste, ou écoute un mot et retrouve son sens. Dix questions, puis le bilan.</p>
+  <div class="cats" id="h-modes"></div>
+  <div class="scoreline"><span>Score <b id="h-score">0</b></span><span>Série <b id="h-streak">0</b></span><span>Question <b id="h-prog">0 / 10</b></span></div>
   <div class="card" id="h-card"></div>
 </section>
 
@@ -600,7 +635,7 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
     <small class="note">Après une voyelle, on glisse un -y- pour éviter deux voyelles collées : iyi → iyi<b>y</b>im.</small>
   </div>
 
-  <div class="scoreline"><span>Score <b id="e-score">0</b></span><span>Série <b id="e-streak">0</b></span></div>
+  <div class="scoreline"><span>Score <b id="e-score">0</b></span><span>Série <b id="e-streak">0</b></span><span>Question <b id="e-prog">0 / 10</b></span></div>
   <div class="card" id="e-card"></div>
 </section>
 
@@ -622,29 +657,33 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
     <p><b>Et pour demander : … mu ?</b> <span class="muted">Çay istiyor <b>musun</b>? = tu veux du thé ?</span></p>
   </div>
 
-  <div class="scoreline"><span>Score <b id="v-score">0</b></span><span>Série <b id="v-streak">0</b></span></div>
+  <div class="scoreline"><span>Score <b id="v-score">0</b></span><span>Série <b id="v-streak">0</b></span><span>Question <b id="v-prog">0 / 10</b></span></div>
   <div class="card" id="v-card"></div>
 </section>
 
 <!-- ============ PHRASES ============ -->
 <section class="panel" id="p-phrases" role="tabpanel">
   <h2>Les cartes</h2>
-  <p class="lede">Appuie sur la carte pour la retourner. Commence par « Politesse » et « Chez les proches » — c'est ce qu'elle entendra dès la porte d'entrée.</p>
+  <p class="lede">Appuie sur la carte pour la retourner, puis dis si tu la savais : les cartes « à revoir » reviennent trois cartes plus loin. Le bouton « Sens » inverse le jeu — le français d'abord, à toi de dire le turc. Commence par « Politesse » et « Chez les proches ».</p>
   <div class="cats" id="deck-cats"></div>
   <button class="flip" id="flip" aria-live="polite"></button>
+  <div class="know-row" id="know-row" hidden>
+    <button class="ghost" id="know-no">↻ À revoir</button>
+    <button class="ghost" id="know-yes">✓ Je savais</button>
+  </div>
   <div class="deck-nav">
     <button class="ghost" id="prev">← Précédente</button>
     <span class="counter" id="counter"></span>
     <button class="ghost" id="next">Suivante →</button>
   </div>
-  <p style="text-align:center;margin:10px 0 0"><button class="ghost" id="shuffle">Mélanger les cartes</button></p>
+  <p style="margin:10px 0 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="ghost" id="shuffle">Mélanger les cartes</button><button class="ghost" id="direction">Sens : turc → français</button></p>
 </section>
 
 <!-- ============ LA PHRASE ============ -->
 <section class="panel" id="p-ordre" role="tabpanel">
   <h2>La phrase</h2>
   <p class="lede">La règle d'or : <b>le verbe vient toujours à la fin</b>. « Je veux du thé » se dit mot à mot « moi · thé · je-veux ». Remets les mots dans l'ordre, puis écoute.</p>
-  <div class="scoreline"><span>Score <b id="p-score">0</b></span><span>Série <b id="p-streak">0</b></span></div>
+  <div class="scoreline"><span>Score <b id="p-score">0</b></span><span>Série <b id="p-streak">0</b></span><span>Question <b id="p-prog">0 / 10</b></span></div>
   <div class="card" id="p-card"></div>
   <div class="card">
     <h3>Le squelette de toute phrase turque</h3>
@@ -708,6 +747,21 @@ button{touch-action:manipulation;-webkit-user-select:none;user-select:none;min-h
       <input type="text" id="ai-input" class="txt-in" placeholder="Yaz ya da konuş… (écris ou parle)" autocomplete="off">
       <button class="chip in" id="ai-send">Gönder</button>
     </div>
+  </div>
+</section>
+
+<!-- ============ ÉVALUATION ============ -->
+<section class="panel" id="p-eval" role="tabpanel">
+  <h2>Évaluation</h2>
+  <p class="lede">Vingt questions qui mélangent tout — vocabulaire, oreille, harmonie, conjugaison, phrases — pour estimer où elle en est sur l'échelle européenne des langues. À refaire toutes les deux ou trois semaines : c'est la progression qui compte.</p>
+  <div class="scoreline"><span>Question <b id="ev-prog">— / 20</b></span></div>
+  <div class="card" id="ev-card"></div>
+  <div class="card" id="ev-histo" hidden></div>
+  <div class="card">
+    <h3>Ce que veulent dire A1 et A2</h3>
+    <p><b>A1</b> — comprendre et utiliser les expressions du quotidien : se présenter, saluer, demander où, quand, combien, répondre à des questions simples si l'autre parle lentement. C'est exactement le programme de ce site.</p>
+    <p><b>A2</b> — raconter au passé, parler de projets au futur, décrire sa journée, se débrouiller dans les courses et les transports. C'est l'étape d'après : elle demandera de nouveaux temps que ce site n'enseigne pas encore.</p>
+    <small class="note">Estimation indicative, pas un diplôme : le niveau officiel s'obtient par un examen (TÖMER, TYS). Mais refait régulièrement, ce test montre la seule chose qui compte vraiment — le chemin parcouru.</small>
   </div>
 </section>
 
@@ -933,10 +987,85 @@ function paintScores(){
   el("e-score").textContent=mem.e.s; el("e-streak").textContent=mem.e.k;
   el("p-score").textContent=mem.p.s; el("p-streak").textContent=mem.p.k;
   el("v-score").textContent=mem.v.s; el("v-streak").textContent=mem.v.k;
+  paintAuj();
+}
+
+/* ---------- séances de dix & file « à revoir » ----------
+   Chaque quiz travaille par séries de 10 questions, puis affiche un bilan.
+   Une question ratée est remise dans la file et revient deux questions
+   plus tard (ou en tête de la série suivante) : on révise ce qu'on rate. */
+var SESSION_LEN=10;
+var sess={};
+function sessOf(id){ if(!sess[id]) sess[id]={n:0,ok:0,queue:[]}; return sess[id]; }
+function sessAnswer(id,ok,item){
+  var s=sessOf(id);
+  s.n++; if(ok) s.ok++;
+  else if(item!==null && item!==undefined) s.queue.push({item:item,due:s.n+2});
+  markPractice();
+  return s;
+}
+function sessTake(id){
+  var s=sessOf(id);
+  for(var i=0;i<s.queue.length;i++)
+    if(s.queue[i].due<=s.n) return s.queue.splice(i,1)[0].item;
+  return null;
+}
+function sessProg(id,progId){
+  var e=el(progId); if(e) e.textContent=Math.min(sessOf(id).n,SESSION_LEN)+" / "+SESSION_LEN;
+}
+function sessNext(id,cardId,progId,again){
+  if(sessOf(id).n>=SESSION_LEN) sessBilan(id,cardId,progId,again);
+  else again();
+}
+function sessBilan(id,cardId,progId,again){
+  var s=sessOf(id), ok=s.ok, msg;
+  if(ok>=9) msg="Harika ! (formidable)";
+  else if(ok>=7) msg="Çok iyi ! (très bien)";
+  else if(ok>=5) msg="İyi ! Ça rentre, continue comme ça.";
+  else msg="C'est en se trompant qu'on apprend — on remet ça ?";
+  var sub = s.queue.length
+    ? (s.queue.length>1 ? s.queue.length+" questions ratées reviendront" : "1 question ratée reviendra")+" au début de la prochaine série."
+    : "Séance faite. Une par jour suffit — à demain !";
+  var c=el(cardId);
+  c.innerHTML='<div class="bilan"><div class="bilan-score">'+ok+' / '+SESSION_LEN+'</div>'+
+    '<p class="bilan-msg">'+msg+'</p>'+
+    '<p class="bilan-sub">'+sub+'</p>'+
+    '<button class="ghost" style="margin-top:16px;border-color:var(--ink);color:var(--ink)" id="'+cardId+'-again">Nouvelle série de '+SESSION_LEN+'</button></div>';
+  el(cardId+"-again").onclick=function(){
+    var q=sessOf(id).queue;
+    sess[id]={n:0,ok:0,queue:q.map(function(x){return {item:x.item,due:0};})};
+    sessProg(id,progId); again();
+  };
+}
+
+/* ---------- assiduité : jours d'affilée ---------- */
+function dstr(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+function todayStr(){ return dstr(new Date()); }
+function yesterdayStr(){ return dstr(new Date(Date.now()-86400000)); }
+var days={last:"",n:0,best:0};
+try{ var dj=JSON.parse(window.localStorage.getItem("yavas-days")||"null"); if(dj&&dj.last!==undefined) days=dj; }catch(e){}
+function markPractice(){
+  var t=todayStr();
+  if(days.last===t) return;
+  days.n = (days.last===yesterdayStr()) ? days.n+1 : 1;
+  days.last=t; if(days.n>days.best) days.best=days.n;
+  try{ window.localStorage.setItem("yavas-days", JSON.stringify(days)); }catch(e){}
+  paintDays();
+}
+function paintDays(){
+  var b=el("daybadge");
+  if(b){
+    var t=todayStr(), y=yesterdayStr();
+    if(days.last===t){ b.hidden=false; b.textContent="🔥 "+days.n+" jour"+(days.n>1?"s":"")+" d'affilée"; }
+    else if(days.last===y){ b.hidden=false; b.textContent="🔥 "+days.n+" jour"+(days.n>1?"s":"")+" — continue aujourd'hui !"; }
+    else b.hidden=true;
+  }
+  paintAuj();
 }
 
 /* ---------- onglets ---------- */
 var TABS=[
+  {id:"auj",label:"Aujourd'hui"},
   {id:"sons",label:"Les sons"},
   {id:"machine",label:"La machine à mots"},
   {id:"harmonie",label:"L'oreille"},
@@ -947,6 +1076,7 @@ var TABS=[
   {id:"presenter",label:"Se présenter"},
   {id:"table",label:"À table"},
   {id:"conversation",label:"La conversation"},
+  {id:"eval",label:"Évaluation"},
   {id:"prof",label:"Note pour le prof"}
 ];
 var nav=el("nav");
@@ -957,7 +1087,7 @@ function activateTab(i,scroll){
     b.tabIndex = on2?0:-1;
     el("p-"+x.id).classList.toggle("on", on2);
   });
-  try{ window.localStorage.setItem("yavas-tab", String(i)); }catch(e){}
+  try{ window.localStorage.setItem("yavas-tab2", TABS[i].id); }catch(e){}
   if(scroll) window.scrollTo({top:0,behavior:"smooth"});
 }
 TABS.forEach(function(t,i){
@@ -980,10 +1110,66 @@ nav.addEventListener("keydown",function(ev){
 /* on rouvre l'app sur le dernier onglet visité — pratique pour « un onglet par jour » */
 var startTab=0;
 try{
-  var st=parseInt(window.localStorage.getItem("yavas-tab"),10);
-  if(st>=0 && st<TABS.length) startTab=st;
+  var st=window.localStorage.getItem("yavas-tab2");
+  TABS.forEach(function(x,ix){ if(x.id===st) startTab=ix; });
 }catch(e){}
 activateTab(startTab,false);
+
+/* ---------- « Continuer → » en bas de chaque section ---------- */
+function tabIx(id){ for(var q=0;q<TABS.length;q++) if(TABS[q].id===id) return q; return 0; }
+TABS.forEach(function(t,i){
+  if(t.id==="prof"||t.id==="auj") return;
+  var nxt=TABS[i+1]; if(!nxt) return;
+  var goHome=(nxt.id==="prof");
+  var row=document.createElement("p"); row.className="continue-row";
+  var b2=document.createElement("button"); b2.className="ghost";
+  b2.textContent = goHome ? "Terminé pour aujourd'hui → l'accueil" : "Continuer → "+nxt.label;
+  b2.onclick=function(){ activateTab(goHome?0:i+1,true); };
+  row.appendChild(b2); el("p-"+t.id).appendChild(row);
+});
+
+/* ---------- l'écran « Aujourd'hui » ---------- */
+var PLAN=[
+  {t:["table","conversation"], mot:"Dimanche, jour de table : les plats, puis une scène à jouer."},
+  {t:["sons","harmonie"], mot:"Lundi : les sons, puis une série de dix à l'oreille."},
+  {t:["machine","harmonie"], mot:"Mardi : la machine à mots, puis dix questions d'oreille."},
+  {t:["phrases","harmonie"], mot:"Mercredi : les cartes — une dizaine suffit — puis l'oreille."},
+  {t:["etre","verbes"], mot:"Jeudi : « je suis, tu es », puis un œil aux verbes."},
+  {t:["verbes","ordre"], mot:"Vendredi : les verbes, puis remets quelques phrases en ordre."},
+  {t:["presenter","conversation"], mot:"Samedi : se présenter, puis une scène de conversation."}
+];
+function paintAuj(){
+  var box=el("auj-plan"); if(!box || !TABS) return;
+  var d=new Date(), h=d.getHours();
+  var helloTr = h<12 ? "Günaydın" : (h<18 ? "Merhaba" : "İyi akşamlar");
+  var sub = h<12 ? "« bonjour », le matin" : (h<18 ? "« bonjour »" : "« bonsoir »");
+  var hh=el("auj-hello");
+  hh.textContent=helloTr+" !";
+  hh.style.cursor="pointer";
+  hh.title="Appuie pour écouter";
+  hh.onclick=function(){ say(helloTr); };
+  var dateStr="";
+  try{ dateStr=d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}); }catch(e){}
+  el("auj-lede").textContent="("+sub+" — appuie dessus pour l'entendre.) Nous sommes "+dateStr+". Dix minutes suffisent : voici le programme du jour.";
+  var plan=PLAN[d.getDay()];
+  box.innerHTML='<h3>Le programme du jour</h3><p class="muted" style="font-size:14.5px">'+plan.mot+'</p>';
+  plan.t.forEach(function(id2,ix2){
+    var b3=document.createElement("button"); b3.className="plan-item";
+    b3.innerHTML='<span class="plan-num">'+(ix2+1)+'</span><span></span><span class="plan-arrow">→</span>';
+    b3.children[1].textContent=TABS[tabIx(id2)].label;
+    b3.onclick=function(){ activateTab(tabIx(id2),true); };
+    box.appendChild(b3);
+  });
+  var stats=el("auj-stats"), tot=mem.h.s+mem.e.s+mem.v.s+mem.p.s;
+  var t2=todayStr(), y2=yesterdayStr(), line;
+  if(days.last===t2) line="🔥 <b>"+days.n+"</b> jour"+(days.n>1?"s":"")+" d'affilée — c'est fait pour aujourd'hui.";
+  else if(days.last===y2) line="🔥 Série en cours : <b>"+days.n+"</b> jour"+(days.n>1?"s":"")+". Une seule question aujourd'hui, et elle continue.";
+  else if(days.best>0) line="La série repart aujourd'hui — ton record : <b>"+days.best+"</b> jour"+(days.best>1?"s":"")+".";
+  else line="Réponds à une première question, et le compteur de jours s'allume. 🔥";
+  stats.innerHTML='<h3>L\'assiduité</h3><p>'+line+'</p>'+
+    (tot? '<p class="muted" style="font-size:14px;margin-top:6px">'+tot+' bonnes réponses en tout, tous exercices confondus.</p>'
+        : '<p class="muted" style="font-size:14px;margin-top:6px">Les scores de chaque exercice s\'additionneront ici.</p>');
+}
 
 /* ---------- 1. sons ---------- */
 var LETTERS=[
@@ -1095,7 +1281,8 @@ var KINDS=[
   {key:"dat", ask:"vers le / la {fr}", fn:sfxDat, all:["e","a","ye","ya"], why:"« vers »"}
 ];
 function newHarmony(){
-  var w=pick(DRILL), k=pick(KINDS);
+  var rv=sessTake("h"), w, k;
+  if(rv){ w=rv.w; k=rv.k; } else { w=pick(DRILL); k=pick(KINDS); }
   var good=w.tr+k.fn(w.tr);
   var opts=[good];
   shuffle(k.all.slice()).forEach(function(s){
@@ -1121,14 +1308,69 @@ function newHarmony(){
         verdict.innerHTML="C'est <b>"+good+"</b> — la voyelle « "+lastVowel(w.tr)+" » impose "+good.slice(w.tr.length)+".";
       }
       say(good); paintScores(); save();
+      var st=sessAnswer("h", o===good, o===good?null:{w:w,k:k});
+      sessProg("h","h-prog");
       var nb=document.createElement("button");
       nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
-      nb.textContent="Suivant →"; nb.onclick=newHarmony;
+      nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+      nb.onclick=function(){ sessNext("h","h-card","h-prog",newHarmony); };
       c.appendChild(nb); nb.focus();
     };
     box.appendChild(b);
   });
 }
+/* ---------- 3bis. l'écoute : entends un mot, retrouve son sens ---------- */
+function newListen(){
+  var rv=sessTake("o"), w = rv || pick(DRILL);
+  var opts=[w];
+  shuffle(DRILL.slice()).forEach(function(x){
+    if(opts.indexOf(x)<0 && opts.length<4) opts.push(x);
+  });
+  shuffle(opts);
+  var c=el("h-card");
+  c.innerHTML='<p class="q">Écoute bien… c\'est quel mot ?</p>'+
+    '<div class="qa-actions"><button class="speak" id="h-play">&#128266; Réécouter</button></div>'+
+    '<div class="opts"></div><p class="verdict" aria-live="polite"></p>';
+  el("h-play").onclick=function(){ say(w.tr); };
+  var box=c.querySelector(".opts"), verdict=c.querySelector(".verdict");
+  opts.forEach(function(x){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=x.fr;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(z){z.disabled=true;});
+      var win=(x===w);
+      if(win){ b.classList.add("right"); mem.h.s++; mem.h.k++;
+        verdict.innerHTML="Oui : <b lang=\"tr\">"+w.tr+"</b> = "+w.fr+".";
+      }else{ b.classList.add("wrong"); mem.h.k=0;
+        Array.prototype.forEach.call(box.children,function(z){ if(z.textContent===w.fr) z.classList.add("right");});
+        verdict.innerHTML="C'était <b lang=\"tr\">"+w.tr+"</b> = "+w.fr+".";
+      }
+      say(w.tr); paintScores(); save();
+      var st=sessAnswer("o", win, win?null:w);
+      sessProg("o","h-prog");
+      var nb=document.createElement("button");
+      nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
+      nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+      nb.onclick=function(){ sessNext("o","h-card","h-prog",newListen); };
+      c.appendChild(nb); nb.focus();
+    };
+    box.appendChild(b);
+  });
+  say(w.tr);
+}
+(function(){
+  var hm=el("h-modes"); if(!hm) return;
+  [["Le bon suffixe",newHarmony,"h"],["&#128266; Qu'as-tu entendu ?",newListen,"o"]].forEach(function(m,i){
+    var b=document.createElement("button");
+    b.className="catbtn"; b.innerHTML=m[0];
+    b.setAttribute("aria-pressed", i===0?"true":"false");
+    b.onclick=function(){
+      Array.prototype.forEach.call(hm.children,function(x,j){ x.setAttribute("aria-pressed", j===i?"true":"false"); });
+      sessProg(m[2],"h-prog");
+      m[1]();
+    };
+    hm.appendChild(b);
+  });
+})();
 newHarmony();
 
 /* ---------- 4. je suis, tu es ---------- */
@@ -1174,7 +1416,8 @@ ac.children[0].style.background="var(--ink)"; ac.children[0].style.color="var(--
 renderConj();
 
 function newEtre(){
-  var a=pick(ADJ), p=pick(PRON.filter(function(x){return x[0]!=="3s";}));
+  var rv=sessTake("e"), a, p;
+  if(rv){ a=rv.a; p=rv.p; } else { a=pick(ADJ); p=pick(PRON.filter(function(x){return x[0]!=="3s";})); }
   var good=a.tr+person(a.tr,p[0]);
   var opts=[good];
   shuffle(PRON.slice()).forEach(function(x){
@@ -1198,9 +1441,12 @@ function newEtre(){
         verdict.innerHTML="C'est <b>"+good+"</b> : la terminaison de "+p[1]+" après « "+lastVowel(a.tr)+" ».";
       }
       say(good); paintScores(); save();
+      var st=sessAnswer("e", o===good, o===good?null:{a:a,p:p});
+      sessProg("e","e-prog");
       var nb=document.createElement("button");
       nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
-      nb.textContent="Suivant →"; nb.onclick=newEtre;
+      nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+      nb.onclick=function(){ sessNext("e","e-card","e-prog",newEtre); };
       c.appendChild(nb); nb.focus();
     };
     box.appendChild(b);
@@ -1255,7 +1501,9 @@ vc.children[0].style.background="var(--ink)"; vc.children[0].style.color="var(--
 renderVConj();
 
 function newVerb(){
-  var v=pick(VERBS), pi=Math.floor(Math.random()*PRON.length), p=PRON[pi];
+  var rv=sessTake("v"), v, pi;
+  if(rv){ v=rv.v; pi=rv.pi; } else { v=pick(VERBS); pi=Math.floor(Math.random()*PRON.length); }
+  var p=PRON[pi];
   var good=v.st+person(v.st,p[0]);
   var opts=[good];
   shuffle(PRON.slice()).forEach(function(x){
@@ -1279,9 +1527,12 @@ function newVerb(){
         verdict.innerHTML="C'est <b>"+good+"</b> \u2014 la terminaison de "+p[1]+".";
       }
       say(good); paintScores(); save();
+      var st=sessAnswer("v", o===good, o===good?null:{v:v,pi:pi});
+      sessProg("v","v-prog");
       var nb=document.createElement("button");
       nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
-      nb.textContent="Suivant \u2192"; nb.onclick=newVerb;
+      nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+      nb.onclick=function(){ sessNext("v","v-card","v-prog",newVerb); };
       c.appendChild(nb); nb.focus();
     };
     box.appendChild(b);
@@ -1575,23 +1826,51 @@ Object.keys(DECKS).forEach(function(name,i){
   };
   dc.appendChild(b);
 });
+var dirRev=false; /* false : turc → français ; true : français → turc */
 function renderCard(){
-  var c=deck[di], f=el("flip");
-  if(flipped){
-    f.innerHTML='<div class="back"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
-    f.querySelector(".back").textContent=c[2];
-    f.querySelector(".speak").onclick=function(ev){ev.stopPropagation();say(c[0]);};
+  var c=deck[di], f=el("flip"), kr=el("know-row");
+  if(!flipped){
+    if(dirRev){
+      f.innerHTML='<div class="back"></div><div class="hint">dis-le en turc, puis appuie</div>';
+      f.querySelector(".back").textContent=c[2];
+    }else{
+      f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><div class="hint">appuyer pour la traduction</div>';
+      f.querySelector(".front").textContent=c[0];
+      f.querySelector(".phon").textContent=c[1];
+    }
   }else{
-    f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><div class="hint">appuyer pour la traduction</div>';
-    f.querySelector(".front").textContent=c[0];
-    f.querySelector(".phon").textContent=c[1];
+    if(dirRev){
+      f.innerHTML='<div class="front" lang="tr"></div><div class="phon"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
+      f.querySelector(".front").textContent=c[0];
+      f.querySelector(".phon").textContent=c[1];
+    }else{
+      f.innerHTML='<div class="back"></div><button class="speak" type="button">écouter</button><div class="hint">appuyer pour revenir</div>';
+      f.querySelector(".back").textContent=c[2];
+    }
+    f.querySelector(".speak").onclick=function(ev){ev.stopPropagation();say(c[0]);};
   }
+  if(kr) kr.hidden=!flipped;
   el("counter").textContent=(di+1)+" / "+deck.length+"  ·  "+deckName;
 }
-el("flip").onclick=function(){ flipped=!flipped; if(flipped) say(deck[di][0]); renderCard(); };
-el("next").onclick=function(){ di=(di+1)%deck.length; flipped=false; renderCard(); };
+function deckStep(){ di=(di+1)%deck.length; flipped=false; renderCard(); }
+el("flip").onclick=function(){ flipped=!flipped; if(flipped){ say(deck[di][0]); markPractice(); } renderCard(); };
+el("next").onclick=function(){ deckStep(); };
 el("prev").onclick=function(){ di=(di-1+deck.length)%deck.length; flipped=false; renderCard(); };
 el("shuffle").onclick=function(){ deck=shuffle(deck.slice()); di=0; flipped=false; renderCard(); };
+el("know-yes").onclick=function(){ deckStep(); };
+el("know-no").onclick=function(){
+  /* la carte revient trois cartes plus loin */
+  var card=deck[di];
+  if(deck===DECKS[deckName]) deck=deck.slice();  /* ne jamais modifier la liste d'origine */
+  deck.splice(di,1);
+  deck.splice(Math.min(di+3,deck.length),0,card);
+  flipped=false; renderCard();
+};
+el("direction").onclick=function(){
+  dirRev=!dirRev; flipped=false;
+  this.textContent = dirRev ? "Sens : français → turc" : "Sens : turc → français";
+  renderCard();
+};
 renderCard();
 
 /* ---------- 6. la phrase ---------- */
@@ -1642,8 +1921,9 @@ var SENT=[
 ];
 var sentIdx=-1;
 function newSent(){
-  var i;
-  do{ i=Math.floor(Math.random()*SENT.length); }while(i===sentIdx && SENT.length>1);
+  var rv=sessTake("p"), i;
+  if(rv!==null){ i=rv; }
+  else{ do{ i=Math.floor(Math.random()*SENT.length); }while(i===sentIdx && SENT.length>1); }
   sentIdx=i;
   var s=SENT[i], ans=[], pool=s.tr.slice();
   do{ shuffle(pool); }while(pool.join(" ")===s.tr.join(" "));
@@ -1690,9 +1970,12 @@ function newSent(){
       verdict.innerHTML="Presque. C'est <b>"+good+"</b> — "+s.lit+".";
     }
     say(good); paintScores(); save();
+    var st=sessAnswer("p", win, win?null:i);
+    sessProg("p","p-prog");
     var nb=document.createElement("button");
     nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
-    nb.textContent="Suivant →"; nb.onclick=newSent;
+    nb.textContent = st.n>=SESSION_LEN ? "Le bilan →" : "Suivant →";
+    nb.onclick=function(){ sessNext("p","p-card","p-prog",newSent); };
     c.appendChild(nb); nb.focus();
   }
   pool.forEach(function(w){
@@ -1709,7 +1992,7 @@ function newSent(){
 }
 newSent();
 
-load(); paintScores();
+load(); paintScores(); paintDays();
 
 /* ---------- commandes des réglages du son ---------- */
 try{
@@ -1777,7 +2060,7 @@ function qaRender(){
     '</div>';
   el("qa-counter").textContent=(qaIdx+1)+" / "+qaList.length;
   el("qa-say-q").onclick=function(){ say(it.q); };
-  el("qa-reveal").onclick=function(){ el("qa-answer").hidden=false; this.style.display="none"; say(it.a); };
+  el("qa-reveal").onclick=function(){ el("qa-answer").hidden=false; this.style.display="none"; say(it.a); markPractice(); };
   el("qa-say-a").onclick=function(){ say(it.a); };
 }
 (function(){
@@ -1937,7 +2220,7 @@ function dlgPlay(){
   var st=sc.steps[dlgStep];
   dlgBubble(box,"npc",st.npc.tr,st.npc.fr);
   say(st.npc.tr);
-  box.scrollIntoView({block:"end",behavior:"smooth"});
+  if(box.scrollIntoView) box.scrollIntoView({block:"end",behavior:"smooth"});
   opts.innerHTML="";
   st.opts.forEach(function(o){
     var b=document.createElement("button");
@@ -1945,7 +2228,7 @@ function dlgPlay(){
     b.innerHTML='<span lang="tr">'+o.tr+'</span><span class="sub">'+o.fr+'</span>';
     b.onclick=function(){
       dlgBubble(box,"me",o.tr,o.fr);
-      say(o.tr);
+      say(o.tr); markPractice();
       dlgStep++;
       opts.innerHTML="";
       setTimeout(dlgPlay,1600);
@@ -1971,6 +2254,217 @@ function dlgStart(i){
   });
   dlgStart(0);
 })();
+
+/* ---------- 10bis. l'évaluation ---------- */
+var EV_N=20;
+var EV_HIST=[];
+try{ EV_HIST=JSON.parse(window.localStorage.getItem("yavas-eval")||"[]"); }catch(e){}
+var EV_CATN={vocab:"Vocabulaire",oreille:"Oreille",gram:"Harmonie",conj:"Conjugaison",phrase:"Phrases"};
+var EV_ADVICE={vocab:["phrases","Les cartes"],oreille:["harmonie","L'oreille"],gram:["machine","La machine à mots"],conj:["verbes","Les verbes"],phrase:["ordre","La phrase"]};
+
+function evBank(){
+  var qs=[];
+  /* 4 — vocabulaire : français → turc */
+  shuffle(DRILL.slice()).slice(0,4).forEach(function(w){
+    var wrong=shuffle(DRILL.filter(function(x){return x!==w;})).slice(0,3).map(function(x){return x.tr;});
+    qs.push({cat:"vocab",prompt:"Comment dit-on \u00ab "+w.fr+" \u00bb ?",sub:"",opts:shuffle([w.tr].concat(wrong)),optsLang:"tr",good:w.tr,say:w.tr});
+  });
+  /* 4 — oreille : audio → sens */
+  shuffle(DRILL.slice()).slice(0,4).forEach(function(w){
+    var wrong=shuffle(DRILL.filter(function(x){return x!==w;})).slice(0,3).map(function(x){return x.fr;});
+    qs.push({cat:"oreille",prompt:"\u00c9coute\u2026 c'est quel mot ?",sub:"",opts:shuffle([w.fr].concat(wrong)),good:w.fr,play:w.tr,say:w.tr});
+  });
+  /* 4 — harmonie vocalique */
+  shuffle(DRILL.slice()).slice(0,4).forEach(function(w,ix){
+    var k=KINDS[ix%KINDS.length], good=w.tr+k.fn(w.tr), opts=[good];
+    shuffle(k.all.slice()).forEach(function(s){var c2=w.tr+s; if(opts.indexOf(c2)<0&&opts.length<4)opts.push(c2);});
+    qs.push({cat:"gram",prompt:"\u00ab "+k.ask.replace("{fr}",w.fr)+" \u00bb ?",sub:w.tr+" = "+w.fr,opts:shuffle(opts),optsLang:"tr",good:good,say:good});
+  });
+  /* 4 — conjugaison : 2 \u00ab \u00eatre \u00bb + 2 verbes */
+  shuffle(ADJ.slice()).slice(0,2).forEach(function(a){
+    var p=pick(PRON.filter(function(x){return x[0]!=="3s";}));
+    var good=a.tr+person(a.tr,p[0]), opts=[good];
+    shuffle(PRON.slice()).forEach(function(x){var c2=a.tr+person(a.tr,x[0]); if(opts.indexOf(c2)<0&&c2!==a.tr&&opts.length<4)opts.push(c2);});
+    qs.push({cat:"conj",prompt:"\u00ab "+p[2]+" "+a.fr+" \u00bb ?",sub:a.tr+" = "+a.fr,opts:shuffle(opts),optsLang:"tr",good:good,say:good});
+  });
+  shuffle(VERBS.slice()).slice(0,2).forEach(function(v){
+    var pi=Math.floor(Math.random()*PRON.length), p=PRON[pi];
+    var good=v.st+person(v.st,p[0]), opts=[good];
+    shuffle(PRON.slice()).forEach(function(x){var c2=v.st+person(v.st,x[0]); if(opts.indexOf(c2)<0&&opts.length<4)opts.push(c2);});
+    qs.push({cat:"conj",prompt:"\u00ab "+v.f[pi]+" \u00bb ?",sub:v.inf+" = "+v.fr,opts:shuffle(opts),optsLang:"tr",good:good,say:good});
+  });
+  /* 2 — comprendre une question entendue en famille */
+  shuffle(QA.slice()).slice(0,2).forEach(function(q0){
+    var wrong=shuffle(QA.filter(function(x){return x!==q0;})).slice(0,3).map(function(x){return x.fq;});
+    qs.push({cat:"phrase",prompt:q0.q,promptLang:"tr",sub:"Que veut dire cette question ?",opts:shuffle([q0.fq].concat(wrong)),good:q0.fq,play:q0.q,say:q0.q});
+  });
+  /* 2 — remettre une phrase dans l'ordre */
+  shuffle(SENT.filter(function(s){return s.tr.length>=3;})).slice(0,2).forEach(function(s){
+    qs.push({cat:"phrase",order:s});
+  });
+  return shuffle(qs).slice(0,EV_N);
+}
+
+var evQs=[], evI=0, evOk=0, evCats={};
+function evStart(){
+  evQs=evBank(); evI=0; evOk=0;
+  evCats={vocab:[0,0],oreille:[0,0],gram:[0,0],conj:[0,0],phrase:[0,0]};
+  el("ev-histo").hidden=true;
+  evRender();
+}
+function evScored(cat,win){
+  evCats[cat][1]++; if(win){ evCats[cat][0]++; evOk++; }
+  markPractice();
+}
+function evNextBtn(card){
+  var last=(evI>=evQs.length-1);
+  var nb=document.createElement("button");
+  nb.className="ghost"; nb.style.marginTop="14px"; nb.style.borderColor="var(--ink)"; nb.style.color="var(--ink)";
+  nb.textContent = last ? "Voir le r\u00e9sultat \u2192" : "Suivant \u2192";
+  nb.onclick=function(){ evI++; if(evI>=evQs.length) evResult(); else evRender(); };
+  card.appendChild(nb); nb.focus();
+}
+function evRender(){
+  var q=evQs[evI], card=el("ev-card");
+  el("ev-prog").textContent=(evI+1)+" / "+evQs.length;
+  if(q.order){
+    var s=q.order, ans=[], pool=s.tr.slice(), done=false;
+    do{ shuffle(pool); }while(pool.join(" ")===s.tr.join(" "));
+    card.innerHTML='<p class="q">Remets dans l\u2019ordre : \u00ab '+s.fr+' \u00bb</p><p class="q-sub">mot \u00e0 mot : '+s.lit+'</p><div class="build" lang="tr"></div><div class="pool" lang="tr"></div><p class="verdict" aria-live="polite"></p>';
+    var build=card.querySelector(".build"), poolBox=card.querySelector(".pool"), verdict=card.querySelector(".verdict");
+    function renderBuild(){
+      build.innerHTML="";
+      if(!ans.length){
+        var ph=document.createElement("span"); ph.className="placeholder";
+        ph.textContent="appuie sur les mots, dans l'ordre";
+        build.appendChild(ph); return;
+      }
+      ans.forEach(function(w,idx){
+        var b=document.createElement("button"); b.className="chip in"; b.textContent=w;
+        b.onclick=function(){
+          if(done) return;
+          ans.splice(idx,1);
+          for(var k2=0;k2<poolBox.children.length;k2++){
+            var pc=poolBox.children[k2];
+            if(pc.textContent===w && pc.disabled){ pc.disabled=false; pc.style.opacity="1"; break; }
+          }
+          renderBuild();
+        };
+        build.appendChild(b);
+      });
+    }
+    pool.forEach(function(w){
+      var b=document.createElement("button"); b.className="chip"; b.textContent=w;
+      b.onclick=function(){
+        if(b.disabled||done) return;
+        b.disabled=true; b.style.opacity=".35";
+        ans.push(w); renderBuild();
+        if(ans.length===s.tr.length){
+          done=true;
+          var good=s.tr.join(" "), win=(ans.join(" ")===good);
+          Array.prototype.forEach.call(poolBox.children,function(x){x.disabled=true;});
+          Array.prototype.forEach.call(build.children,function(x){
+            x.style.background=win?"var(--turquoise)":"var(--coral)";
+            x.style.borderColor=win?"var(--turquoise)":"var(--coral)";
+            x.style.color=win?"var(--on-turquoise)":"var(--on-coral)";
+          });
+          verdict.innerHTML=win?"Oui : <b>"+good+"</b>.":"C'\u00e9tait <b>"+good+"</b> \u2014 "+s.lit+".";
+          say(good); evScored("phrase",win); evNextBtn(card);
+        }
+      };
+      poolBox.appendChild(b);
+    });
+    renderBuild();
+    return;
+  }
+  card.innerHTML='<p class="q"'+(q.promptLang?' lang="'+q.promptLang+'"':'')+'></p><p class="q-sub"></p>'+
+    (q.play?'<div class="qa-actions"><button class="speak" id="ev-play">&#128266; R\u00e9\u00e9couter</button></div>':'')+
+    '<div class="opts"'+(q.optsLang?' lang="'+q.optsLang+'"':'')+'></div><p class="verdict" aria-live="polite"></p>';
+  card.querySelector(".q").textContent=q.prompt;
+  card.querySelector(".q-sub").textContent=q.sub;
+  if(q.play){ el("ev-play").onclick=function(){ say(q.play); }; say(q.play); }
+  var box=card.querySelector(".opts"), verdict=card.querySelector(".verdict");
+  q.opts.forEach(function(o){
+    var b=document.createElement("button"); b.className="opt"; b.textContent=o;
+    b.onclick=function(){
+      Array.prototype.forEach.call(box.children,function(x){x.disabled=true;});
+      var win=(o===q.good);
+      if(win){ b.classList.add("right"); verdict.innerHTML="Oui !"; }
+      else{
+        b.classList.add("wrong");
+        Array.prototype.forEach.call(box.children,function(x){ if(x.textContent===q.good) x.classList.add("right");});
+        verdict.innerHTML="C'\u00e9tait \u00ab <b>"+q.good+"</b> \u00bb.";
+      }
+      if(q.say) say(q.say);
+      evScored(q.cat,win); evNextBtn(card);
+    };
+    box.appendChild(b);
+  });
+}
+function evLevel(s){
+  if(s<=7)  return ["D\u00e9couverte","pr\u00e9-A1 \u2014 les bases se mettent en place, tout est normal"];
+  if(s<=12) return ["A1 en cours","A1.1 \u2014 la moiti\u00e9 du chemin est faite"];
+  if(s<=16) return ["A1 avanc\u00e9","A1.2 \u2014 presque tout y est"];
+  return ["A1 acquis","pr\u00eate \u00e0 viser A2 : le pass\u00e9, le futur, les r\u00e9cits \u2014 l'\u00e9tape d'apr\u00e8s"];
+}
+function evResult(){
+  var n=evQs.length, lv=evLevel(evOk), card=el("ev-card");
+  var out='<div class="bilan"><div class="bilan-score">'+evOk+' / '+n+'</div>'+
+    '<p class="bilan-msg">Niveau estim\u00e9 : '+lv[0]+'</p>'+
+    '<p class="bilan-sub">'+lv[1]+'</p></div><div class="ev-bars">';
+  var weak=null, weakR=2;
+  Object.keys(EV_CATN).forEach(function(k2){
+    var c2=evCats[k2]; if(!c2[1]) return;
+    var r=c2[0]/c2[1], pc=Math.round(100*r);
+    if(r<weakR){ weakR=r; weak=k2; }
+    out+='<div class="ev-row"><span class="ev-lbl">'+EV_CATN[k2]+'</span><span class="ev-track"><i style="width:'+pc+'%"></i></span><span class="ev-val">'+c2[0]+' / '+c2[1]+'</span></div>';
+  });
+  out+='</div>';
+  if(weak && weakR<1){
+    out+='<p style="margin-top:16px">Le point \u00e0 travailler : <b>'+EV_CATN[weak].toLowerCase()+'</b>.</p>';
+  }else{
+    out+='<p style="margin-top:16px">Sans faute \u2014 <b lang="tr">harika</b> !</p>';
+  }
+  card.innerHTML=out;
+  if(weak && weakR<1){
+    var go=document.createElement("button"); go.className="plan-item";
+    go.innerHTML='<span></span><span class="plan-arrow">\u2192</span>';
+    go.children[0].textContent="Aller \u00e0 \u00ab "+EV_ADVICE[weak][1]+" \u00bb";
+    go.onclick=function(){ activateTab(tabIx(EV_ADVICE[weak][0]),true); };
+    card.appendChild(go);
+  }
+  var again=document.createElement("button");
+  again.className="ghost"; again.style.marginTop="16px"; again.style.borderColor="var(--ink)"; again.style.color="var(--ink)";
+  again.textContent="Refaire un test";
+  again.onclick=evStart;
+  card.appendChild(again);
+  var d2="";
+  try{ d2=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ d2=todayStr(); }
+  EV_HIST.push({d:d2,s:evOk,n:n,lvl:lv[0]});
+  EV_HIST=EV_HIST.slice(-10);
+  try{ window.localStorage.setItem("yavas-eval", JSON.stringify(EV_HIST)); }catch(e){}
+  evHisto();
+  el("ev-prog").textContent=n+" / "+n;
+}
+function evHisto(){
+  var h=el("ev-histo"); if(!h) return;
+  if(!EV_HIST.length){ h.hidden=true; return; }
+  h.hidden=false;
+  var out='<h3>Les tests pr\u00e9c\u00e9dents</h3>';
+  EV_HIST.slice().reverse().forEach(function(r){
+    out+='<div class="ev-hist-line"><span>'+r.d+'</span><span><b>'+r.s+' / '+r.n+'</b> \u00b7 '+r.lvl+'</span></div>';
+  });
+  h.innerHTML=out;
+}
+function evIntro(){
+  var card=el("ev-card"); if(!card) return;
+  card.innerHTML='<h3>Le test</h3>'+
+    '<p>Vingt questions, environ cinq minutes, toutes les familles d\u2019exercices m\u00e9lang\u00e9es. R\u00e9ponds sans aide \u2014 c\u2019est une photo, pas un contr\u00f4le.</p>'+
+    '<p style="margin-top:14px"><button class="ghost" style="border-color:var(--ink);color:var(--ink)" id="ev-start">Commencer le test \u2192</button></p>';
+  el("ev-start").onclick=evStart;
+  evHisto();
+}
+evIntro();
 
 /* ---------- 11. le mode IA (connecté) ---------- */
 var AI_SYS="Tu es Ayşe, une amie turque chaleureuse et patiente. Tu aides une débutante (niveau A1) à pratiquer le turc. Réponds TOUJOURS ainsi : une ou deux phrases très simples en turc (présent, vocabulaire du quotidien), puis la traduction française entre parenthèses. Termine par une petite question simple en turc pour relancer. Si elle fait une erreur, redonne la forme correcte avec bienveillance. Si elle écrit en français, réponds quand même en turc simple avec la traduction. Reste courte : 3 lignes maximum.";
